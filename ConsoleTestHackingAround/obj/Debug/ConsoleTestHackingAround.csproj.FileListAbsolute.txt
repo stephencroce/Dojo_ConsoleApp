@@ -1,0 +1,22 @@
+C:\CEI\TFS\Safety\Dev\Legacy\DriverServicesNet_2013\DriverServicesNet_Web\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\ConsoleTestHackingAround.exe.config
+C:\CEI\TFS\Safety\Dev\Legacy\DriverServicesNet_2013\DriverServicesNet_Web\ConsoleTestHackingAround\ConsoleTestHackingAround\obj\Debug\ConsoleTestHackingAround.csprojResolveAssemblyReference.cache
+C:\CEI\TFS\Safety\Dev\Legacy\DriverServicesNet_2013\DriverServicesNet_Web\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\ConsoleTestHackingAround.exe
+C:\CEI\TFS\Safety\Dev\Legacy\DriverServicesNet_2013\DriverServicesNet_Web\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\ConsoleTestHackingAround.pdb
+C:\CEI\TFS\Safety\Dev\Legacy\DriverServicesNet_2013\DriverServicesNet_Web\ConsoleTestHackingAround\ConsoleTestHackingAround\obj\Debug\ConsoleTestHackingAround.exe
+C:\CEI\TFS\Safety\Dev\Legacy\DriverServicesNet_2013\DriverServicesNet_Web\ConsoleTestHackingAround\ConsoleTestHackingAround\obj\Debug\ConsoleTestHackingAround.pdb
+C:\Users\Steve\Documents\Visual Studio 2013\Projects\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\ConsoleTestHackingAround.exe.config
+C:\Users\Steve\Documents\Visual Studio 2013\Projects\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\ConsoleTestHackingAround.exe
+C:\Users\Steve\Documents\Visual Studio 2013\Projects\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\ConsoleTestHackingAround.pdb
+C:\Users\Steve\Documents\Visual Studio 2013\Projects\ConsoleTestHackingAround\ConsoleTestHackingAround\obj\Debug\ConsoleTestHackingAround.exe
+C:\Users\Steve\Documents\Visual Studio 2013\Projects\ConsoleTestHackingAround\ConsoleTestHackingAround\obj\Debug\ConsoleTestHackingAround.pdb
+C:\Users\Steve\Documents\Visual Studio 2013\Projects\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\ClassLibraryHack.dll
+C:\Users\Steve\Documents\Visual Studio 2013\Projects\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\ClassLibraryHack.pdb
+C:\Users\Steve\Documents\Visual Studio 2013\Projects\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\Microsoft.Practices.Unity.Configuration.dll
+C:\Users\Steve\Documents\Visual Studio 2013\Projects\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\Microsoft.Practices.Unity.dll
+C:\Users\Steve\Documents\Visual Studio 2013\Projects\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\Microsoft.Practices.Unity.RegistrationByConvention.dll
+C:\Users\Steve\Documents\Visual Studio 2013\Projects\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\Microsoft.Practices.Unity.xml
+C:\Users\Steve\Documents\Visual Studio 2013\Projects\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\Microsoft.Practices.Unity.Configuration.xml
+C:\Users\Steve\Documents\Visual Studio 2013\Projects\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\Microsoft.Practices.Unity.RegistrationByConvention.xml
+C:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\ConsoleTestHackingAround.exe.config
+C:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\obj\Debug\ConsoleTestHackingAround.exe
+C:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\obj\Debug\ConsoleTestHackingAround.pdb

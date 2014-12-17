@@ -1,0 +1,13 @@
+﻿Installing assembly 'c:\Users\Steve\Documents\Visual Studio 2013\Projects\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\consoletesthackingaround.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = c:\Users\Steve\Documents\Visual Studio 2013\Projects\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\consoletesthackingaround.InstallLog
+   assemblypath = c:\Users\Steve\Documents\Visual Studio 2013\Projects\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\consoletesthackingaround.exe
+Installing service ConsoleTestHackingAroundService...
+Service ConsoleTestHackingAroundService has been successfully installed.
+Creating EventLog source ConsoleTestHackingAroundService in log Application...
+Committing assembly 'c:\Users\Steve\Documents\Visual Studio 2013\Projects\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\consoletesthackingaround.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = c:\Users\Steve\Documents\Visual Studio 2013\Projects\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\consoletesthackingaround.InstallLog
+   assemblypath = c:\Users\Steve\Documents\Visual Studio 2013\Projects\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\consoletesthackingaround.exe
