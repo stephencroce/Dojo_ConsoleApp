@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections; 
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,19 +15,31 @@ using ConsoleTestHackingAround.DependencyInjectionExample1;
 using ConsoleTestHackingAround.DependencyInjectionExample2;
 using ConsoleTestHackingAround;
 
-using Microsoft.Practices.Unity; 
+using Microsoft.Practices.Unity;
+
+
+
+using System.Configuration;
+
+//using ConsoleTestHackingAround.CustomConfigSections;
+
+using ConsoleTestHackingAround.CustomConfigSections;
+
+
+
+
 
 namespace ConsoleTestHackingAround.StupidAss
 {
     //http://tech.pro/tutorial/895/creating-a-simple-windows-service-in-csharp
-    class Program : ServiceBase 
+    class Program : ServiceBase
     {
 
         //explicit constructor required for Windows Services
         public Program()
         {
             this.ServiceName = "ConsoleTestHackingAroundService";
-            
+
         }
         static void Method(out int i, out string s1, out string s2)
         {
@@ -43,7 +55,7 @@ namespace ConsoleTestHackingAround.StupidAss
         }
         static void Method3(int i, string s1, string s2)
         {
-           // i = 44;
+            // i = 44;
             //s1 = "I've been returned";
             //s2 = null;
             Console.Write("nothing happened");
@@ -51,7 +63,7 @@ namespace ConsoleTestHackingAround.StupidAss
 
         //IComparable shit - turns out that the big benefit of implementing this C# interface is that it allows things to be sortable.  This doesn't work here
         //because I think the implementation is screweed up, but see http://msdn.microsoft.com/en-us/library/system.icomparable%28v=vs.110%29.aspx
-        public class Temperature : IComparable 
+        public class Temperature : IComparable
         {
             public int Fahrenheit { get; set; }
 
@@ -71,19 +83,36 @@ namespace ConsoleTestHackingAround.StupidAss
         }
         static void Main(string[] args)
         {
-            
-         
+
+
 
 
             //This is where we'll create an instance of our service and tell it to run.
             ServiceBase.Run(new Program());
 
+            Console.WriteLine("Ready??");
+            Console.ReadKey();
 
 
+            //Hey, here's an example of how to use custom configuration elements in a console application.  Isn't that fucking great?
+            //See http://stackoverflow.com/questions/19095215/configurationmanager-getsection-gives-error-could-not-load-type-from-assembl
+            //See http://msdn.microsoft.com/en-us/library/2tw134k3%28v=vs.140%29.aspx
+            // Samples.AspNet.PageAppearanceSection config = (Samples.AspNet.PageAppearanceSection)System.Configuration.ConfigurationManager.GetSection("pageAppearanceGroup/pageAppearance");
+            MyCustomConfigHandler config = (ConsoleTestHackingAround.CustomConfigSections.MyCustomConfigHandler)System.Configuration.ConfigurationManager.GetSection("pageAppearanceGroup/pageAppearance");
+
+            Console.WriteLine("Settings in the PageAppears Section are as follows:");
+            Console.WriteLine(string.Format("RemoteOnly:  {0}", config.RemoteOnly));
+            Console.WriteLine(string.Format("Font name & size ::  name-{0}   size-{1}", config.Font.Name, config.Font.Size));
+            Console.WriteLine(string.Format("Background and foreground color ::  bacground-{0}    foregrouund-{1}", config.Color.Background, config.Color.Foreground));
+            Console.WriteLine(string.Format("Mama always said stupid is as stupid does, {0}", config.Stupid.idiot));
+
+
+            Console.WriteLine("OK that part is done...now please hold it a sec for the next example to run...");
+            Console.ReadKey();
 
             //IComparable shit - turns out that the big benefit of implementing this C# interface is that it allows things to be sortable.  This doesn't work here
             //because I think the implementation is screweed up, but see http://msdn.microsoft.com/en-us/library/system.icomparable%28v=vs.110%29.aspx
-             ArrayList temperatures = new ArrayList();
+            ArrayList temperatures = new ArrayList();
             //Initialize random number generator.
             Random rnd = new Random();
 
@@ -93,20 +122,16 @@ namespace ConsoleTestHackingAround.StupidAss
                 int degrees = rnd.Next(0, 100);
                 Temperature temp = new Temperature();
                 temp.Fahrenheit = degrees;
-                temperatures.Add(temp);   
+                temperatures.Add(temp);
             }
-      // Sort ArrayList.
-      temperatures.Sort();
+            // Sort ArrayList.
+            temperatures.Sort();
+            
+            foreach (Temperature temp in temperatures)
+                Console.WriteLine(temp.Fahrenheit);
 
-
-
-      foreach (Temperature temp in temperatures)
-         Console.WriteLine(temp.Fahrenheit);
-
-      
-            Console.ReadKey(); 
-
-
+            Console.ReadKey();
+            
             //Dependecy Injection bullshit:
             //http://www.c-sharpcorner.com/UploadFile/dacca2/inversion-of-control-using-unity/
             ////ConsoleTestHackingAround.DependencyInjectionExample1.Client myClient = new DependencyInjectionExample1.Client();
@@ -130,14 +155,13 @@ namespace ConsoleTestHackingAround.StupidAss
             unitycontainer.RegisterType<DependencyInjectionExample3.Company>();
 
             DependencyInjectionExample3.Employee emp3 = unitycontainer.Resolve<DependencyInjectionExample3.Employee>();
-            emp3.DisplaySalary();          
-
+            emp3.DisplaySalary();
 
 
 
             //************************************************************************************************************************
 
-            Console.ReadKey(); 
+            Console.ReadKey();
 
 
             //----------------------------------------------------------------------------------------
@@ -175,8 +199,8 @@ namespace ConsoleTestHackingAround.StupidAss
             //Other crap:
             //http://stackoverflow.com/questions/952503/c-sharp-variable-initialization-question
             //int
-            int i=0;
-            Console.WriteLine("{0}",i);
+            int i = 0;
+            Console.WriteLine("{0}", i);
             //----------------------------------------------------------------------------------------
 
 
@@ -198,7 +222,7 @@ namespace ConsoleTestHackingAround.StupidAss
             //   The term “subsystem” is used here deliberately; we are talking at a higher level than classes
             //   **Subsystem: A class offering detailed operations  - Façade: A class offering a few high-level operations as selections from the subsystems **
 
-                       
+
             //Facade facade = new Facade();
 
             //facade.MethodA();
@@ -220,15 +244,15 @@ namespace ConsoleTestHackingAround.StupidAss
 
             if (args[0] == "steve")
             {
-            // Create a timer with a ten second interval. 
-            var aTimer = new System.Timers.Timer(2000);
+                // Create a timer with a ten second interval. 
+                var aTimer = new System.Timers.Timer(2000);
 
-            // Hook up the Elapsed event for the timer. 
-            aTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
-            aTimer.Enabled = true;
+                // Hook up the Elapsed event for the timer. 
+                aTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
+                aTimer.Enabled = true;
 
             }
-            else 
+            else
             {
                 FileSystemWriter.WriteSomething(string.Format("\n this will print one time and then not any more, and myArgs was {0}", args[0]));
             }
@@ -256,7 +280,7 @@ namespace ConsoleTestHackingAround.StupidAss
             base.OnStop();
 
             //TODO: clean up any variables and stop any threads
-            FileSystemWriter.WriteSomething("stopped"); 
+            FileSystemWriter.WriteSomething("stopped");
         }
 
 
