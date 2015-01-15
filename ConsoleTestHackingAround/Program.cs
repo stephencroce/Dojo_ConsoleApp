@@ -107,6 +107,52 @@ namespace ConsoleTestHackingAround.StupidAss
             Console.WriteLine(string.Format("Mama always said stupid is as stupid does, {0}", config.Stupid.idiot));
 
 
+            //..and here's another example:  http://manyrootsofallevilrants.blogspot.com/2011/07/nested-custom-configuration-collections.html
+            SSHTunnelWF.TunnelSection tunnels = ConfigurationManager.GetSection("TunnelSection") as SSHTunnelWF.TunnelSection;
+
+            //nope:
+            //foreach (var tunnel in tunnels)
+            //{ }
+
+            //MonkeyAroundNamespace.MongoDatastoresSection mongos = ConfigurationManager.GetSection("MongoDataStores") as MonkeyAroundNamespace.MongoDatastoresSection;
+            //var test = mongos.ElementInformation.Properties.Keys.;
+
+            //nope:
+            //foreach (var mongo in mongos) 
+            //{        
+            //}
+
+            //http://stackoverflow.com/questions/3935331/how-to-implement-a-configurationsection-with-a-configurationelementcollection
+            MonkeyAroundNamespace2.ServiceConfigurationSection serviceConfigSection = ConfigurationManager.GetSection("ServicesSection") as MonkeyAroundNamespace2.ServiceConfigurationSection;
+            MonkeyAroundNamespace2.ServiceConfig serviceConfig = serviceConfigSection.Services[0];
+
+            Console.WriteLine("here are the elements");
+            for (int w = 0; w < serviceConfigSection.Services.Count;w++)
+            {
+                Console.WriteLine("port:" + serviceConfigSection.Services[w].Port);
+                Console.WriteLine("report type:" + serviceConfigSection.Services[w].ReportType);
+            }
+
+
+            //http://stackoverflow.com/questions/3935331/how-to-implement-a-configurationsection-with-a-configurationelementcollection
+            MonkeyAroundNamespace3.MongoDatastoreConfigSection mongoDatastoreConfigSection = ConfigurationManager.GetSection("MongoDatastoreConfigSection") as MonkeyAroundNamespace3.MongoDatastoreConfigSection;
+           // MonkeyAroundNamespace3.MongoDatastoreCongfigSection mongoDatastoreConfigSection = ConfigurationManager.GetSection("MongoDatastoreConfigSection") as MonkeyAroundNamespace3.MongoDatastoreCongfigSection;
+            MonkeyAroundNamespace3.mongoDatastore mongoDataStore = mongoDatastoreConfigSection.MongoDatastores[0];
+
+
+            Console.WriteLine("...and here are more elements");
+            for (int y = 0; y < mongoDatastoreConfigSection.MongoDatastores.Count; y++)
+            {
+                //Console.WriteLine("port:" + mongoDatastoreConfigSection.MongoDatastores[y].Port);
+                //Console.WriteLine("report type:" + mongoDatastoreConfigSection.MongoDatastores[y].ReportType);
+                Console.WriteLine("AppSubsysId:" + mongoDatastoreConfigSection.MongoDatastores[y].AppSubsysId);
+                Console.WriteLine("CollectionName:" + mongoDatastoreConfigSection.MongoDatastores[y].CollectionName);
+                Console.WriteLine("DBLocation:" + mongoDatastoreConfigSection.MongoDatastores[y].DBLocation);
+                Console.WriteLine("DBName:" + mongoDatastoreConfigSection.MongoDatastores[y].DBName);
+            }
+
+            
+
             Console.WriteLine("OK that part is done...now please hold it a sec for the next example to run...");
             Console.ReadKey();
 

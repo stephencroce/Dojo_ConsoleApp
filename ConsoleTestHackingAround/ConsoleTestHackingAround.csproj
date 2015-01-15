@@ -58,7 +58,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BooleanFun.cs" />
+    <Compile Include="CustomConfigSections\MongoDatastoreConfigSection.cs" />
+    <Compile Include="CustomConfigSections\MongoDatastoresSection.cs" />
     <Compile Include="CustomConfigSections\MyCustomConfigHandler.cs" />
+    <Compile Include="CustomConfigSections\ServiceConfigurationSection.cs" />
+    <Compile Include="CustomConfigSections\TunnelSection.cs" />
     <Compile Include="DependencyInjectionExample1\Client.cs" />
     <Compile Include="DependencyInjectionExample1\IService.cs" />
     <Compile Include="DependencyInjectionExample1\Service.cs" />
