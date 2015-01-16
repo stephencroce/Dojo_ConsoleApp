@@ -17,16 +17,11 @@ using ConsoleTestHackingAround;
 
 using Microsoft.Practices.Unity;
 
-
-
 using System.Configuration;
 
 //using ConsoleTestHackingAround.CustomConfigSections;
 
 using ConsoleTestHackingAround.CustomConfigSections;
-
-
-
 
 
 namespace ConsoleTestHackingAround.StupidAss
@@ -84,14 +79,8 @@ namespace ConsoleTestHackingAround.StupidAss
         static void Main(string[] args)
         {
 
-
-
-
             //This is where we'll create an instance of our service and tell it to run.
             ServiceBase.Run(new Program());
-
-  
-
 
             if (args.Length != 0)
             {
@@ -121,14 +110,9 @@ namespace ConsoleTestHackingAround.StupidAss
             else
             {
                 //----------------------------------------------------------------------------------------
-       
-
-
-
                 Console.WriteLine("Ready??");
                 Console.WriteLine("Begin - Custom Configuration Sections Demo:");
                 Console.ReadKey();
-
 
                 //Hey, here's an example of how to use custom configuration elements in a console application.  Isn't that fucking great?
                 //See http://stackoverflow.com/questions/19095215/configurationmanager-getsection-gives-error-could-not-load-type-from-assembl
@@ -187,8 +171,6 @@ namespace ConsoleTestHackingAround.StupidAss
                     Console.WriteLine("DBName:" + mongoDatastoreConfigSection.MongoDatastores[y].DBName);
                 }
 
-
-
                 Console.WriteLine("END - Custom Configuration Sections Demo:");
                 Console.ReadKey();
 
@@ -241,8 +223,6 @@ namespace ConsoleTestHackingAround.StupidAss
 
                 DependencyInjectionExample3.Employee emp3 = unitycontainer.Resolve<DependencyInjectionExample3.Employee>();
                 emp3.DisplaySalary();
-
-
 
                 //************************************************************************************************************************
                 Console.WriteLine("END  - Dependency Injection with Unity Demo:");
@@ -355,7 +335,5 @@ namespace ConsoleTestHackingAround.StupidAss
             //TODO: clean up any variables and stop any threads
             FileSystemWriter.WriteSomething("stopped");
         }
-
-
     }
 }
