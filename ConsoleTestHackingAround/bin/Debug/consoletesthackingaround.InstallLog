@@ -11,3 +11,37 @@ Affected parameters are:
    logtoconsole = 
    logfile = c:\Users\Steve\Documents\Visual Studio 2013\Projects\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\consoletesthackingaround.InstallLog
    assemblypath = c:\Users\Steve\Documents\Visual Studio 2013\Projects\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\consoletesthackingaround.exe
+Installing assembly 'c:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\consoletesthackingaround.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = c:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\consoletesthackingaround.InstallLog
+   assemblypath = c:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\consoletesthackingaround.exe
+Installing service ConsoleTestHackingAroundService...
+Creating EventLog source ConsoleTestHackingAroundService in log Application...
+Rolling back assembly 'c:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\consoletesthackingaround.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = c:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\consoletesthackingaround.InstallLog
+   assemblypath = c:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\consoletesthackingaround.exe
+Restoring event log to previous state for source ConsoleTestHackingAroundService.
+Uninstalling assembly 'c:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\consoletesthackingaround.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = c:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\consoletesthackingaround.InstallLog
+   assemblypath = c:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\consoletesthackingaround.exe
+Removing EventLog source ConsoleTestHackingAroundService.
+Service ConsoleTestHackingAroundService is being removed from the system...
+Service ConsoleTestHackingAroundService was successfully removed from the system.
+Installing assembly 'c:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\consoletesthackingaround.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = c:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\consoletesthackingaround.InstallLog
+   assemblypath = c:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\consoletesthackingaround.exe
+Installing service ConsoleTestHackingAroundService...
+Service ConsoleTestHackingAroundService has been successfully installed.
+Creating EventLog source ConsoleTestHackingAroundService in log Application...
+Committing assembly 'c:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\consoletesthackingaround.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = c:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\consoletesthackingaround.InstallLog
+   assemblypath = c:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\consoletesthackingaround.exe
