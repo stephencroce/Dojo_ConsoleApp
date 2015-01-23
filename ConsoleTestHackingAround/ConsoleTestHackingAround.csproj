@@ -58,11 +58,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BooleanFun.cs" />
+    <Compile Include="CommandManager.cs" />
     <Compile Include="CustomConfigSections\MongoDatastoreConfigSection.cs" />
     <Compile Include="CustomConfigSections\MongoDatastoresSection.cs" />
     <Compile Include="CustomConfigSections\MyCustomConfigHandler.cs" />
     <Compile Include="CustomConfigSections\ServiceConfigurationSection.cs" />
     <Compile Include="CustomConfigSections\TunnelSection.cs" />
+    <Compile Include="DemoManager.cs" />
     <Compile Include="DependencyInjectionExample1\Client.cs" />
     <Compile Include="DependencyInjectionExample1\IService.cs" />
     <Compile Include="DependencyInjectionExample1\Service.cs" />
@@ -82,15 +84,18 @@
     <Compile Include="Factory\EmployeeClasses\programmer.cs" />
     <Compile Include="FileSystemWriter.cs" />
     <Compile Include="FunWithOut.cs" />
+    <Compile Include="IComparableDemo\Temperature.cs" />
     <Compile Include="MyWindowsServiceInstaller.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Process\ProcessDemo.cs" />
     <Compile Include="Program.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Facade\SubSystems\SubSystemOne.cs" />
     <Compile Include="Facade\SubSystems\SubSystemTwo.cs" />
+    <Compile Include="ScreenHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -104,6 +109,7 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

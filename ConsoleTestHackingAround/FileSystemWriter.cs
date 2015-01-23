@@ -48,7 +48,7 @@ namespace ConsoleTestHackingAround
                 // Display decoded messages.    
                 Console.Write("\nDecoded Message: ");
                 Console.WriteLine(Encoding.Default.GetString(bytesFromFile));
-                Console.ReadLine();
+             
                 
             }
 

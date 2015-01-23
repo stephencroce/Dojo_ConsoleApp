@@ -1,0 +1,69 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleTestHackingAround
+{
+    class CommandManager
+    {
+        public static void ParseCommand(string response)
+        {
+
+            switch (response.ToUpper())
+            {
+                case "CLS":
+                    Console.Clear();
+                    break;
+                case "1":
+                    DemoManager.RunCustomConfigSectionsDemo();                    
+                    break;
+                case "2":
+                    DemoManager.RunIComparableDemo();
+                    break;
+                case "3":
+                    DemoManager.RunDependencyInjectionWithUnityDemo(); 
+                    break;
+                case "4":
+                    DemoManager.RunFactoryPatternDemo(); 
+                    break;
+                case "5":
+                    DemoManager.RunFileStreamDemo(); 
+                    break;
+                case "6":
+                    DemoManager.RunOUTDemo(); 
+                    break;
+                case "7":
+                    DemoManager.RunBooleanDemo(); 
+                    break;
+                case "8":
+                    DemoManager.RunFacadePatternDemo(); 
+                    break;
+                case "9":
+                    DemoManager.RunProcessAndThreadingDemo(); 
+                    break;
+                case "10":
+                    
+                    break;
+                case "HELP":
+                case "?":
+                    ScreenHelper.Welcome();
+                    ScreenHelper.ListOptions();
+                    break;
+                case "EXIT":
+                case "X":
+                case "Q":
+                case "QUIT":
+                    ScreenHelper.SignOff();
+                    break;
+                default:
+                    //TestHelper.RunTest(); 
+                    Console.WriteLine("Unknown command.");
+                    break;
+            }
+            if (Environment.UserInteractive)
+                ScreenHelper.ShowContinuePrompt();
+        }
+    }
+}
