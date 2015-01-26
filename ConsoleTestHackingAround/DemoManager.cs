@@ -225,11 +225,37 @@ namespace ConsoleTestHackingAround
             //----------------------------------------------------------------------------------------
             Console.WriteLine("BEGIN  - Process and Threading Demo:");
             ConsoleTestHackingAround.Process.ProcessDemo.ListAllRunningProcesses();
+            Console.WriteLine("What number process do you want to see threads for?");
+            int crap = int.Parse(Console.ReadLine()); 
+            ConsoleTestHackingAround.Process.ProcessDemo.EnumThreadsForPid(crap);  //the monogomergepurge app, which has two threads.
+
+            //<<<<<<  SIMPLE MULTITHREAD EXAMPLE   >>>>>
+            //See also p714 of Pro C# 5.0 and the .NET 4.5 Framework, 6th Edition
+
+            ////Run it in the same thread, you'll see that ProcessDemo.GetCurrentThread() has to wait untill VerySlowOperation is done.  But not if you do multithreading!!!!!!!
+            //Process.ProcessDemo.VerySlowOperation();
+
+            //run async - ie. spawn a new thread to hopefully improve perfromance?
+            System.Threading.Thread newThreadSpawn = new System.Threading.Thread(Process.ProcessDemo.VerySlowOperation);
+            newThreadSpawn.Start();       
+
+            Process.ProcessDemo.GetCurrentThread();
+
+
             Console.WriteLine("END    - Process and Threading Demo:");
-            
+
+        }
+        public static void RunCarDemo()
+        {
+            //Vehicle myVehicle = new Vehicle(); //Error Cannot create an instance of the abstract class or interface 
+            Car myCar = new Car();
+            myCar.NumOfPassengers = 2;
+            Console.WriteLine("My car goes {0} and carries {1} passengers.",myCar.startEngine(), myCar.NumOfPassengers);
+
+            Dragster myDragster = new Dragster();
+            Console.WriteLine("My dragster goes {0}", myDragster.startEngine());
 
 
         }
-
     }
 }

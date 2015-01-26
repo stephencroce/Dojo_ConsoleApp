@@ -44,7 +44,7 @@ namespace ConsoleTestHackingAround
                     DemoManager.RunProcessAndThreadingDemo(); 
                     break;
                 case "10":
-                    
+                    DemoManager.RunCarDemo(); 
                     break;
                 case "HELP":
                 case "?":

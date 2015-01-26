@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BooleanFun.cs" />
+    <Compile Include="Car.cs" />
     <Compile Include="CommandManager.cs" />
     <Compile Include="CustomConfigSections\MongoDatastoreConfigSection.cs" />
     <Compile Include="CustomConfigSections\MongoDatastoresSection.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="DependencyInjectionExample2\IEmployee.cs" />
     <Compile Include="DependencyInjectionExample3\Company.cs" />
     <Compile Include="DependencyInjectionExample3\Employee.cs" />
+    <Compile Include="Dragster.cs" />
     <Compile Include="Facade\Facade.cs" />
     <Compile Include="Facade\SubSystems\SubSystemFour.cs" />
     <Compile Include="Facade\SubSystems\SubSystemThree.cs" />
@@ -96,6 +98,7 @@
     <Compile Include="Facade\SubSystems\SubSystemOne.cs" />
     <Compile Include="Facade\SubSystems\SubSystemTwo.cs" />
     <Compile Include="ScreenHelper.cs" />
+    <Compile Include="Vehicle.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

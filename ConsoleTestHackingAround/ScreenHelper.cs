@@ -27,7 +27,8 @@ namespace ConsoleTestHackingAround
             Console.WriteLine("6     : OUT Shit:");
             Console.WriteLine("7     : Boolean Shit");
             Console.WriteLine("8     : Facade Pattern Demo");
-            Console.WriteLine("9     : Process and Threading Demo");            
+            Console.WriteLine("9     : Process and Threading Demo");
+            Console.WriteLine("10    : Car Demo");     
             Console.WriteLine("EXIT  : Exit Application");
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("");
