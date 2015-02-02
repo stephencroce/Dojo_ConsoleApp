@@ -28,3 +28,4 @@ C:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\Microsoft.Pra
 C:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\Microsoft.Practices.Unity.xml
 C:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\Microsoft.Practices.Unity.Configuration.xml
 C:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\Microsoft.Practices.Unity.RegistrationByConvention.xml
+C:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\obj\Debug\ConsoleTestHackingAround.csprojResolveAssemblyReference.cache

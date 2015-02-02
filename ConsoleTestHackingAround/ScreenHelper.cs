@@ -28,7 +28,9 @@ namespace ConsoleTestHackingAround
             Console.WriteLine("7     : Boolean Shit");
             Console.WriteLine("8     : Facade Pattern Demo");
             Console.WriteLine("9     : Process and Threading Demo");
-            Console.WriteLine("10    : Car Demo");     
+            Console.WriteLine("10    : Car Demo");
+            Console.WriteLine("11    : Euclid's Algorithm");
+            Console.WriteLine("12    : Try a Binary Search Algorithm");     
             Console.WriteLine("EXIT  : Exit Application");
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("");
@@ -36,7 +38,7 @@ namespace ConsoleTestHackingAround
         }
         public static void SignOff()
         {
-            Console.WriteLine(String.Format("{0}Program ending.  Thank you for using mongoMPU.", Environment.NewLine));
+            Console.WriteLine(String.Format("{0}Program ending.  Thank you for using CHEETAH.", Environment.NewLine));
             Environment.Exit(0);
         }
         public static void WritePrompt()

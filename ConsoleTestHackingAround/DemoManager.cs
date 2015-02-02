@@ -96,7 +96,10 @@ namespace ConsoleTestHackingAround
             temperatures.Sort();
 
             foreach (ConsoleTestHackingAround.IComparableDemo.Temperature temp in temperatures)
+            {
                 Console.WriteLine(temp.Fahrenheit);
+                //Console.WriteLine(temp.CompareTo(100);
+            }
 
             Console.WriteLine("END  - IComparable implementation Demo - allowing things to be sortable:");
         }
@@ -254,8 +257,43 @@ namespace ConsoleTestHackingAround
 
             Dragster myDragster = new Dragster();
             Console.WriteLine("My dragster goes {0}", myDragster.startEngine());
-
-
+        }
+        public static void RunEuclidDemo()
+        {
+            Console.WriteLine("It's useful to set a breakpoint and step thru this algorithm to think about whats going on here....ok?");
+            Console.ReadLine(); 
+            Console.WriteLine("I'm going to tell you the Greatest Common Divisor of two integers.  Enter the first integer:");
+            int i = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter the second integer:");
+            int j = int.Parse(Console.ReadLine());
+            int k = AlgorithmCrap.AlgorithmCrap.GreatestCommonDivisor(i, j);
+            Console.WriteLine("The greatest common divisor of {0} and {1} is {2}", i, j, k);
+        }
+        public static void RunBinarySearchDemo()
+        {
+           
+            int[] myArrayOfStupidAssIntegers = { 6, 5, 1425, 1, 10000, 22, 66, 13, 986, 88, 805, 46};
+            Array.Sort(myArrayOfStupidAssIntegers);
+            Console.WriteLine("OK, here is your list of integers, hard coded in a variable that is stored in memory:");
+            foreach (int crap in myArrayOfStupidAssIntegers)
+            {
+                Console.WriteLine(crap);
+            }
+            Console.WriteLine("Now, enter is some integer, and I'll tell you if it's in that array....");
+            int key = int.Parse(Console.ReadLine());
+            if (AlgorithmCrap.AlgorithmCrap.Rank(key, myArrayOfStupidAssIntegers) == -1) 
+            {
+                Console.WriteLine("No, Sorry - It ain't in there.");
+            }
+            else
+            {
+                Console.WriteLine("You entered: " + key + ". and VIOLA, it's in there!");
+            }
+            Console.WriteLine("Play again??  (Y/N)");
+            if (Console.ReadLine().ToUpper() == "Y")
+            {
+                RunBinarySearchDemo();
+            }
         }
     }
 }

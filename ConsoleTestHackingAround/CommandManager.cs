@@ -44,7 +44,13 @@ namespace ConsoleTestHackingAround
                     DemoManager.RunProcessAndThreadingDemo(); 
                     break;
                 case "10":
-                    DemoManager.RunCarDemo(); 
+                    DemoManager.RunCarDemo();
+                    break;
+                case "11":
+                    DemoManager.RunEuclidDemo();              
+                    break;
+                case "12":
+                    DemoManager.RunBinarySearchDemo();
                     break;
                 case "HELP":
                 case "?":
