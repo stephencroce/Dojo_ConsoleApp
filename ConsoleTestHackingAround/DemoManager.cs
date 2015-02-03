@@ -78,8 +78,7 @@ namespace ConsoleTestHackingAround
         public static void RunIComparableDemo()
         {
             Console.WriteLine("BEGIN  - IComparable implementation Demo - allowing things to be sortable:");
-            //IComparable shit - turns out that the big benefit of implementing this C# interface is that it allows things to be sortable.  This doesn't work here
-            //because I think the implementation is screweed up, but see http://msdn.microsoft.com/en-us/library/system.icomparable%28v=vs.110%29.aspx
+      
             ArrayList temperatures = new ArrayList();
             //Initialize random number generator.
             Random rnd = new Random();
@@ -92,8 +91,8 @@ namespace ConsoleTestHackingAround
                 temp.Fahrenheit = degrees;
                 temperatures.Add(temp);
             }
-            // Sort ArrayList.
-            temperatures.Sort();
+            // Sort ArrayList - this is the whole point to IComparable.
+            temperatures.Sort();            
 
             foreach (ConsoleTestHackingAround.IComparableDemo.Temperature temp in temperatures)
             {
