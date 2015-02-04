@@ -294,5 +294,18 @@ namespace ConsoleTestHackingAround
                 RunBinarySearchDemo();
             }
         }
+        public static void RunDelegateDemo()
+        {
+            //Delegates: Delegates are the basic principle on which events are founded in .NET.  
+            //They’re used as a proxy that tells which method or methods to call when an event is “fired”.   
+            //In this regard, a delegate can be thought of as a “callback” or in other words, it is a method that can be explicitly defined which takes another method as an argument, 
+            //provided that the methods have the same signature. 
+
+            //In this example, when a person presses the doorbell button, a DoorBellRings event is raised.  
+            //The dog and the person are each subscribed to that event – that is they “listen” for the doorbell and respond in their respective fashions.
+            ConsoleTestHackingAround.Delegates.Doorbell doorbell = new ConsoleTestHackingAround.Delegates.Doorbell();
+            doorbell.PressRinger();
+
+        }
     }
 }

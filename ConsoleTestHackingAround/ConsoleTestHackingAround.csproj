@@ -66,6 +66,9 @@
     <Compile Include="CustomConfigSections\MyCustomConfigHandler.cs" />
     <Compile Include="CustomConfigSections\ServiceConfigurationSection.cs" />
     <Compile Include="CustomConfigSections\TunnelSection.cs" />
+    <Compile Include="Delegates\Dog.cs" />
+    <Compile Include="Delegates\Doorbell.cs" />
+    <Compile Include="Delegates\Person.cs" />
     <Compile Include="DemoManager.cs" />
     <Compile Include="DependencyInjectionExample1\Client.cs" />
     <Compile Include="DependencyInjectionExample1\IService.cs" />
@@ -99,6 +102,7 @@
     <Compile Include="Facade\SubSystems\SubSystemOne.cs" />
     <Compile Include="Facade\SubSystems\SubSystemTwo.cs" />
     <Compile Include="ScreenHelper.cs" />
+    <Compile Include="TitleCase.cs" />
     <Compile Include="Vehicle.cs" />
   </ItemGroup>
   <ItemGroup>

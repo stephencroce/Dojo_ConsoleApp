@@ -52,6 +52,9 @@ namespace ConsoleTestHackingAround
                 case "12":
                     DemoManager.RunBinarySearchDemo();
                     break;
+                case "13":
+                    DemoManager.RunDelegateDemo();
+                    break;
                 case "HELP":
                 case "?":
                     ScreenHelper.Welcome();
