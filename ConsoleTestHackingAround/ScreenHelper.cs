@@ -31,7 +31,8 @@ namespace ConsoleTestHackingAround
             Console.WriteLine("10    : Car Demo");
             Console.WriteLine("11    : Euclid's Algorithm");
             Console.WriteLine("12    : Try a Binary Search Algorithm");
-            Console.WriteLine("13    : Delegates");    
+            Console.WriteLine("13    : Delegates");
+            Console.WriteLine("14    : tItLe CAsE dEmO"); 
             Console.WriteLine("EXIT  : Exit Application");
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("");

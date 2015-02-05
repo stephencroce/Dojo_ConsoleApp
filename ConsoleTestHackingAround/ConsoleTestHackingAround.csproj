@@ -66,9 +66,10 @@
     <Compile Include="CustomConfigSections\MyCustomConfigHandler.cs" />
     <Compile Include="CustomConfigSections\ServiceConfigurationSection.cs" />
     <Compile Include="CustomConfigSections\TunnelSection.cs" />
-    <Compile Include="Delegates\Dog.cs" />
-    <Compile Include="Delegates\Doorbell.cs" />
-    <Compile Include="Delegates\Person.cs" />
+    <Compile Include="Delegates\Demo1\Dog.cs" />
+    <Compile Include="Delegates\Demo1\Doorbell.cs" />
+    <Compile Include="Delegates\Demo1\Person.cs" />
+    <Compile Include="Delegates\Demo2\CaseManager.cs" />
     <Compile Include="DemoManager.cs" />
     <Compile Include="DependencyInjectionExample1\Client.cs" />
     <Compile Include="DependencyInjectionExample1\IService.cs" />

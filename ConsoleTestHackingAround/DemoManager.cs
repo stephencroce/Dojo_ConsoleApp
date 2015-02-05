@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 using System.Configuration;
 using Microsoft.Practices.Unity;
 
+using ConsoleTestHackingAround.Demo1.Delegates;
+using ConsoleTestHackingAround.Delegates.Demo2;
+
 namespace ConsoleTestHackingAround
 {
     public static class DemoManager
@@ -298,14 +301,52 @@ namespace ConsoleTestHackingAround
         {
             //Delegates: Delegates are the basic principle on which events are founded in .NET.  
             //They’re used as a proxy that tells which method or methods to call when an event is “fired”.   
-            //In this regard, a delegate can be thought of as a “callback” or in other words, it is a method that can be explicitly defined which takes another method as an argument, 
-            //provided that the methods have the same signature. 
+            //In this regard, a delegate can be thought of as a “callback” or in other words, it is a method that can be explicitly defined 
+            //which takes another method as an argument, provided that the methods have the same signature. 
 
             //In this example, when a person presses the doorbell button, a DoorBellRings event is raised.  
             //The dog and the person are each subscribed to that event – that is they “listen” for the doorbell and respond in their respective fashions.
-            ConsoleTestHackingAround.Delegates.Doorbell doorbell = new ConsoleTestHackingAround.Delegates.Doorbell();
+            
+            Doorbell doorbell = new Doorbell();
             doorbell.PressRinger();
 
+            Console.WriteLine("Would you like to see another Delegate example? (y/n)");
+            string answer = Console.ReadLine(); 
+            if(answer.ToLower()=="y")
+            {
+                Console.WriteLine("enTeR iN sOme texT, any text, lIke a BOOK or SONG TITLE or some CrAp like that, and try to MEss uP tHe cAse:");
+                string text = Console.ReadLine();
+                Console.WriteLine("(1) for Lower, (2) for Upper, (3) for Title....");
+                int choice = int.Parse(Console.ReadLine());
+                switch(choice)
+                {
+                    case 1:
+                        Console.WriteLine(CaseManager.ManageTheCase(text, CaseManager.MakeLowercase) + " VIOLA");
+                        break;
+                    case 2:
+                        Console.WriteLine(CaseManager.ManageTheCase(text, CaseManager.MakeUppercase) +  " VIOLA");
+                        break;
+                    case 3:
+                        Console.WriteLine(CaseManager.ManageTheCase(text, CaseManager.MakeTitlecase) + " VIOLA");
+                        break;
+                    default:
+                        Console.WriteLine("That wasn't one of the expected numbers.....jackass....");
+                        break;
+                }
+            }
+            else
+            {
+                Console.WriteLine("OK.....jackass....");
+            }
+
+     
+
+        }
+        public static void rUntITleCaseDEMO()
+        {
+            Console.WriteLine("enTeR iN sOme texT, any text, lIke a BOOK or SONG TITLE or some CrAp like that, and try to MEss uP tHe cAse, And WATCH what hAPpeNS....");
+            string entry = Console.ReadLine();
+            ConsoleTestHack.TitleCase.FormatAndWrite(entry);
         }
     }
 }

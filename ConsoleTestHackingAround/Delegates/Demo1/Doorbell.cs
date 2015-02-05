@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleTestHackingAround.Delegates
+namespace ConsoleTestHackingAround.Demo1.Delegates
 {
     public class Doorbell
     {
@@ -15,11 +15,20 @@ namespace ConsoleTestHackingAround.Delegates
 
         public void PressRinger()
         {
-            Console.WriteLine("ding dong"); 
-            Dog dog = new Dog(); 
+            Dog dog = new Dog();
             Person person = new Person();
+
+            Console.WriteLine("ding dong"); 
+            
             //here is another telltale code pattern of delegation:
-            DoorBellRings += dog.bark; DoorBellRings += person.respond; DoorBellRings();
+            //Subscribe or “Point“ the methods to the delegate so that they “listen for” its         invokatio
+            DoorBellRings += dog.bark; 
+            DoorBellRings += person.respondToDoorBell; 
+
+            //not sure about the semantics of this - I think maybe it means "FIRE THE EVENT"???
+            DoorBellRings();
+
+            
         } 
     }
 }

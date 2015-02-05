@@ -5,14 +5,17 @@ using System.Globalization;
 
 namespace ConsoleTestHack
 {
-    class TitleCase
+    public static class TitleCase
     {
+        //private static string _unformattedTitle;
         //public static void Main()
-        public TitleCase()
+        public static void FormatAndWrite(string unformattedTitle)
         {
+           
 
             // Defines the string with mixed casing.
-            string myString = "wAr aNd pEaCe";
+            //string myString = "wAr aNd pEaCe";
+            string myString = unformattedTitle;
 
             // Creates a TextInfo based on the "en-US" culture.
             TextInfo myTI = new CultureInfo("en-US", false).TextInfo;

@@ -29,7 +29,7 @@ namespace ConsoleTestHackingAround.StupidAss
     //http://tech.pro/tutorial/895/creating-a-simple-windows-service-in-csharp
     class Program : ServiceBase
     {
-
+        
         //explicit constructor required for Windows Services
         public Program()
         {
@@ -89,6 +89,7 @@ namespace ConsoleTestHackingAround.StupidAss
             else
             {
                 //----------------------------------------------------------------------------------------
+                
                 ScreenHelper.Welcome();
                 ScreenHelper.ListOptions();
 

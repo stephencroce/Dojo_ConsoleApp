@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleTestHackingAround.Delegates
+namespace ConsoleTestHackingAround.Demo1.Delegates
 {
-    class Person
+    class Dog
     {
-        public void respond() { Console.WriteLine("who is it??"); }
+        public void bark() { Console.WriteLine("woof woof"); } 
     }
 }
