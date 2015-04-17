@@ -57,9 +57,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account_Savings.cs" />
     <Compile Include="AlgorithmCrap\AlgorithmCrap.cs" />
+    <Compile Include="AlgorithmCrap\Fibonacci.cs" />
     <Compile Include="BooleanFun.cs" />
     <Compile Include="Car.cs" />
+    <Compile Include="Account_Checking.cs" />
     <Compile Include="CommandManager.cs" />
     <Compile Include="CustomConfigSections\MongoDatastoreConfigSection.cs" />
     <Compile Include="CustomConfigSections\MongoDatastoresSection.cs" />
@@ -92,6 +95,7 @@
     <Compile Include="FileSystemWriter.cs" />
     <Compile Include="FunWithOut.cs" />
     <Compile Include="IComparableDemo\Temperature.cs" />
+    <Compile Include="Interfaces\IAccount.cs" />
     <Compile Include="MyWindowsServiceInstaller.cs">
       <SubType>Component</SubType>
     </Compile>

@@ -58,6 +58,12 @@ namespace ConsoleTestHackingAround
                 case "14":
                     DemoManager.rUntITleCaseDEMO();
                     break;
+                case "15":
+                    DemoManager.RunFibonacciDemo();
+                    break;
+                case "16":
+                    DemoManager.RunInterfaceDemo();
+                    break;
                 case "HELP":
                 case "?":
                     ScreenHelper.Welcome();

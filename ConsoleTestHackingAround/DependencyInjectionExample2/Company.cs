@@ -12,6 +12,5 @@ namespace ConsoleTestHackingAround.DependencyInjectionExample2
         {
             Console.WriteLine("your salary is 40k");
         }
-
     }
 }

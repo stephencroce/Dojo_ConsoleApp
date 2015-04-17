@@ -20,7 +20,7 @@ namespace ConsoleTestHackingAround.AlgorithmCrap
                 return GreatestCommonDivisor(q, remainder);
             }
         }
-        //This is a Binary Search algorithm, also known as the Divide and Conquer
+        //This is a Binary Search algorithm, also known as the Divide and Conquer -  this is a "famous, effective and widely used" algorithm, according to Sedgwick, Chap1, p46
             public static int Rank(int key, int[] array)
             {
                 int lo = 0;
@@ -44,6 +44,12 @@ namespace ConsoleTestHackingAround.AlgorithmCrap
                 }
                 return -1;
             }
-        //}        
+        public static int RaiseStackOverflowError(int someInt)
+        {
+           //If some int is 2147483648 or greater, then stack integer overflow gets raised.
+                return Math.Abs(-someInt);
+   
+        }      
+               
     }
 }

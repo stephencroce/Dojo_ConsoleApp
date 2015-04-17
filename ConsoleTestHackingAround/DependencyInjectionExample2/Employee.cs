@@ -10,7 +10,7 @@ namespace ConsoleTestHackingAround.DependencyInjectionExample2
 {
     public class Employee //: IEmployee
     {
-        private Company _Company;
+        //private Company _Company;
         //private ICompany _Company;
         //[Dependency]
         [Microsoft.Practices.Unity.Dependency] //this has got to be here for the unity property dependency injection to work.

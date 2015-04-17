@@ -81,7 +81,7 @@ namespace ConsoleTestHackingAround
         public static void RunIComparableDemo()
         {
             Console.WriteLine("BEGIN  - IComparable implementation Demo - allowing things to be sortable:");
-      
+
             ArrayList temperatures = new ArrayList();
             //Initialize random number generator.
             Random rnd = new Random();
@@ -95,7 +95,7 @@ namespace ConsoleTestHackingAround
                 temperatures.Add(temp);
             }
             // Sort ArrayList - this is the whole point to IComparable.
-            temperatures.Sort();            
+            temperatures.Sort();
 
             foreach (ConsoleTestHackingAround.IComparableDemo.Temperature temp in temperatures)
             {
@@ -107,7 +107,7 @@ namespace ConsoleTestHackingAround
         }
         public static void RunDependencyInjectionWithUnityDemo()
         {
-            
+
             Console.WriteLine("BEGIN  - Dependency Injection with Unity Demo:");
             //Dependecy Injection bullshit:
             //http://www.c-sharpcorner.com/UploadFile/dacca2/inversion-of-control-using-unity/
@@ -121,15 +121,19 @@ namespace ConsoleTestHackingAround
             //emp.DisplaySalary();
 
             //but this might:
+
             //Dependency injection by **Property injection**
             IUnityContainer unitycontainer = new UnityContainer();
-            //unitycontainer.RegisterType<Company,Company>();
+            
             unitycontainer.RegisterType<DependencyInjectionExample2.Company>();
+            unitycontainer.RegisterType<DependencyInjectionExample3.Company>();
+
 
             DependencyInjectionExample2.Employee emp2 = unitycontainer.Resolve<DependencyInjectionExample2.Employee>();
+            //var emp2 = new DependencyInjectionExample2.Employee();
             emp2.DisplaySalary();
 
-            unitycontainer.RegisterType<DependencyInjectionExample3.Company>();
+            
 
             DependencyInjectionExample3.Employee emp3 = unitycontainer.Resolve<DependencyInjectionExample3.Employee>();
             emp3.DisplaySalary();
@@ -150,8 +154,8 @@ namespace ConsoleTestHackingAround
             //Factory.EmployeeFactory factory = new Factory.EmployeeFactory();
             Factory.Position clerk = Factory.EmployeeFactory.Get(1);
             Console.WriteLine("you just newed up a " + clerk.Title + " using a factory pattern");
-            Console.WriteLine("END  - Factory Pattern Demo:");        
-        
+            Console.WriteLine("END  - Factory Pattern Demo:");
+
         }
         public static void RunFileStreamDemo()
         {
@@ -160,7 +164,7 @@ namespace ConsoleTestHackingAround
 
             //----------------------------------------------------------------------------------------
             //File stream shit:
-            FileSystemWriter.FunWithFileStreams(); 
+            FileSystemWriter.FunWithFileStreams();
             //----------------------------------------------------------------------------------------
             Console.WriteLine("END  - FileStream shit:");
         }
@@ -171,7 +175,7 @@ namespace ConsoleTestHackingAround
             ////Out shit:    
             FunWithOut.RunOUT();
             Console.WriteLine("END  - OUT shit:");
-     
+
             //----------------------------------------------------------------------------------------
         }
         public static void RunBooleanDemo()
@@ -222,7 +226,7 @@ namespace ConsoleTestHackingAround
             //subSystem2.MethodTwo(); 
 
             Console.WriteLine("END  - Facade Pattern Demo:");
-            
+
         }
         public static void RunProcessAndThreadingDemo()
         {
@@ -231,7 +235,7 @@ namespace ConsoleTestHackingAround
             Console.WriteLine("BEGIN  - Process and Threading Demo:");
             ConsoleTestHackingAround.Process.ProcessDemo.ListAllRunningProcesses();
             Console.WriteLine("What number process do you want to see threads for?");
-            int crap = int.Parse(Console.ReadLine()); 
+            int crap = int.Parse(Console.ReadLine());
             ConsoleTestHackingAround.Process.ProcessDemo.EnumThreadsForPid(crap);  //the monogomergepurge app, which has two threads.
 
             //<<<<<<  SIMPLE MULTITHREAD EXAMPLE   >>>>>
@@ -242,7 +246,7 @@ namespace ConsoleTestHackingAround
 
             //run async - ie. spawn a new thread to hopefully improve perfromance?
             System.Threading.Thread newThreadSpawn = new System.Threading.Thread(Process.ProcessDemo.VerySlowOperation);
-            newThreadSpawn.Start();       
+            newThreadSpawn.Start();
 
             Process.ProcessDemo.GetCurrentThread();
 
@@ -255,7 +259,7 @@ namespace ConsoleTestHackingAround
             //Vehicle myVehicle = new Vehicle(); //Error Cannot create an instance of the abstract class or interface 
             Car myCar = new Car();
             myCar.NumOfPassengers = 2;
-            Console.WriteLine("My car goes {0} and carries {1} passengers.",myCar.startEngine(), myCar.NumOfPassengers);
+            Console.WriteLine("My car goes {0} and carries {1} passengers.", myCar.startEngine(), myCar.NumOfPassengers);
 
             Dragster myDragster = new Dragster();
             Console.WriteLine("My dragster goes {0}", myDragster.startEngine());
@@ -263,7 +267,7 @@ namespace ConsoleTestHackingAround
         public static void RunEuclidDemo()
         {
             Console.WriteLine("It's useful to set a breakpoint and step thru this algorithm to think about whats going on here....ok?");
-            Console.ReadLine(); 
+            Console.ReadLine();
             Console.WriteLine("I'm going to tell you the Greatest Common Divisor of two integers.  Enter the first integer:");
             int i = int.Parse(Console.ReadLine());
             Console.WriteLine("Enter the second integer:");
@@ -273,8 +277,8 @@ namespace ConsoleTestHackingAround
         }
         public static void RunBinarySearchDemo()
         {
-           
-            int[] myArrayOfStupidAssIntegers = { 6, 5, 1425, 1, 10000, 22, 66, 13, 986, 88, 805, 46};
+
+            int[] myArrayOfStupidAssIntegers = { 6, 5, 1425, 1, 10000, 22, 66, 13, 986, 88, 805, 46 };
             Array.Sort(myArrayOfStupidAssIntegers);
             Console.WriteLine("OK, here is your list of integers, hard coded in a variable that is stored in memory:");
             foreach (int crap in myArrayOfStupidAssIntegers)
@@ -283,7 +287,7 @@ namespace ConsoleTestHackingAround
             }
             Console.WriteLine("Now, enter is some integer, and I'll tell you if it's in that array....");
             int key = int.Parse(Console.ReadLine());
-            if (AlgorithmCrap.AlgorithmCrap.Rank(key, myArrayOfStupidAssIntegers) == -1) 
+            if (AlgorithmCrap.AlgorithmCrap.Rank(key, myArrayOfStupidAssIntegers) == -1)
             {
                 Console.WriteLine("No, Sorry - It ain't in there.");
             }
@@ -296,6 +300,28 @@ namespace ConsoleTestHackingAround
             {
                 RunBinarySearchDemo();
             }
+            else
+            {
+                Console.WriteLine("To generate a stack overflow error, enter the value 2147483648 now:");
+                int someInt = int.Parse(Console.ReadLine());
+                try
+                {
+                    Console.WriteLine("By the way, did you know that the value of Math.abs(-{1}) is {0} ?", AlgorithmCrap.AlgorithmCrap.RaiseStackOverflowError(someInt), someInt);
+                    int f = 0;
+                    int g = 1;
+                    for (int i = 0; i <= 15; i++)
+                    {
+                        Console.WriteLine(f);
+                        f = f + g;
+                        g = f - g;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    //this will never get hit, apparently.
+                    Console.WriteLine("See what I mean?  The error was {0}", ex.Message);
+                }
+            }
         }
         public static void RunDelegateDemo()
         {
@@ -306,25 +332,25 @@ namespace ConsoleTestHackingAround
 
             //In this example, when a person presses the doorbell button, a DoorBellRings event is raised.  
             //The dog and the person are each subscribed to that event – that is they “listen” for the doorbell and respond in their respective fashions.
-            
+
             Doorbell doorbell = new Doorbell();
             doorbell.PressRinger();
 
             Console.WriteLine("Would you like to see another Delegate example? (y/n)");
-            string answer = Console.ReadLine(); 
-            if(answer.ToLower()=="y")
+            string answer = Console.ReadLine();
+            if (answer.ToLower() == "y")
             {
                 Console.WriteLine("enTeR iN sOme texT, any text, lIke a BOOK or SONG TITLE or some CrAp like that, and try to MEss uP tHe cAse:");
                 string text = Console.ReadLine();
                 Console.WriteLine("(1) for Lower, (2) for Upper, (3) for Title....");
                 int choice = int.Parse(Console.ReadLine());
-                switch(choice)
+                switch (choice)
                 {
                     case 1:
                         Console.WriteLine(CaseManager.ManageTheCase(text, CaseManager.MakeLowercase) + " VIOLA");
                         break;
                     case 2:
-                        Console.WriteLine(CaseManager.ManageTheCase(text, CaseManager.MakeUppercase) +  " VIOLA");
+                        Console.WriteLine(CaseManager.ManageTheCase(text, CaseManager.MakeUppercase) + " VIOLA");
                         break;
                     case 3:
                         Console.WriteLine(CaseManager.ManageTheCase(text, CaseManager.MakeTitlecase) + " VIOLA");
@@ -339,7 +365,7 @@ namespace ConsoleTestHackingAround
                 Console.WriteLine("OK.....jackass....");
             }
 
-     
+
 
         }
         public static void rUntITleCaseDEMO()
@@ -347,6 +373,69 @@ namespace ConsoleTestHackingAround
             Console.WriteLine("enTeR iN sOme texT, any text, lIke a BOOK or SONG TITLE or some CrAp like that, and try to MEss uP tHe cAse, And WATCH what hAPpeNS....");
             string entry = Console.ReadLine();
             ConsoleTestHack.TitleCase.FormatAndWrite(entry);
+        }
+        public static void RunFibonacciDemo()
+        {
+           
+            Console.WriteLine("Enter a number from 1-100..");
+            int stupidNumber = int.Parse(Console.ReadLine()); 
+            System.Diagnostics.Stopwatch stopwatch = new System.Diagnostics.Stopwatch();
+            stopwatch.Start();
+            Console.WriteLine("F({0}) was " + AlgorithmCrap.Fibonacci.F(stupidNumber),stupidNumber);
+          
+            stopwatch.Stop();
+            TimeSpan ts = stopwatch.Elapsed;
+            // Format and display the TimeSpan value. 
+            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+                ts.Hours, ts.Minutes, ts.Seconds,
+                ts.Milliseconds / 10);
+            Console.WriteLine("Progam iterated {2} times :: RunTime for {0} was: {1} ", stupidNumber, elapsedTime, AlgorithmCrap.Fibonacci.getCounter());
+
+            //Console.WriteLine("Total RunTime as of last iteration was: ");
+
+
+            //Notice that this runs really fast and then hits a wall around interation 40.  HMMMMMMMM................
+            //Riddle of the day:  (Sedgewick p 57-58 Ex 1.1.19
+            //What is the largest value of N for which this program takes less 1 hour to compute the value of F(N)? 
+            //Develop a better implementation of F(N) that saves computed values in an array.
+
+
+            //TimeSpan ts2;
+
+            //for (int i = 1; i < 100; i++) 
+            //{
+            //    System.Diagnostics.Stopwatch stopwatch = new System.Diagnostics.Stopwatch();
+            //    stopwatch.Start(); 
+            //    Console.WriteLine(i + " " + AlgorithmCrap.Fibonacci.F(i));
+            //    stopwatch.Stop();
+            //    TimeSpan ts = stopwatch.Elapsed;
+
+            //    // Format and display the TimeSpan value. 
+            //    string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+            //        ts.Hours, ts.Minutes, ts.Seconds,
+            //        ts.Milliseconds / 10);
+            //    Console.WriteLine("RunTime was: " + elapsedTime);                                         
+
+            //    //Console.WriteLine("Total RunTime as of last iteration was: ");
+
+            //}
+        }
+        public static void RunInterfaceDemo()
+        {
+            Account_Checking acct_chk = new Account_Checking();
+            Account_Savings acct_sv = new Account_Savings(); 
+            Console.WriteLine("Here's my Checking Account Info: acct#'{0}' : routing#:'{2}', and here's my Savings Account Info: '{1}'", acct_chk.GetAcctInfo(), acct_sv.GetAcctInfo(), acct_chk.GetABARoutingNo());
+
+            List<ConsoleTestHackingAround.Interfaces.IAccount> Accounts = new List<ConsoleTestHackingAround.Interfaces.IAccount>();
+            Accounts.Add(new Account_Checking());
+            Accounts.Add(new Account_Savings());
+
+            foreach (var account in Accounts)
+            {
+                Console.WriteLine(account.GetAcctInfo());
+                Console.WriteLine(account.GetAcctInfo()); 
+            }
+
         }
     }
 }
