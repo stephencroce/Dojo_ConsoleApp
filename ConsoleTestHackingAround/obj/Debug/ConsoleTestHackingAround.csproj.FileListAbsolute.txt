@@ -18,8 +18,6 @@ C:\Users\Steve\Documents\Visual Studio 2013\Projects\ConsoleTestHackingAround\Co
 C:\Users\Steve\Documents\Visual Studio 2013\Projects\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\Microsoft.Practices.Unity.Configuration.xml
 C:\Users\Steve\Documents\Visual Studio 2013\Projects\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\Microsoft.Practices.Unity.RegistrationByConvention.xml
 C:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\ConsoleTestHackingAround.exe.config
-C:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\obj\Debug\ConsoleTestHackingAround.exe
-C:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\obj\Debug\ConsoleTestHackingAround.pdb
 C:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\ConsoleTestHackingAround.exe
 C:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\ConsoleTestHackingAround.pdb
 C:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\Microsoft.Practices.Unity.Configuration.dll
@@ -28,3 +26,5 @@ C:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\Microsoft.Pra
 C:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\Microsoft.Practices.Unity.xml
 C:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\Microsoft.Practices.Unity.Configuration.xml
 C:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\Microsoft.Practices.Unity.RegistrationByConvention.xml
+C:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\obj\Debug\ConsoleTestHackingAround.exe
+C:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\obj\Debug\ConsoleTestHackingAround.pdb

@@ -174,6 +174,9 @@ namespace ConsoleTestHackingAround
             Console.WriteLine("BEGIN  - OUT shit:");
             ////Out shit:    
             FunWithOut.RunOUT();
+            Console.ReadLine(); 
+            FunWithOut.BooleanTryParse();
+            Console.WriteLine("Is Purge Enabled???:  {0}",FunWithOut.isPurgeEnabled()); 
             Console.WriteLine("END  - OUT shit:");
 
             //----------------------------------------------------------------------------------------

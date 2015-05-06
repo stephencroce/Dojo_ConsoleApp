@@ -58,6 +58,34 @@ namespace ConsoleTestHackingAround
             Console.Write("semicolon: ");
             Console.WriteLine(semicolon);
         }
+        public static void BooleanTryParse()
+        {
+            string value = "true";
+            bool b = bool.Parse(value);
+            Console.WriteLine(b); // [1]
+
+            value = "False";
+            b = bool.Parse(value);
+            Console.WriteLine(b); // [2]
+
+            value = "Perls";
+            if (bool.TryParse(value, out b))
+            {
+                Console.WriteLine("Not reached");
+            }
+
+        }
+        public static bool isPurgeEnabled()
+        {
+            bool retVal;
+            //if (Boolean.TryParse("stupidhead", out retVal))
+            if (Boolean.TryParse("true", out retVal))
+            //if (Boolean.TryParse("false", out retVal))
+            {
+                return retVal;
+            }
+            return false;
+        }
 
     }
 }
