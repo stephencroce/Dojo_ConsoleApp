@@ -10,6 +10,7 @@ using Microsoft.Practices.Unity;
 
 using ConsoleTestHackingAround.Demo1.Delegates;
 using ConsoleTestHackingAround.Delegates.Demo2;
+using ConsoleTestHackingAround.Pointroll;
 
 namespace ConsoleTestHackingAround
 {
@@ -75,6 +76,9 @@ namespace ConsoleTestHackingAround
                 Console.WriteLine("DBLocation:" + mongoDatastoreConfigSection.MongoDatastores[y].DBLocation);
                 Console.WriteLine("DBName:" + mongoDatastoreConfigSection.MongoDatastores[y].DBName);
             }
+
+            
+
             Console.WriteLine("END - Custom Configuration Sections Demo:");
         }
 
@@ -440,5 +444,39 @@ namespace ConsoleTestHackingAround
             }
 
         }
+        public static void RunPointRollDemo()
+        {
+            ////ToDo: Write a program that counts the number of chars and ints in the string
+            ////Return a custom object that contains chars and ints
+
+            ////Here's one way:
+            //string pointRollSucksAss = "P01ntr01l5uck5A55";
+            //int charCount=0;
+            //int intCount=0;
+            //char[] pointRollSucksArray = pointRollSucksAss.ToCharArray();
+
+            //foreach(char suckyChar in pointRollSucksArray)
+            //{                               
+            //    bool isItAnInteger = int.TryParse(suckyChar.ToString(), out intCount);
+            //    if (isItAnInteger == false)
+            //    {
+            //        // String is not a number.
+            //        charCount++;
+            //    }
+            //    else
+            //    {
+            //        intCount++;
+            //    }
+            //}
+
+            //Console.WriteLine("There are {0} numbers and {1} characters in the string ",intCount,charCount);
+
+            //Here's another way:   Fuck you pointroll.
+            //PointRollCustomClass prcc = PointRollDemo.RunPointRollDemo("P01ntr01l5uck5A5533w");
+            PointRollCustomClass prcc = PointRollDemo.RunPointRollDemo("pointrollsucksass");
+            Console.WriteLine("There are {0} numbers and {1} characters in the string.  So fuck you, pointroll.  Who the hell needs you anyway. ", prcc.NumberCount, prcc.CharacterCount);
+
+        }
+
     }
 }

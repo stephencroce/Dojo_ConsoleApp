@@ -99,6 +99,8 @@
     <Compile Include="MyWindowsServiceInstaller.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Pointroll\PointRollCustomClass.cs" />
+    <Compile Include="Pointroll\PointRollDemo.cs" />
     <Compile Include="Process\ProcessDemo.cs" />
     <Compile Include="Program.cs">
       <SubType>Component</SubType>
