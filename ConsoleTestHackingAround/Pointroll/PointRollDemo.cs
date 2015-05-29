@@ -39,5 +39,39 @@ namespace ConsoleTestHackingAround.Pointroll
             prcc.NumberCount = numCount; 
             return prcc;
         }
+        public static bool AmIAPalindrome(string input)
+        {
+            //if(input==input.Reverse())  //someone said this would work.  It's not true.
+            //{
+            //    Console.WriteLine("it's a palin");
+            //}
+            
+
+
+            var inputArray = input.ToCharArray();
+            var inputArrayReversed = inputArray.Reverse();
+            
+            //Stack Overflow:16847894 - How to compare two character arrays for equivalency of element content
+            //if(input==inputArrayReversed.ToArray().ToString())
+            //{
+            //    return true;
+            //}
+            if (inputArray.SequenceEqual(inputArrayReversed))
+            {
+                return true;
+            }
+            return false;
+        }
+        public static bool AmIAPalindrome2(string input) 
+        {
+            char[] inputCharArray = input.ToCharArray();
+            StringBuilder sbReversed = new StringBuilder();
+            for (int i = inputCharArray.Length-1; i >= 0; i--)
+            {
+                sbReversed.Append(inputCharArray[i]);               
+
+            }
+            return input==sbReversed.ToString();
+        }
     }
 }

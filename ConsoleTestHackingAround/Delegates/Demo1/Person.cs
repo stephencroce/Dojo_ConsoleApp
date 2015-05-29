@@ -8,7 +8,7 @@ namespace ConsoleTestHackingAround.Demo1.Delegates
 {
     class Person
     {
-        public void respondToDoorBell() 
+        public void respondToDoorBell(object sender, EventArgs e) 
         {             
             Console.WriteLine("who is it??"); 
         }

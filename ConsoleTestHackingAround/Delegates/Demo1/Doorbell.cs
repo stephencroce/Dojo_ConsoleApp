@@ -8,8 +8,9 @@ namespace ConsoleTestHackingAround.Demo1.Delegates
 {
     public class Doorbell
     {
-        //here are telltale code patterns of delegation - I'm not sure I really GET them, but here they are.  There may be nothing to GET, and that's just how it is..., but I always hate that.
-        public delegate void MyDelegate(); 
+        //here are telltale code patterns of delegation - I'm not sure I really GET them, but here they are.  
+        //There may be nothing to GET, and that's just how it is..., but I always hate that.
+        public delegate void MyDelegate(object sender, EventArgs e); 
         public static event MyDelegate DoorBellRings;
 
 
@@ -26,7 +27,7 @@ namespace ConsoleTestHackingAround.Demo1.Delegates
             DoorBellRings += person.respondToDoorBell; 
 
             //not sure about the semantics of this - I think maybe it means "FIRE THE EVENT"???
-            DoorBellRings();
+            DoorBellRings(this, EventArgs.Empty);
 
             
         } 

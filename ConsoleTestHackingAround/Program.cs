@@ -105,8 +105,8 @@ namespace ConsoleTestHackingAround.StupidAss
                 //Variable Initialization crap:
                 //http://stackoverflow.com/questions/952503/c-sharp-variable-initialization-question
                 //int
-                int i = 0;
-                Console.WriteLine("{0}", i);
+                //int i = 0;
+                //Console.WriteLine("{0}", i);
                 //----------------------------------------------------------------------------------------
 
 

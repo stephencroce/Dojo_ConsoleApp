@@ -71,6 +71,9 @@
     <Report>
       <Path>ConsoleTestHackingAround141125.vspx</Path>
     </Report>
+    <Report>
+      <Path>ConsoleTestHackingAround150512.vspx</Path>
+    </Report>
   </Reports>
   <Launches>
     <ProjBinary>

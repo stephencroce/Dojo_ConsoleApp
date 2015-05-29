@@ -28,3 +28,6 @@ C:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\Microsoft.Pra
 C:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\Microsoft.Practices.Unity.RegistrationByConvention.xml
 C:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\obj\Debug\ConsoleTestHackingAround.exe
 C:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\obj\Debug\ConsoleTestHackingAround.pdb
+C:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\ConsoleTestHackingAround.exe.CodeAnalysisLog.xml
+C:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\ConsoleTestHackingAround.exe.lastcodeanalysissucceeded
+C:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\obj\Debug\ConsoleTestHackingAround.csprojResolveAssemblyReference.cache

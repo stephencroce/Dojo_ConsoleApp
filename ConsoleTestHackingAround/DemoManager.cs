@@ -476,6 +476,19 @@ namespace ConsoleTestHackingAround
             PointRollCustomClass prcc = PointRollDemo.RunPointRollDemo("pointrollsucksass");
             Console.WriteLine("There are {0} numbers and {1} characters in the string.  So fuck you, pointroll.  Who the hell needs you anyway. ", prcc.NumberCount, prcc.CharacterCount);
 
+            Console.WriteLine("Enter a word.  I will tell you if it's a palindrome");
+            string entry = Console.ReadLine();
+            if(PointRollDemo.AmIAPalindrome(entry))
+            {
+                Console.WriteLine("Yes! - that word is a palindrome!");
+            }
+            else
+            {
+                Console.WriteLine("NO! - that word is NOT a palindrome!");
+            }
+
+            Console.WriteLine(PointRollDemo.AmIAPalindrome2(entry) ? "Hell YES!!!" : "NOPE! No way.");
+
         }
 
     }
