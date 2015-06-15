@@ -86,6 +86,31 @@ namespace ConsoleTestHackingAround
             }
             return false;
         }
+        public static int getAppConfigSetting()
+        {
+            //this is your basic plain vanilla example pattern that more or less explicitly outlines how TryParse works.  Seen this at places like charp corner or .net pearls.
+            string str = "95XOXLPF";  //say this was coming from an app.config file
+            int intStr;
+            bool intResultTryParse = int.TryParse(str, out intStr);
+            if (intResultTryParse == true)
+            {
+                //Console.WriteLine(String.Format("The string parsed to {0}", intStr));
+                return intStr; 
+            }
+            else
+            {
+                //Console.WriteLine("Input is not in integer format");
+                return 30;
+
+            }
+        }
+        public static int getAppConfigSetting2()
+        {
+            //this is a shortened version of the above pattern:
+            string str = "95";
+            int returnVal = int.TryParse(str, out returnVal) ? returnVal : 30;
+            return returnVal; 
+        }
 
     }
 }

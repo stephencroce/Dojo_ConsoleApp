@@ -12,7 +12,7 @@
          <Members>
           <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2015-05-29 18:33:08Z" FixCategory="NonBreaking">
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2015-06-15 18:33:52Z" FixCategory="NonBreaking">
              <Issue Certainty="95" Level="CriticalWarning" Path="c:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\CustomConfigSections" File="TunnelSection.cs" Line="29">'HostCollection.HostCollection()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;HostCollection..ctor()&#xD;&#xA;ConfigurationElementCollection.CreateNewElement():ConfigurationElement</Issue>
              <Issue Certainty="95" Level="CriticalWarning" Path="c:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\CustomConfigSections" File="TunnelSection.cs" Line="29">'HostCollection.HostCollection()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;HostCollection..ctor()&#xD;&#xA;ConfigurationElementCollection.CreateNewElement():ConfigurationElement&#xD;&#xA;HostCollection.Add(HostConfigElement):Void&#xD;&#xA;ConfigurationElementCollection.BaseAdd(ConfigurationElement):Void</Issue>
             </Message>

@@ -111,6 +111,7 @@
     <Compile Include="Facade\SubSystems\SubSystemTwo.cs" />
     <Compile Include="ScreenHelper.cs" />
     <Compile Include="TitleCase.cs" />
+    <Compile Include="TracingCrap\MyTraceSource.cs" />
     <Compile Include="Vehicle.cs" />
   </ItemGroup>
   <ItemGroup>

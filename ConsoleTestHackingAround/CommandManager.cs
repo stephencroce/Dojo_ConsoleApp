@@ -67,6 +67,9 @@ namespace ConsoleTestHackingAround
                 case "17":
                     DemoManager.RunPointRollDemo();
                     break;
+                case "18":
+                    DemoManager.RunTracingAndLoggingDemo();
+                    break;
                 case "HELP":
                 case "?":
                     ScreenHelper.Welcome();

@@ -35,7 +35,8 @@ namespace ConsoleTestHackingAround
             Console.WriteLine("14    : tItLe CAsE dEmO");
             Console.WriteLine("15    : Fibonacci Sequence crap");
             Console.WriteLine("16    : Interface crap");
-            Console.WriteLine("17    : Stupidass Pointroll Demo"); 
+            Console.WriteLine("17    : Stupidass Pointroll Demo");
+            Console.WriteLine("18    : Tracing and Logging Demo"); 
             Console.WriteLine("EXIT  : Exit Application");
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("");

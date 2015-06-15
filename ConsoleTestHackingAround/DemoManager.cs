@@ -11,6 +11,7 @@ using Microsoft.Practices.Unity;
 using ConsoleTestHackingAround.Demo1.Delegates;
 using ConsoleTestHackingAround.Delegates.Demo2;
 using ConsoleTestHackingAround.Pointroll;
+using ConsoleTestHackingAround.TracingCrap;
 
 namespace ConsoleTestHackingAround
 {
@@ -113,7 +114,7 @@ namespace ConsoleTestHackingAround
         {
 
             Console.WriteLine("BEGIN  - Dependency Injection with Unity Demo:");
-            //Dependecy Injection bullshit:
+            //Dependency Injection bullshit:
             //http://www.c-sharpcorner.com/UploadFile/dacca2/inversion-of-control-using-unity/
             ////ConsoleTestHackingAround.DependencyInjectionExample1.Client myClient = new DependencyInjectionExample1.Client();
             //ConsoleTestHackingAround.DependencyInjectionExample1.Client myClient = new DependencyInjectionExample1.Client(new DependencyInjectionExample1.Service()) ;
@@ -180,7 +181,9 @@ namespace ConsoleTestHackingAround
             FunWithOut.RunOUT();
             Console.ReadLine(); 
             FunWithOut.BooleanTryParse();
-            Console.WriteLine("Is Purge Enabled???:  {0}",FunWithOut.isPurgeEnabled()); 
+            Console.WriteLine("Is Purge Enabled???:  {0}",FunWithOut.isPurgeEnabled());
+            Console.WriteLine("My app.config setting is {0}", FunWithOut.getAppConfigSetting());
+            Console.WriteLine("My app.config setting(2) is {0}", FunWithOut.getAppConfigSetting2());
             Console.WriteLine("END  - OUT shit:");
 
             //----------------------------------------------------------------------------------------
@@ -488,6 +491,65 @@ namespace ConsoleTestHackingAround
             }
 
             Console.WriteLine(PointRollDemo.AmIAPalindrome2(entry) ? "Hell YES!!!" : "NOPE! No way.");
+
+        }
+        public static void RunTracingAndLoggingDemo()
+        {
+            //How often have you been in a project and you wanted to create a simple log file to log out errors and, if debugging an annoying error, parameter and variable values?
+            //To get started in the simplest way, all you need to do is to update the config file to include the System.Diagnostics section and then update the code you want to log out the information that you want.
+            //Everything used here lives in the System.Diagnostics .NET namespace:
+
+            //System.Diagnostics.TraceSource traceSource = new System.Diagnostics.TraceSource("MyFirstLoggingSource");
+            //System.Diagnostics.TraceListenerCollection traceListenerCollection = traceSource.Listeners;
+            MyTraceSource traceSource = new MyTraceSource("MyFirstLoggingSource");
+            System.Diagnostics.TraceListenerCollection traceListenerCollection = traceSource.Listeners;
+
+            //Console.WriteLine(traceListenerCollection[i].Attributes);
+            // Get the custom attributes for the TraceSource.
+            Console.WriteLine("Number of custom trace source attributes = " + traceSource.Attributes.Count);
+
+            foreach (DictionaryEntry de in traceSource.Attributes)
+            {
+                Console.WriteLine("Custom trace source attribute = " + de.Key + "  " + de.Value);
+            }
+
+            int expires = int.Parse(traceSource.Attributes["expires"]);
+
+            Console.WriteLine(String.Format("The default setting is {0} days.", expires));
+
+
+            Console.WriteLine("Do you want to see all of the System.Diagnostic tracing listeners defined in app config? (Y/N)");
+            var response = Console.ReadLine();
+            if(response.ToUpper()=="Y")
+            {
+
+                for (int i = 0; i <= traceListenerCollection.Count-1;i++)
+                {
+                    Console.WriteLine(traceListenerCollection[i].Name);                            
+                }
+            }
+            else { Console.WriteLine("Fine, I didn't want to show you anyway."); }
+
+            
+            //PROB:  supposed to write a file into the path \ConsoleTestHackingAround\bin\Debug\MyFirstListener.log.   the file gets created, but there's nothing the fuck in it. - WTF???
+            //SOLUTION: "You may have noticed that I'm calling the Flush() and Close() methods on the TraceSource object. This is done to make sure the file gets written to and is closed properly."
+            //"If you aren't getting everything written to your listener, these calls may be all that's needed. However, I've seen cases where it's not always required."
+            traceSource.TraceData(System.Diagnostics.TraceEventType.Verbose, 1, "This is a log entry.  Whooppdeee doo.");  //NOTE-if it specifies TraceEventType.Verbose here in the code, it must also specify VERBOSE in app.config, or it won't write to file.
+            traceSource.TraceInformation(string.Format("This is written on {0} by a call from traceSource.TraceInformation, which is supposed to write an informative message.  hoo fucking ray.",DateTime.Now));            
+            traceSource.Flush();
+            traceSource.Close();
+
+
+            //Q:  what happens if you try to trace to a source not defined in app.config.  
+            //A:  Probably nothing good - and I'd be right:
+            System.Diagnostics.TraceSource traceSourceCrap = new System.Diagnostics.TraceSource("CrapolaSource");
+            traceSourceCrap.TraceInformation("This is utter crap, and won't show up anywhere because it isn't defined in the app.config.  It will fail silently, however."); 
+
+            
+            //Now, what if I wanted to not log to a crappy text file, but instead wanted to use a crappy database like Mongo?  Well, I'd have to set that up in app.config also:
+            //HMMMMMMMMMMMMMMMMMMMMMMMM
+           
+
 
         }
 
