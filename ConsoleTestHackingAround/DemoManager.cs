@@ -12,6 +12,11 @@ using ConsoleTestHackingAround.Demo1.Delegates;
 using ConsoleTestHackingAround.Delegates.Demo2;
 using ConsoleTestHackingAround.Pointroll;
 using ConsoleTestHackingAround.TracingCrap;
+using System.Net;
+using System.IO;
+using ConsoleTestHackingAround.RESTFulCrap;
+using System.Data;
+using Newtonsoft.Json;
 
 namespace ConsoleTestHackingAround
 {
@@ -78,7 +83,7 @@ namespace ConsoleTestHackingAround
                 Console.WriteLine("DBName:" + mongoDatastoreConfigSection.MongoDatastores[y].DBName);
             }
 
-            
+
 
             Console.WriteLine("END - Custom Configuration Sections Demo:");
         }
@@ -129,7 +134,7 @@ namespace ConsoleTestHackingAround
 
             //Dependency injection by **Property injection**
             IUnityContainer unitycontainer = new UnityContainer();
-            
+
             unitycontainer.RegisterType<DependencyInjectionExample2.Company>();
             unitycontainer.RegisterType<DependencyInjectionExample3.Company>();
 
@@ -138,7 +143,7 @@ namespace ConsoleTestHackingAround
             //var emp2 = new DependencyInjectionExample2.Employee();
             emp2.DisplaySalary();
 
-            
+
 
             DependencyInjectionExample3.Employee emp3 = unitycontainer.Resolve<DependencyInjectionExample3.Employee>();
             emp3.DisplaySalary();
@@ -179,9 +184,9 @@ namespace ConsoleTestHackingAround
             Console.WriteLine("BEGIN  - OUT shit:");
             ////Out shit:    
             FunWithOut.RunOUT();
-            Console.ReadLine(); 
+            Console.ReadLine();
             FunWithOut.BooleanTryParse();
-            Console.WriteLine("Is Purge Enabled???:  {0}",FunWithOut.isPurgeEnabled());
+            Console.WriteLine("Is Purge Enabled???:  {0}", FunWithOut.isPurgeEnabled());
             Console.WriteLine("My app.config setting is {0}", FunWithOut.getAppConfigSetting());
             Console.WriteLine("My app.config setting(2) is {0}", FunWithOut.getAppConfigSetting2());
             Console.WriteLine("END  - OUT shit:");
@@ -386,13 +391,13 @@ namespace ConsoleTestHackingAround
         }
         public static void RunFibonacciDemo()
         {
-           
+
             Console.WriteLine("Enter a number from 1-100..");
-            int stupidNumber = int.Parse(Console.ReadLine()); 
+            int stupidNumber = int.Parse(Console.ReadLine());
             System.Diagnostics.Stopwatch stopwatch = new System.Diagnostics.Stopwatch();
             stopwatch.Start();
-            Console.WriteLine("F({0}) was " + AlgorithmCrap.Fibonacci.F(stupidNumber),stupidNumber);
-          
+            Console.WriteLine("F({0}) was " + AlgorithmCrap.Fibonacci.F(stupidNumber), stupidNumber);
+
             stopwatch.Stop();
             TimeSpan ts = stopwatch.Elapsed;
             // Format and display the TimeSpan value. 
@@ -433,7 +438,7 @@ namespace ConsoleTestHackingAround
         public static void RunInterfaceDemo()
         {
             Account_Checking acct_chk = new Account_Checking();
-            Account_Savings acct_sv = new Account_Savings(); 
+            Account_Savings acct_sv = new Account_Savings();
             Console.WriteLine("Here's my Checking Account Info: acct#'{0}' : routing#:'{2}', and here's my Savings Account Info: '{1}'", acct_chk.GetAcctInfo(), acct_sv.GetAcctInfo(), acct_chk.GetABARoutingNo());
 
             List<ConsoleTestHackingAround.Interfaces.IAccount> Accounts = new List<ConsoleTestHackingAround.Interfaces.IAccount>();
@@ -443,7 +448,7 @@ namespace ConsoleTestHackingAround
             foreach (var account in Accounts)
             {
                 Console.WriteLine(account.GetAcctInfo());
-                Console.WriteLine(account.GetAcctInfo()); 
+                Console.WriteLine(account.GetAcctInfo());
             }
 
         }
@@ -481,7 +486,7 @@ namespace ConsoleTestHackingAround
 
             Console.WriteLine("Enter a word.  I will tell you if it's a palindrome");
             string entry = Console.ReadLine();
-            if(PointRollDemo.AmIAPalindrome(entry))
+            if (PointRollDemo.AmIAPalindrome(entry))
             {
                 Console.WriteLine("Yes! - that word is a palindrome!");
             }
@@ -520,22 +525,22 @@ namespace ConsoleTestHackingAround
 
             Console.WriteLine("Do you want to see all of the System.Diagnostic tracing listeners defined in app config? (Y/N)");
             var response = Console.ReadLine();
-            if(response.ToUpper()=="Y")
+            if (response.ToUpper() == "Y")
             {
 
-                for (int i = 0; i <= traceListenerCollection.Count-1;i++)
+                for (int i = 0; i <= traceListenerCollection.Count - 1; i++)
                 {
-                    Console.WriteLine(traceListenerCollection[i].Name);                            
+                    Console.WriteLine(traceListenerCollection[i].Name);
                 }
             }
             else { Console.WriteLine("Fine, I didn't want to show you anyway."); }
 
-            
+
             //PROB:  supposed to write a file into the path \ConsoleTestHackingAround\bin\Debug\MyFirstListener.log.   the file gets created, but there's nothing the fuck in it. - WTF???
             //SOLUTION: "You may have noticed that I'm calling the Flush() and Close() methods on the TraceSource object. This is done to make sure the file gets written to and is closed properly."
             //"If you aren't getting everything written to your listener, these calls may be all that's needed. However, I've seen cases where it's not always required."
             traceSource.TraceData(System.Diagnostics.TraceEventType.Verbose, 1, "This is a log entry.  Whooppdeee doo.");  //NOTE-if it specifies TraceEventType.Verbose here in the code, it must also specify VERBOSE in app.config, or it won't write to file.
-            traceSource.TraceInformation(string.Format("This is written on {0} by a call from traceSource.TraceInformation, which is supposed to write an informative message.  hoo fucking ray.",DateTime.Now));            
+            traceSource.TraceInformation(string.Format("This is written on {0} by a call from traceSource.TraceInformation, which is supposed to write an informative message.  hoo fucking ray.", DateTime.Now));
             traceSource.Flush();
             traceSource.Close();
 
@@ -543,13 +548,123 @@ namespace ConsoleTestHackingAround
             //Q:  what happens if you try to trace to a source not defined in app.config.  
             //A:  Probably nothing good - and I'd be right:
             System.Diagnostics.TraceSource traceSourceCrap = new System.Diagnostics.TraceSource("CrapolaSource");
-            traceSourceCrap.TraceInformation("This is utter crap, and won't show up anywhere because it isn't defined in the app.config.  It will fail silently, however."); 
+            traceSourceCrap.TraceInformation("This is utter crap, and won't show up anywhere because it isn't defined in the app.config.  It will fail silently, however.");
 
-            
+
             //Now, what if I wanted to not log to a crappy text file, but instead wanted to use a crappy database like Mongo?  Well, I'd have to set that up in app.config also:
             //HMMMMMMMMMMMMMMMMMMMMMMMM
-           
+        }
+        public static void RunRESTfulCrapDemo()
+        {
+            //One Way:
+            try
+            {
+                string strUrl = "http://www.raritanpointe.org";
+                //string strUrl = "http://ntsvr41v4:6405/biprws/logon/long";
+                RESTFulHTTPHelper.MakeBasicHttpRequest(strUrl);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Something went wrong.  Message was {0}", ex.Message);
+            }
+            //Another Way:
+            try
+            {
+                //The DELICIOUS web site communicates with clients through HTTP, but the web service uses secure HTTPS.
+                Uri uri = new Uri("https://api.del.icio.us/v1/posts/recent");
+                RESTFulHTTPHelper.MakeDeliciousRESTFULRequest("ZanizbarBukBuk", "ZanzibarBukBukMcFate2015~", uri);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Something went wrong.  Message was {0}", ex.Message);
+            }
+            DeserializeADataSet();
+            GetDriverCareDocumentList();
+            
+            
+        }
+        public static void RunLoopingDemo()
+        {
+            while (true)
+            {
+                Console.WriteLine("looping");
 
+            }
+
+        }
+        public static void DeserializeADataSet()
+        {
+            string json = @"{
+   'Table1': [
+     {
+       'id': 0,
+       'item': 'item 0'
+     },
+     {
+       'id': 1,
+       'item': 'item 1'
+    }
+  ]
+}";
+
+            DataSet dataSet = JsonConvert.DeserializeObject<DataSet>(json);
+
+            DataTable dataTable = dataSet.Tables["Table1"];
+
+            Console.WriteLine(dataTable.Rows.Count);
+            // 2
+
+            foreach (DataRow row in dataTable.Rows)
+            {
+                Console.WriteLine(row["id"] + " - " + row["item"]);
+            }
+
+
+        }
+        public static void GetDriverCareDocumentList()
+        {
+
+            string IP = "192.168.56.33"; //this is ntsrv41v4
+            string port = "6405";
+            string dformat = "json";
+
+            string server = "http://" + IP + ":" + port + "/biprws/raylight/v1/documents";
+            string ltoken = "\"" + "NTSVR41V4.ceinetwork.net:6400@{3&2=3942723,U3&2v=NTSVR41V4.ceinetwork.net:6400,UP&66=60,U3&68=secEnterprise:SafetyUser,UP&S9=865089,U3&qe=100,U3&vz=IZDKHxN04.MbEJYhFEj9X4Ho2OsF.0aH3Q4zClhvhkQ,UP}" + "\"";
+            //string ltoken = @"NTSVR41V4.ceinetwork.net:6400@{3&2=3942723,U3&2v=NTSVR41V4.ceinetwork.net:6400,UP&66=60,U3&68=secEnterprise:SafetyUser,UP&S9=865089,U3&qe=100,U3&vz=IZDKHxN04.MbEJYhFEj9X4Ho2OsF.0aH3Q4zClhvhkQ,UP}";
+
+            //SAP_BO_Login_Token token = JsonConvert.DeserializeObject<SAP_BO_Login_Token>((string)Session["LogonToken"]);
+            //string ltoken = "\"" + token.logonToken + "\"";
+
+            //string server = "http://" + IP + ":" + port + "/biprws/raylight/v1/documents";
+            //Console.WriteLine("Operation: GET - URI: " + server);
+            HttpWebRequest GetRequest = (HttpWebRequest)WebRequest.Create(server);
+            GetRequest.Method = "GET";
+            GetRequest.Accept = "application/" + dformat;
+            GetRequest.Headers.Set("X-SAP-LogonToken", ltoken);
+            HttpWebResponse GETResponse = (HttpWebResponse)GetRequest.GetResponse();
+            Stream GETResponseStream = GETResponse.GetResponseStream();
+            StreamReader sr = new StreamReader(GETResponseStream);
+
+            string json = sr.ReadToEnd();
+
+
+            //not feasible - this seems to be hugely resource intensive and blows up memory and disk with a runaway IIS Worker Process:
+            DataSet dataSet = JsonConvert.DeserializeObject<DataSet>(json);
+
+            DataTable dataTable = dataSet.Tables["Table1"];
+
+            Console.WriteLine(dataTable.Rows.Count);
+            // 2
+
+            foreach (DataRow row in dataTable.Rows)
+            {
+            //Response.Write(row["id"] + " - " + row["item"]);
+                Console.WriteLine(row["id"] + " - " + row["cuid"]);
+            }
+            // 0 - item 0
+            // 1 - item 1
+
+            //return json;
 
         }
 
