@@ -37,7 +37,8 @@ namespace ConsoleTestHackingAround
             Console.WriteLine("16    : Interface crap");
             Console.WriteLine("17    : Stupidass Pointroll Demo");
             Console.WriteLine("18    : Tracing and Logging Demo");
-            Console.WriteLine("19    : RESTful Crap"); 
+            Console.WriteLine("19    : RESTful Crap");
+            Console.WriteLine("20    : Sync/Async Messaging Crap");
             Console.WriteLine("EXIT  : Exit Application");
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("");

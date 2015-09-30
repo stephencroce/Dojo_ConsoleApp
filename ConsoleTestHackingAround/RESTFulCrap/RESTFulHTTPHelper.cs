@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -56,6 +58,81 @@ namespace ConsoleTestHackingAround.RESTFulCrap
                 string href = node.GetAttribute("href", "");
                 Console.WriteLine(description + ": " + href);
             }
+        }
+        public static void GetDriverCareDocumentList()
+        {
+
+            string IP = "192.168.56.33"; //this is ntsrv41v4
+            string port = "6405";
+            string dformat = "json";
+
+            string server = "http://" + IP + ":" + port + "/biprws/raylight/v1/documents";
+            string ltoken = "\"" + "NTSVR41V4.ceinetwork.net:6400@{3&2=3942723,U3&2v=NTSVR41V4.ceinetwork.net:6400,UP&66=60,U3&68=secEnterprise:SafetyUser,UP&S9=865089,U3&qe=100,U3&vz=IZDKHxN04.MbEJYhFEj9X4Ho2OsF.0aH3Q4zClhvhkQ,UP}" + "\"";
+            //string ltoken = @"NTSVR41V4.ceinetwork.net:6400@{3&2=3942723,U3&2v=NTSVR41V4.ceinetwork.net:6400,UP&66=60,U3&68=secEnterprise:SafetyUser,UP&S9=865089,U3&qe=100,U3&vz=IZDKHxN04.MbEJYhFEj9X4Ho2OsF.0aH3Q4zClhvhkQ,UP}";
+
+            //SAP_BO_Login_Token token = JsonConvert.DeserializeObject<SAP_BO_Login_Token>((string)Session["LogonToken"]);
+            //string ltoken = "\"" + token.logonToken + "\"";
+
+            //string server = "http://" + IP + ":" + port + "/biprws/raylight/v1/documents";
+            //Console.WriteLine("Operation: GET - URI: " + server);
+            HttpWebRequest GetRequest = (HttpWebRequest)WebRequest.Create(server);
+            GetRequest.Method = "GET";
+            GetRequest.Accept = "application/" + dformat;
+            GetRequest.Headers.Set("X-SAP-LogonToken", ltoken);
+            HttpWebResponse GETResponse = (HttpWebResponse)GetRequest.GetResponse();
+            Stream GETResponseStream = GETResponse.GetResponseStream();
+            StreamReader sr = new StreamReader(GETResponseStream);
+
+            string json = sr.ReadToEnd();
+
+
+            //not feasible - this seems to be hugely resource intensive and blows up memory and disk with a runaway IIS Worker Process:
+            DataSet dataSet = JsonConvert.DeserializeObject<DataSet>(json);
+
+            DataTable dataTable = dataSet.Tables["Table1"];
+
+            Console.WriteLine(dataTable.Rows.Count);
+            // 2
+
+            foreach (DataRow row in dataTable.Rows)
+            {
+                //Response.Write(row["id"] + " - " + row["item"]);
+                Console.WriteLine(row["id"] + " - " + row["cuid"]);
+            }
+            // 0 - item 0
+            // 1 - item 1
+
+            //return json;
+
+        }
+        public static void DeserializeADataSet()
+        {
+            string json = @"{
+   'Table1': [
+     {
+       'id': 0,
+       'item': 'item 0'
+     },
+     {
+       'id': 1,
+       'item': 'item 1'
+    }
+  ]
+}";
+
+            DataSet dataSet = JsonConvert.DeserializeObject<DataSet>(json);
+
+            DataTable dataTable = dataSet.Tables["Table1"];
+
+            Console.WriteLine(dataTable.Rows.Count);
+            // 2
+
+            foreach (DataRow row in dataTable.Rows)
+            {
+                Console.WriteLine(row["id"] + " - " + row["item"]);
+            }
+
+
         }
     }
 }

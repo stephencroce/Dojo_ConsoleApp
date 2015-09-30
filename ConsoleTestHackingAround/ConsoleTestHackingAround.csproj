@@ -65,6 +65,7 @@
     <Compile Include="Account_Savings.cs" />
     <Compile Include="AlgorithmCrap\AlgorithmCrap.cs" />
     <Compile Include="AlgorithmCrap\Fibonacci.cs" />
+    <Compile Include="AsyncMessaging\AsyncCrap.cs" />
     <Compile Include="BooleanFun.cs" />
     <Compile Include="Car.cs" />
     <Compile Include="Account_Checking.cs" />
