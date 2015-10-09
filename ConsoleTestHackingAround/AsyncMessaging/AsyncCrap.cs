@@ -68,8 +68,7 @@ namespace ConsoleTestHackingAround.AsyncMessaging
            // Console.ReadKey();
             Console.WriteLine(fileText);
             Console.WriteLine("\n  As you can see, the slow method finally returned!");
-            
-            
+                      
             
             return fileText;
         }

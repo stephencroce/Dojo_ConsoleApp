@@ -32,3 +32,4 @@ C:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\ConsoleTestHa
 C:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\ConsoleTestHackingAround.exe.lastcodeanalysissucceeded
 C:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\Newtonsoft.Json.dll
 C:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\Newtonsoft.Json.xml
+C:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\obj\Debug\ConsoleTestHackingAround.csprojResolveAssemblyReference.cache
