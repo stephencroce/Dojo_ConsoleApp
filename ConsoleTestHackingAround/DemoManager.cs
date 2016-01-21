@@ -613,5 +613,11 @@ namespace ConsoleTestHackingAround
             //RunLoopingDemo();      
             //Console.ReadKey();
         }
+        public static void RunRegexCrapDemo()
+        {
+            Console.WriteLine("enter this phone number:  '800) 531-8669'");
+            var crappyPhoneNumber = Console.ReadLine().ToString();
+            Console.WriteLine("the fixed phone number looks like this: {0}", ConsoleTestHackingAround.RegexCrap.RegexCrap.FixPhoneNumber(crappyPhoneNumber));
+        }
     }
 }

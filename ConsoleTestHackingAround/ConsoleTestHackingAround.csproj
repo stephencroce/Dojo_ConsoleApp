@@ -114,6 +114,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Facade\SubSystems\SubSystemOne.cs" />
     <Compile Include="Facade\SubSystems\SubSystemTwo.cs" />
+    <Compile Include="RegexCrap\RegexCrap.cs" />
     <Compile Include="RESTFulCrap\RESTFulHTTPHelper.cs" />
     <Compile Include="ScreenHelper.cs" />
     <Compile Include="TitleCase.cs" />

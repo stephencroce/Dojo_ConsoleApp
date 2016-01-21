@@ -76,6 +76,9 @@ namespace ConsoleTestHackingAround
                 case "20":
                     DemoManager.RunAsycCrapDemo();
                     break;
+                case "21":
+                    DemoManager.RunRegexCrapDemo();
+                    break;
                 case "HELP":
                 case "?":
                     ScreenHelper.Welcome();
