@@ -619,5 +619,24 @@ namespace ConsoleTestHackingAround
             var crappyPhoneNumber = Console.ReadLine().ToString();
             Console.WriteLine("the fixed phone number looks like this: {0}", ConsoleTestHackingAround.RegexCrap.RegexCrap.FixPhoneNumber(crappyPhoneNumber));
         }
+        public static void RunBitWiseDemo()
+        {
+            //Purpose: to get your head around the contrast between logical AND OR (&&  ||) comparisons and bitwise AND OR (& |) comparisons.
+            //http://www.codeproject.com/Articles/544990/Understand-how-bitwise-operators-work-Csharp-and-V
+            //https://en.wikipedia.org/wiki/Bitwise_operation
+            //http://www.binaryhexconverter.com/decimal-to-binary-converter
+            //http://stackoverflow.com/questions/7331686/why-and-not
+            Console.WriteLine("this is an example of bitwise comparison - the single '&' or the single '|' operator - this is why you have to use '&&'  '||', because it means something different");
+            Console.WriteLine("V for Villanova and, also: {0}", 1 & 2);
+            Console.WriteLine("V for Victory, also: {0}", 2 & 2);
+            Console.WriteLine("B for Blue, also: {0}", 3 & 2);
+            Console.WriteLine("W for White, also: {0}", 1 & 1);
+            Console.WriteLine("The Blue and the White, and also: {0}", 1 & 0);
+            Console.WriteLine("We will fight fight fight fight, and also: {0}", 0 & 1);
+            Console.WriteLine("Fight for Villanova, and also: {0}", 0 & 0);
+            Console.WriteLine("Fight for Victory, and also: {0}", 123 & 321);
+            Console.WriteLine("da da da da da da and also {0}", 10 & 11);
+            Console.ReadKey();
+        }
     }
 }

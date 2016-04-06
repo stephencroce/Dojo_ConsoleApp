@@ -57,7 +57,6 @@ namespace ConsoleTestHackingAround.StupidAss
         }
         public static void Main(string[] args)
         {
-
             //This is where we'll create an instance of our service and tell it to run.
             ServiceBase.Run(new Program());
 
@@ -108,12 +107,8 @@ namespace ConsoleTestHackingAround.StupidAss
                 //int i = 0;
                 //Console.WriteLine("{0}", i);
                 //----------------------------------------------------------------------------------------
-
-
-
-
-            }
-
+                
+            }            
         }
         private static void OnTimedEvent(Object source, ElapsedEventArgs e)
         {

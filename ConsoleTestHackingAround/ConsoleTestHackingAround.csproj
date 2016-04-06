@@ -87,8 +87,8 @@
     <Compile Include="DependencyInjectionExample2\Employee.cs" />
     <Compile Include="DependencyInjectionExample2\ICompany.cs" />
     <Compile Include="DependencyInjectionExample2\IEmployee.cs" />
-    <Compile Include="DependencyInjectionExample3\Company.cs" />
-    <Compile Include="DependencyInjectionExample3\Employee.cs" />
+    <Compile Include="IComparableDemo\DependencyInjectionExample3\Company.cs" />
+    <Compile Include="IComparableDemo\DependencyInjectionExample3\Employee.cs" />
     <Compile Include="Dragster.cs" />
     <Compile Include="Facade\Facade.cs" />
     <Compile Include="Facade\SubSystems\SubSystemFour.cs" />
