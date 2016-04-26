@@ -82,6 +82,9 @@ namespace ConsoleTestHackingAround
                 case "22":
                     DemoManager.RunBitWiseDemo();
                     break;
+                case "23":
+                    DemoManager.RunSMSTextingDemo();
+                    break;
                 case "HELP":
                 case "?":
                     ScreenHelper.Welcome();

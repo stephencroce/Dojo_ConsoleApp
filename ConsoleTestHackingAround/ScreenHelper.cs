@@ -41,6 +41,7 @@ namespace ConsoleTestHackingAround
             Console.WriteLine("20    : Sync/Async Messaging Crap");
             Console.WriteLine("21    : Regex Crap");
             Console.WriteLine("22    : Bitwise Operators and Flags stuff");
+            Console.WriteLine("23    : Send an SMS text programmatically");
             Console.WriteLine("EXIT  : Exit Application");
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("");

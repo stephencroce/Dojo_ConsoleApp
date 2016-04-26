@@ -638,5 +638,11 @@ namespace ConsoleTestHackingAround
             Console.WriteLine("da da da da da da and also {0}", 10 & 11);
             Console.ReadKey();
         }
+        public static void RunSMSTextingDemo()
+        {            
+            Textler textler = new Textler();
+            //textler.SendSMSTextBasic();
+            textler.SendSMSViaTwilio();
+        }
     }
 }
