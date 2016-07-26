@@ -17,6 +17,7 @@ using System.IO;
 using ConsoleTestHackingAround.RESTFulCrap;
 using System.Data;
 using Newtonsoft.Json;
+using ConsoleTestHackingAround.MongoCrap;
 
 namespace ConsoleTestHackingAround
 {
@@ -434,6 +435,35 @@ namespace ConsoleTestHackingAround
             //    //Console.WriteLine("Total RunTime as of last iteration was: ");
 
             //}
+
+
+            //This was one of the stupid puzzles from Dittman Incentive Marketing:
+            Console.WriteLine("To see the first ten numbers of the Fibonacci sequence, press enter....");
+            Console.ReadLine();
+
+            int startNumber = 1;
+            int[] firstTenNubmersOfFibonacciSequece = AlgorithmCrap.Fibonacci.getFirstTenFibonacciSequenceNumbers(startNumber);
+
+            Console.WriteLine(string.Format("Here are first ten numbers of the fibonacci sequence starting at {0}", startNumber));
+
+            foreach (var number in firstTenNubmersOfFibonacciSequece)
+            {
+                Console.WriteLine(number);
+            }
+            
+            //Here is the same Dittman puzzle using recursion:
+            Console.WriteLine("To see the first ten numbers of the Fibonacci sequence utilizing recursion, press enter....");
+            Console.ReadLine();
+            AlgorithmCrap.Fibonacci.getFirstTenFibonacciSequenceNumbersUsingRecursion(startNumber);
+
+
+            //int count = 0;
+            //int total = AlgorithmCrap.Fibonacci.Recursive(5, ref count);
+            //Console.WriteLine(total);
+            //Console.WriteLine(count);
+
+
+
         }
         public static void RunInterfaceDemo()
         {
@@ -583,7 +613,7 @@ namespace ConsoleTestHackingAround
             {
                 RESTFulHTTPHelper.GetDriverCareDocumentList();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine("You tried to talk to the SAP Server at CEI, but it couldn't be done because {0}", ex.Message);
             }
@@ -608,7 +638,7 @@ namespace ConsoleTestHackingAround
             Console.WriteLine("\n now, this will simulate a long running process such as the stupid thing referenced above, but using ASYNC.  OK???");
             Console.ReadKey();
             Console.WriteLine("\n Start Async!");
-            Console.WriteLine(ConsoleTestHackingAround.AsyncMessaging.AsyncCrap.LogReadAsync(filePath));            
+            Console.WriteLine(ConsoleTestHackingAround.AsyncMessaging.AsyncCrap.LogReadAsync(filePath));
             Console.WriteLine("\n Done Async!");
             //RunLoopingDemo();      
             //Console.ReadKey();
@@ -639,10 +669,14 @@ namespace ConsoleTestHackingAround
             Console.ReadKey();
         }
         public static void RunSMSTextingDemo()
-        {            
+        {
             Textler textler = new Textler();
             //textler.SendSMSTextBasic();
             textler.SendSMSViaTwilio();
+        }
+        public static void RunMONGODemo()
+        {
+            MongoUtility.SeedOrUnseed();
         }
     }
 }

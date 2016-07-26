@@ -42,6 +42,7 @@ namespace ConsoleTestHackingAround
             Console.WriteLine("21    : Regex Crap");
             Console.WriteLine("22    : Bitwise Operators and Flags stuff");
             Console.WriteLine("23    : Send an SMS text programmatically");
+            Console.WriteLine("24    : MONGO DB Crap");
             Console.WriteLine("EXIT  : Exit Application");
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("");
