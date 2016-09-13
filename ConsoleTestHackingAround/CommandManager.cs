@@ -88,6 +88,12 @@ namespace ConsoleTestHackingAround
                 case "24":
                     DemoManager.RunMONGODemo();
                     break;
+                case "25":
+                    DemoManager.RunSTOCKSDemo();
+                    break;
+                case "26":
+                    DemoManager.RunFileNameCompareDemo();
+                    break;
                 case "HELP":
                 case "?":
                     ScreenHelper.Welcome();

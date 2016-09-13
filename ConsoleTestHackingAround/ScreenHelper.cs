@@ -43,6 +43,8 @@ namespace ConsoleTestHackingAround
             Console.WriteLine("22    : Bitwise Operators and Flags stuff");
             Console.WriteLine("23    : Send an SMS text programmatically");
             Console.WriteLine("24    : MONGO DB Crap");
+            Console.WriteLine("25    : STOCK Crap from Dittman puzzle");
+            Console.WriteLine("26    : Compare File Names");
             Console.WriteLine("EXIT  : Exit Application");
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("");

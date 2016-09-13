@@ -13,6 +13,26 @@ namespace ConsoleTestHackingAround.RESTFulCrap
 {
     public static class RESTFulHTTPHelper
     {
+        public static string GetHTML(string theURL)
+        {
+            string someHtml = null;
+
+            // *** Establish the request &INTERNAL=Y added to querystring so WebComm knows it's an application request and not a client navigation
+            System.Net.HttpWebRequest objHttp = (System.Net.HttpWebRequest)System.Net.WebRequest.Create(theURL);
+            objHttp.Timeout = 100000; // timeout 100 sec
+
+            // *** Retrieve request info headers
+            System.Net.HttpWebResponse oWebResponse = (System.Net.HttpWebResponse)objHttp.GetResponse();
+            System.Text.Encoding enc = System.Text.Encoding.GetEncoding(1252);
+
+            System.IO.StreamReader oResponseStream = new System.IO.StreamReader(oWebResponse.GetResponseStream(), enc);
+            someHtml = oResponseStream.ReadToEnd();   //get html as string
+
+            oWebResponse.Close();
+            oResponseStream.Close();
+
+            return someHtml;
+        }
         public static void MakeBasicHttpRequest(string strUrl)
         {
             //ever wonder - can you make an http request from a console app? HELL YES!!!! here's how you can do it:

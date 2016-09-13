@@ -42,4 +42,3 @@ C:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\Twilio.Api.pd
 C:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\bin\Debug\Twilio.Api.xml
 C:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\obj\Debug\ConsoleTestHackingAround.exe
 C:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\obj\Debug\ConsoleTestHackingAround.pdb
-C:\git\ConsoleTestHackingAround\ConsoleTestHackingAround\obj\Debug\ConsoleTestHackingAround.csprojResolveAssemblyReference.cache

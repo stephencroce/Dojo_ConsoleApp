@@ -18,6 +18,7 @@ using ConsoleTestHackingAround.RESTFulCrap;
 using System.Data;
 using Newtonsoft.Json;
 using ConsoleTestHackingAround.MongoCrap;
+using System.IO;
 
 namespace ConsoleTestHackingAround
 {
@@ -450,7 +451,7 @@ namespace ConsoleTestHackingAround
             {
                 Console.WriteLine(number);
             }
-            
+
             //Here is the same Dittman puzzle using recursion:
             Console.WriteLine("To see the first ten numbers of the Fibonacci sequence utilizing recursion, press enter....");
             Console.ReadLine();
@@ -587,6 +588,8 @@ namespace ConsoleTestHackingAround
         public static void RunRESTfulCrapDemo()
         {
             //One Way:
+            Console.WriteLine("talk to the raritan pointe website");
+            Console.ReadKey();
             try
             {
                 string strUrl = "http://www.raritanpointe.org";
@@ -597,6 +600,10 @@ namespace ConsoleTestHackingAround
             {
                 Console.WriteLine("Something went wrong.  Message was {0}", ex.Message);
             }
+            Console.WriteLine("press enter to continue....");
+            Console.ReadKey();
+            Console.WriteLine("do the same thing via a different set of mechanics - talk to 'del.icio.us' where i posted as ZanaizbarBukBukMcFate...");
+            Console.ReadKey();
             //Another Way:
             try
             {
@@ -616,6 +623,20 @@ namespace ConsoleTestHackingAround
             catch (Exception ex)
             {
                 Console.WriteLine("You tried to talk to the SAP Server at CEI, but it couldn't be done because {0}", ex.Message);
+            }
+            Console.WriteLine("press enter to continue....");
+            Console.ReadKey();
+            Console.WriteLine("enter a valid url to some website:  This uses the GetHtml() method from CEI shared, which I think is just a restful request similar to all the other crap here.");
+            String websiteUrl = Console.ReadLine();
+            try
+            {
+                Console.WriteLine("Press enter to get the html from the page you requested....");
+                Console.ReadKey();
+                Console.Write(RESTFulCrap.RESTFulHTTPHelper.GetHTML(websiteUrl));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("You tried to talk to {0}, but it couldn't be done because {1}", websiteUrl, ex.Message);
             }
         }
         public static void RunLoopingDemo()
@@ -677,6 +698,99 @@ namespace ConsoleTestHackingAround
         public static void RunMONGODemo()
         {
             MongoUtility.SeedOrUnseed();
+        }
+        public static void RunSTOCKSDemo()
+        {
+            //sources consulted:
+            //http://stackoverflow.com/questions/3653970/minimum-value-in-dictionary-using-linq
+            //http://stackoverflow.com/questions/3066182/convert-an-iorderedenumerablekeyvaluepairstring-int-into-a-dictionarystrin
+            //http://stackoverflow.com/questions/2807461/c-sort-dictionary-in-descending-order
+
+            Console.WriteLine("Wanna see when you should have bought Google?  ");
+            Console.ReadKey();
+
+            Stock googleStockDictionary = new Stock();
+
+            var lowKey = googleStockDictionary.StockData.OrderBy(kvp => int.Parse(kvp.Value)).First().Key;
+            var lowVal = googleStockDictionary.StockData.OrderBy(kvp => int.Parse(kvp.Value)).First().Value;
+
+            var hiKey = googleStockDictionary.StockData.OrderByDescending(kvp => int.Parse(kvp.Value)).First().Key;
+            var hiVal = googleStockDictionary.StockData.OrderByDescending(kvp => int.Parse(kvp.Value)).First().Value;
+
+            Console.WriteLine(string.Format("If you were smart, you would have bought google stock at time interval {0} for ${1} and sold it at time interval {2} for ${3}.", lowKey, lowVal, hiKey, hiVal));
+        }
+        public static void RunFileNameCompareDemo()
+        {
+
+            //this is a program written for CEI to compare file names in two separate directories, separating out which ones aren't in the other one.
+            string htmlNamePath = "C:\\Compare\\html";
+            string pdfNamePath = "C:\\Compare\\pdf";
+            string filePath = "C:\\Compare\\final.txt";
+
+            List<string> missingPdfClaimIdList = new List<string>();
+
+            string[] htmlPaths = Directory.GetFiles(htmlNamePath);
+            string[] pdfPaths = Directory.GetFiles(pdfNamePath);
+
+            List<string> htmlFileClaimIdList = new List<string>();
+            List<string> pdfFileClaimIdList = new List<string>();
+
+            int countOfTheMissing = 0;
+
+
+            for (int h = 0; h <= htmlPaths.Length - 1; h++)
+            {
+                htmlFileClaimIdList.Add(Path.GetFileNameWithoutExtension(htmlPaths[h]).Substring((Path.GetFileNameWithoutExtension(htmlPaths[h]).IndexOf("_") + 1), 7));
+            }
+            for (int p = 0; p <= pdfPaths.Length - 1; p++)
+            {
+                pdfFileClaimIdList.Add(Path.GetFileNameWithoutExtension(pdfPaths[p]).Substring((Path.GetFileNameWithoutExtension(pdfPaths[p]).IndexOf("_") + 1), 7));
+            }
+
+            foreach (string htmlFileClaimId in htmlFileClaimIdList)
+            {
+                if (!pdfFileClaimIdList.Contains(htmlFileClaimId))
+                {
+                    missingPdfClaimIdList.Add(htmlFileClaimId);
+                    countOfTheMissing++;
+                }
+
+            }
+            Console.WriteLine(string.Format("Here are the {0} missing claimids:", countOfTheMissing));
+
+            //wait a sec..
+            Console.ReadKey();
+
+            //now write to screen:
+            foreach (string missingClaimId in missingPdfClaimIdList)
+            {
+                Console.WriteLine(missingClaimId);
+            }
+
+            //write to file
+            File.WriteAllLines(filePath, missingPdfClaimIdList);
+
+
+            //routine that separates out the missing ones:
+            foreach (string htmlPath in htmlPaths)
+            {
+                foreach (string missingClaimId in missingPdfClaimIdList)
+                {
+                    if (htmlPath.Contains(missingClaimId))
+                    {                 
+                        try
+                        {
+                            File.Copy(htmlPath, htmlPath.Replace("Compare\\html", "Compare2\\missing"));
+                        }
+                        catch (Exception ex)
+                        { }
+                        finally
+                        { }
+
+                    }
+                }
+            }
+
         }
     }
 }

@@ -140,6 +140,7 @@
     <Compile Include="RegexCrap\RegexCrap.cs" />
     <Compile Include="RESTFulCrap\RESTFulHTTPHelper.cs" />
     <Compile Include="ScreenHelper.cs" />
+    <Compile Include="Stock.cs" />
     <Compile Include="Textler.cs" />
     <Compile Include="TitleCase.cs" />
     <Compile Include="TracingCrap\MyTraceSource.cs" />
