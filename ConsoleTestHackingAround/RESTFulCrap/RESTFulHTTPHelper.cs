@@ -154,5 +154,29 @@ namespace ConsoleTestHackingAround.RESTFulCrap
 
 
         }
+        public static void QueueTFSBuild()
+        {
+            //Simple example of how it is possible to use the restful API in TFS2015 to queue a build by id number, at CEI inc.
+            //https://www.visualstudio.com/en-us/docs/integrate/api/build/builds
+            //uses nothing but standard http calls.
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(@"http://ntsvrtfs:8080/tfs/DefaultCollection/Claimslink/_apis/build/builds?api-version=2.0");
+            httpWebRequest.Method = "POST";
+            httpWebRequest.ContentType = "application/json";
+            httpWebRequest.Headers["Authorization"] = "Basic " + Convert.ToBase64String(Encoding.Default.GetBytes("SteveCro:CEINetwork2017~"));
+
+            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+            {
+                string json = "{\"definition\":{\"id\":56}}";
+                streamWriter.Write(json);
+                streamWriter.Flush();
+                streamWriter.Close();
+            }
+            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            {
+                var result = streamReader.ReadToEnd();
+                Console.WriteLine(result);
+            }
+        }
     }
 }

@@ -588,7 +588,7 @@ namespace ConsoleTestHackingAround
         public static void RunRESTfulCrapDemo()
         {
             //One Way:
-            Console.WriteLine("talk to the raritan pointe website");
+            Console.WriteLine("First example:  talk to the raritan pointe website");
             Console.ReadKey();
             try
             {
@@ -600,7 +600,7 @@ namespace ConsoleTestHackingAround
             {
                 Console.WriteLine("Something went wrong.  Message was {0}", ex.Message);
             }
-            Console.WriteLine("press enter to continue....");
+            Console.WriteLine("press enter to continue to the next example....");
             Console.ReadKey();
             Console.WriteLine("do the same thing via a different set of mechanics - talk to 'del.icio.us' where i posted as ZanaizbarBukBukMcFate...");
             Console.ReadKey();
@@ -624,7 +624,7 @@ namespace ConsoleTestHackingAround
             {
                 Console.WriteLine("You tried to talk to the SAP Server at CEI, but it couldn't be done because {0}", ex.Message);
             }
-            Console.WriteLine("press enter to continue....");
+            Console.WriteLine("press enter to continue to the next example....");
             Console.ReadKey();
             Console.WriteLine("enter a valid url to some website:  This uses the GetHtml() method from CEI shared, which I think is just a restful request similar to all the other crap here.");
             String websiteUrl = Console.ReadLine();
@@ -638,6 +638,21 @@ namespace ConsoleTestHackingAround
             {
                 Console.WriteLine("You tried to talk to {0}, but it couldn't be done because {1}", websiteUrl, ex.Message);
             }
+            Console.WriteLine("press enter to continue to the next example....");
+            Console.ReadKey();
+            Console.WriteLine("Press enter to queue a build on CEI's TFS 2015 server using TFS2015's restful api:");
+            Console.ReadKey();
+            try
+            {
+                RESTFulCrap.RESTFulHTTPHelper.QueueTFSBuild();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Something blew up when trying to talk to TFS.  Sorry.  {0}", ex.Message);
+            }
+            Console.ReadKey();
+            Console.WriteLine("End of RESTful Crap Demo");
+            Console.ReadKey();
         }
         public static void RunLoopingDemo()
         {
