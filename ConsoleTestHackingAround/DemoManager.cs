@@ -792,7 +792,7 @@ namespace ConsoleTestHackingAround
                 foreach (string missingClaimId in missingPdfClaimIdList)
                 {
                     if (htmlPath.Contains(missingClaimId))
-                    {                 
+                    {
                         try
                         {
                             File.Copy(htmlPath, htmlPath.Replace("Compare\\html", "Compare2\\missing"));
@@ -807,78 +807,39 @@ namespace ConsoleTestHackingAround
             }
 
         }
-        public static int totalScore(string[] blocks, int n)
-        {
-            int score = 0;
-            int totalScore = 0;
-            int[] scoreArray = new int[n];
-            int parsedValue;
-          
-
-            for (int i = 0; i < n; i++)
-            {                              
-                if (int.TryParse(blocks[i], out parsedValue))
-                {
-                    //if a throw his a block marked with an integer, that throw is value of the integer
-                    score = parsedValue;
-                    //scoreArray[i] = parsedValue; 
-                }
-                else
-                {
-                    //if throw hits a block marked with x, the score is double the last score
-                    if(blocks[i].ToLower() =="x")
-                    {
-                        if (i >= 1)
-                        {
-                            score = scoreArray[i - 1] * 2;
-                        }
-                    }
-                    //if throw hits block marked with +,  score is sum of last two scores
-                    if (blocks[i] == "+")
-                    {
-                        if (i >= 2)
-                        {
-                            score = scoreArray[i-1] + scoreArray[i-2];
-                        }
-                    }
-                    //if throw hits block marked with z, the last score is removed and subsequent throws ignore it
-                    if (blocks[i].ToLower() == "z")
-                    {
-                        if (i >= 1)
-                        {
-                            var scoreArrayList = new List<int>(scoreArray);
-                            scoreArrayList.RemoveAt(i-1);
-                            scoreArray= scoreArrayList.ToArray();
-                        }
-                    }
-                }
-                scoreArray[i] = score;
-            }
-            //after it's all done, calculate final score by looping through calculated score array:
-            for (int s = 0; s < scoreArray.Length; s++)
-            {
-                totalScore = totalScore + scoreArray[s];
-            }
-            return totalScore;
-
-        }
         public static void RunAmazonCrap()
         {
-            Console.WriteLine("Amazon Crap Begin");
             //Amazon test id taken 5/10/2017 was 23280666931046
             //https://takeamcat2.aspiringminds.com/testCenter.php?mode=f
-            //consider edge cases - handle large inputs effectively
+            //consider edge cases - handle large inputs effectively    
 
-            //test cases
-            string[] blocks = new string[] { "5", "-2", "4", "z", "x", "9", "+", "+" };
-            int n = 8;
+            Console.WriteLine("Amazon Crap Begin");
+            Console.WriteLine("Bohmmm Bohmmmmm.....");       
+
+            //test cases  
+            var amazonTestCaseList = new List<AlgorithmCrap.AlgorithmCrap.AmazonTestCase>();
+            int counter = 1;
+
+            AlgorithmCrap.AlgorithmCrap.AmazonTestCase atc1 = new AlgorithmCrap.AlgorithmCrap.AmazonTestCase();
+            atc1.blockArray = new string[] { "5", "-2", "4", "z", "x", "9", "+", "+" };
+            atc1.n = 8;
+            amazonTestCaseList.Add(atc1);
             //output should be 27
 
-            //string[] blocks = new string[] { "1", "2", "+", "Z" };
-            //int n = 4
+            AlgorithmCrap.AlgorithmCrap.AmazonTestCase atc2 = new AlgorithmCrap.AlgorithmCrap.AmazonTestCase();
+            atc2.blockArray = new string[] { "1", "2", "+", "Z" };
+            atc2.n = 4;
+            amazonTestCaseList.Add(atc2);
             //output should be 3
 
-            Console.WriteLine("the score is" + totalScore(blocks, n));
+            foreach (var amazonTestCase in amazonTestCaseList)
+            {
+                //Console.WriteLine("the score is" + AlgorithmCrap.AlgorithmCrap.AmazonTotalScore(blocks, n));
+                Console.WriteLine("the score for test case #{0} is " + AlgorithmCrap.AlgorithmCrap.AmazonTotalScore(amazonTestCase.blockArray, amazonTestCase.n), counter);
+                counter++;
+            }
+
+            Console.WriteLine("Chick-ah chick ahhhhhhhhhhhhhhhhhh");
 
             Console.WriteLine("Amazon Crap End");
 
