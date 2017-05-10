@@ -43,7 +43,10 @@ namespace ConsoleTestHackingAround.DependencyInjectionExample1
             //projects that depend on it?
             //A:  when not automated in any way, you have to manually copy and paste the newly compiled dll into the bin-debug folder.
             //    one way to automate it might be through a Post Build event, Project > Properties
-            Console.WriteLine("this was divided using a returned interface:  " + stupidMathInstance.MultiplyTwoStupidIntegers(6, 6).ToString()); 
+            Console.WriteLine("this was divided using a returned interface:  " + stupidMathInstance.MultiplyTwoStupidIntegers(6, 6).ToString());
+            //stupidMathInstance.Puke();  //why doesn't it know Puke()?  it won't unless the dll produced in the ClassLibraryHack after compile is somehow injected as a reference into this project.
+
+            
            
         }
         //Factory Pattern!!!

@@ -117,7 +117,7 @@ namespace ConsoleTestHackingAround.StupidAss
         }
         protected override void OnStart(string[] args)
         {
-            //System.Threading.Thread.Sleep(10000);
+            System.Threading.Thread.Sleep(10000);
             //Windows svc start code:
             System.Diagnostics.Debugger.Launch();  
  

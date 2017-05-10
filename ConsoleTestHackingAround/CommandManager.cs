@@ -94,6 +94,9 @@ namespace ConsoleTestHackingAround
                 case "26":
                     DemoManager.RunFileNameCompareDemo();
                     break;
+                case "27":
+                    DemoManager.RunAmazonCrap();
+                    break;
                 case "HELP":
                 case "?":
                     ScreenHelper.Welcome();
