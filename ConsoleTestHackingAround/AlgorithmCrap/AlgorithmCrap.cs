@@ -131,6 +131,7 @@ namespace ConsoleTestHackingAround.AlgorithmCrap
         }
         public static void QuoraPuzzler()
         {
+            //TODO: sometime when you've got nothing else to do, try this:
             //Problem statement: “Define Zeroes(N) as the number of zeroes in the decimal expansion of the integer N.A number N is ZeroSpecial if Zeroes(N) > Zeroes(N - 1).
             //Write a function that determines whether N is ZeroSpecial.”
             //https://www.quora.com/How-do-folks-interview-senior-software-engineers
