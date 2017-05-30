@@ -97,6 +97,9 @@ namespace ConsoleTestHackingAround
                 case "27":
                     DemoManager.RunAmazonCrap();
                     break;
+                case "28":
+                    DemoManager.RunQuoraPuzzler();
+                    break;
                 case "HELP":
                 case "?":
                     ScreenHelper.Welcome();

@@ -131,11 +131,50 @@ namespace ConsoleTestHackingAround.AlgorithmCrap
         }
         public static void QuoraPuzzler()
         {
+            //QuroaPuzzler
             //TODO: sometime when you've got nothing else to do, try this:
-            //Problem statement: “Define Zeroes(N) as the number of zeroes in the decimal expansion of the integer N.A number N is ZeroSpecial if Zeroes(N) > Zeroes(N - 1).
+            //Problem statement: “Define Zeroes(N) as the number of zeroes in the decimal expansion of the integer N.
+            //A number N is ZeroSpecial if Zeroes(N) > Zeroes(N - 1).
             //Write a function that determines whether N is ZeroSpecial.”
             //https://www.quora.com/How-do-folks-interview-senior-software-engineers
+            Console.WriteLine("Enter a number and I'll tell you if it is what I deem to be 'ZeroSpecial'");
+            int numToCheck = int.Parse(Console.ReadLine());
+            if(isZeroSpecial(numToCheck))
+            {
+                Console.WriteLine("Yep..... {0} is 'ZeroSpecial', babycakes.", numToCheck);                
+            }
+            else
+            {
+                Console.WriteLine("Nope. {0} ain't what I call a 'ZeroSpecial' number", numToCheck);
+            }
+            Console.WriteLine("That was a dumb excercise.  More evidence that Quora.com might be wack.");
+        }
+        public static bool isZeroSpecial(int n)
+        {
+            int nMinusOne = n - 1;
+            bool isZeroSpecial = false;
+            
+            //A number N is ZeroSpecial if Zeroes(N) > Zeroes(N - 1), soooooo....
+            if(Zeros(n) > Zeros(nMinusOne))
+            {
+                isZeroSpecial = true;
+            }
 
+            return isZeroSpecial;
+        }
+        public static int Zeros(int n)
+        {
+            int zeroCount=0;
+
+            char[] nCharArray = n.ToString().ToArray();
+            foreach(Char myChar in nCharArray)
+            {
+                if(myChar=='0')
+                {
+                    zeroCount++;
+                }
+            }
+            return zeroCount; 
         }
 
     }

@@ -46,6 +46,7 @@ namespace ConsoleTestHackingAround
             Console.WriteLine("25    : STOCK Crap from Dittman puzzle");
             Console.WriteLine("26    : Compare File Names");
             Console.WriteLine("27    : Amazon Crap");
+            Console.WriteLine("28    : Quora Puzzler");
             Console.WriteLine("EXIT  : Exit Application");
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("");

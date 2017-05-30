@@ -844,5 +844,9 @@ namespace ConsoleTestHackingAround
             Console.WriteLine("Amazon Crap End");
 
         }
+        public static void RunQuoraPuzzler()
+        {
+            AlgorithmCrap.AlgorithmCrap.QuoraPuzzler();
+        }
     }
 }
