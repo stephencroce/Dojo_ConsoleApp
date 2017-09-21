@@ -353,7 +353,7 @@ namespace ConsoleTestHackingAround
             Doorbell doorbell = new Doorbell();
             doorbell.PressRinger();
 
-            Console.WriteLine("Would you like to see another Delegate example? (y/n)");
+            Console.WriteLine("Would you like to see a Delegate example that does crap with upper, lower and title cases? (y/n)");
             string answer = Console.ReadLine();
             if (answer.ToLower() == "y")
             {
@@ -379,7 +379,22 @@ namespace ConsoleTestHackingAround
             }
             else
             {
-                Console.WriteLine("OK.....jackass....");
+                Console.WriteLine("OK then....Would you like to see a FUNC example? (y/n)");
+                answer = Console.ReadLine();
+                if (answer.ToLower() == "y")
+                {
+                    Console.WriteLine("enter a first name...");
+                    string fn = Console.ReadLine();
+                    Console.WriteLine("enter a last name...");
+                    string ln = Console.ReadLine();
+
+                    ConsoleTestHackingAround.Delegates.DaFunc.DaFunc BringDaFunk = new Delegates.DaFunc.DaFunc();
+                    Console.WriteLine(BringDaFunk.DoDaFunk(fn,ln));
+
+                    return;
+                }
+
+                    Console.WriteLine("OK.....jackass....");
             }
 
 

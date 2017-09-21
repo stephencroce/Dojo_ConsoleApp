@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ConsoleTestHackingAround</RootNamespace>
     <AssemblyName>ConsoleTestHackingAround</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -95,6 +96,7 @@
     <Compile Include="CustomConfigSections\MyCustomConfigHandler.cs" />
     <Compile Include="CustomConfigSections\ServiceConfigurationSection.cs" />
     <Compile Include="CustomConfigSections\TunnelSection.cs" />
+    <Compile Include="Delegates\DaFunc\DaFunc.cs" />
     <Compile Include="Delegates\Demo1\Dog.cs" />
     <Compile Include="Delegates\Demo1\Doorbell.cs" />
     <Compile Include="Delegates\Demo1\Person.cs" />
