@@ -47,6 +47,7 @@ namespace ConsoleTestHackingAround
             Console.WriteLine("26    : Compare File Names");
             Console.WriteLine("27    : Amazon Crap");
             Console.WriteLine("28    : Quora Puzzler");
+            Console.WriteLine("29    : LeetCode Algorithm Shit");
             Console.WriteLine("EXIT  : Exit Application");
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("");

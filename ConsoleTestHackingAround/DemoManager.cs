@@ -863,5 +863,9 @@ namespace ConsoleTestHackingAround
         {
             AlgorithmCrap.AlgorithmCrap.QuoraPuzzler();
         }
+        public static void RunLeetCodeShit()
+        {
+            AlgorithmCrap.LeetCode.BinaryTree.DoLeetCodeBinaryTreeCrap();             
+        }
     }
 }

@@ -176,6 +176,5 @@ namespace ConsoleTestHackingAround.AlgorithmCrap
             }
             return zeroCount; 
         }
-
     }
 }
