@@ -8,7 +8,9 @@ namespace ConsoleTestHackingAround.AlgorithmCrap.LeetCode
 {
     public static class BinaryTree
     {
+        public static TreeNode theTree = null;
         public static TreeNode theTempTree = null;
+
         public static void WhatDoesThisCodeDo()
         {
             //Console.WriteLine("Press key to begin...");
@@ -86,7 +88,7 @@ namespace ConsoleTestHackingAround.AlgorithmCrap.LeetCode
             }
 
             //allocate a default TreeNode to return:
-            TreeNode theTree = null;
+            theTree = null;
 
             //first, fill the tree with data from the array:
             theTree = FillBinaryTree(integerArray);
@@ -98,8 +100,7 @@ namespace ConsoleTestHackingAround.AlgorithmCrap.LeetCode
         }
         public static TreeNode FillBinaryTree(int[] integerArray)
         {
-            TreeNode theTree = null;
-            
+                       
             //TreeNode currentNode = null;
 
             //see - fucking crap like this is confusing....how the hell do you handle it?
@@ -124,8 +125,7 @@ namespace ConsoleTestHackingAround.AlgorithmCrap.LeetCode
         }
         public static void AddSubNode(TreeNode theTree, TreeNode newNode)
         {
-            // this is the fucking part that crosses up my fucking brain!!!!!!!!!!          
-
+            // this is the fucking part that crosses up my fucking brain!!!!!!!!!!   
             if (newNode.val < theTree.val)
             {
                 if (theTree.left == null)
@@ -134,14 +134,11 @@ namespace ConsoleTestHackingAround.AlgorithmCrap.LeetCode
                 }
                 else 
                 {
-                    if (theTempTree == null)
-                    {
                         theTempTree = theTree;
                         TreeNode currentNode;
                         currentNode = theTempTree.left;
                         //this call obliterates theTree in memory, so it won't work right....                        
-                        AddSubNode(currentNode, newNode);
-                    }
+                        AddSubNode(currentNode, newNode);               
                 }
             }
             else
@@ -152,7 +149,11 @@ namespace ConsoleTestHackingAround.AlgorithmCrap.LeetCode
                 }
                 else 
                 {
-                   
+                    theTempTree = theTree;
+                    TreeNode currentNode;
+                    currentNode = theTempTree.right;
+                    //this call obliterates theTree in memory, so it won't work right....                        
+                    AddSubNode(currentNode, newNode);
                 }
 
             }
