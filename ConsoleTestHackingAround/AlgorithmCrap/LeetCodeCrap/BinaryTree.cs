@@ -8,6 +8,7 @@ namespace ConsoleTestHackingAround.AlgorithmCrap.LeetCode
 {
     public static class BinaryTree
     {
+        public static TreeNode theTempTree = null;
         public static void WhatDoesThisCodeDo()
         {
             //Console.WriteLine("Press key to begin...");
@@ -72,7 +73,7 @@ namespace ConsoleTestHackingAround.AlgorithmCrap.LeetCode
             //WhatDoesThisCodeDo(); 
 
             //first, you need to create a binary tree from the given array.  You do that in this case be creating a nullable array like so:
-                                   
+
             int[] integerArray = new int[] { 12, 3, 9, 8, 20, 24, 18 };
             //TODO: try these if you ever figure out the first example...
             //int?[] values = new int?[] { 1, null, 2, 3 };
@@ -97,7 +98,8 @@ namespace ConsoleTestHackingAround.AlgorithmCrap.LeetCode
         }
         public static TreeNode FillBinaryTree(int[] integerArray)
         {
-            TreeNode theTree = null;        
+            TreeNode theTree = null;
+            
             //TreeNode currentNode = null;
 
             //see - fucking crap like this is confusing....how the hell do you handle it?
@@ -110,32 +112,50 @@ namespace ConsoleTestHackingAround.AlgorithmCrap.LeetCode
                 //special or base case
                 if (theTree == null) //first node insertion. 
                 {
-                    theTree = new TreeNode(integerArray[i]);                    
+                    theTree = new TreeNode(integerArray[i]);
                 }
                 else
                 {
                     AddSubNode(theTree, new TreeNode(integerArray[i]));
                 }
             }
-            Console.WriteLine("Tree Created!");            
+            Console.WriteLine("Tree Created!");
             return theTree;
         }
         public static void AddSubNode(TreeNode theTree, TreeNode newNode)
         {
-            // this is the fucking part that crosses up my fucking brain!!!!!!!!!!
-            //if (the < theTree.val)
-            //{
-            //    TreeNode newNode = new TreeNode(integerArray[i]);
-            //    if (theTree.left==null)
-            //    {   
-            //        theTree.left = newNode;
-            //    }
-            //    else if(theTree.right==null)
-            //    {
-            //        theTree.right = newNode; 
-            //    }                        
-            //} 
+            // this is the fucking part that crosses up my fucking brain!!!!!!!!!!          
 
+            if (newNode.val < theTree.val)
+            {
+                if (theTree.left == null)
+                {
+                    theTree.left = newNode;
+                }
+                else 
+                {
+                    if (theTempTree == null)
+                    {
+                        theTempTree = theTree;
+                        TreeNode currentNode;
+                        currentNode = theTempTree.left;
+                        //this call obliterates theTree in memory, so it won't work right....                        
+                        AddSubNode(currentNode, newNode);
+                    }
+                }
+            }
+            else
+            {
+                if (theTree.right == null)
+                {
+                    theTree.right = newNode;
+                }
+                else 
+                {
+                   
+                }
+
+            }
         }
         public static void WritePreOrderTraversal(TreeNode theFilledTree)
         {
