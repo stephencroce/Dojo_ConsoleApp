@@ -10,6 +10,8 @@ namespace ConsoleTestHackingAround.AlgorithmCrap.LeetCode
     {
         public static TreeNode theTree = null;
         public static TreeNode theTempTree = null;
+        public static TreeNode theOriginalFilledTree = null;
+        public static List<int> PreOrderedList = new List<int>();
 
         public static void WhatDoesThisCodeDo()
         {
@@ -36,7 +38,7 @@ namespace ConsoleTestHackingAround.AlgorithmCrap.LeetCode
 
         }
         /// <summary>
-        ///             //Assignment:
+        //Assignment:
         //Given a binary tree, return the preorder traversal of its nodes' values.
         //For example:
         //Given binary tree[1, null, 2, 3], visualized as below:
@@ -92,18 +94,17 @@ namespace ConsoleTestHackingAround.AlgorithmCrap.LeetCode
 
             //first, fill the tree with data from the array:
             theTree = FillBinaryTree(integerArray);
+            theOriginalFilledTree = theTree; 
 
             //once that's done, then you can write out a traversal of your choice:
-            WritePreOrderTraversal(theTree);
+            EnumeratePreOrder(theTree);
 
             //The End.            
         }
         public static TreeNode FillBinaryTree(int[] integerArray)
         {
-                       
-            //TreeNode currentNode = null;
-
-            //see - fucking crap like this is confusing....how the hell do you handle it?
+            //Q: see - fucking crap like this is confusing....how the hell do you handle it?
+            //A: static variables - https://en.wikipedia.org/wiki/Static_variable
             //theRootTreeNode.left.left.left.left
             //theRootTreeNode.right.left.right.left
             //theRootTreeNode.right.right.right.right.right.left.val 
@@ -126,6 +127,7 @@ namespace ConsoleTestHackingAround.AlgorithmCrap.LeetCode
         public static void AddSubNode(TreeNode theTree, TreeNode newNode)
         {
             // this is the fucking part that crosses up my fucking brain!!!!!!!!!!   
+            //oh stop it.  it's just recursion.  Don't be a freaking nutcase.
             if (newNode.val < theTree.val)
             {
                 if (theTree.left == null)
@@ -155,16 +157,89 @@ namespace ConsoleTestHackingAround.AlgorithmCrap.LeetCode
                     //this call obliterates theTree in memory, so it won't work right....                        
                     AddSubNode(currentNode, newNode);
                 }
-
             }
         }
-        public static void WritePreOrderTraversal(TreeNode theFilledTree)
+        public static void EnumeratePreOrder(TreeNode theFilledTree)
         {
             Console.WriteLine("here is your Pre-Order...");
+            int[] PreOrderedArray = DoPreOrder(theFilledTree);
+            Console.Write("[");
+            foreach(int i in PreOrderedArray)
+            {
+                Console.Write(string.Format("{0}, ",i));
+            }
+            Console.Write("]");
+            //Ta DAAAA
         }
+        /// <summary>
+        //Pseudocode - looks like its recursive again.
+        //preorder(node)
+        //if node==null then return
+        //visit(node)
+        //preorder(node.left)
+        //preorder(node.right)
+        /// </summary>
+        /// <param name="theTree"></param>
+        /// <returns></returns>
+        public static int[] DoPreOrder(TreeNode theTree)
+        {
+            //ok this is the answer, but why the fuk does it work?
+            if(theTree!=null)
+            {
+                PreOrderedList.Add(theTree.val);
+                DoPreOrder(theTree.left);
+                DoPreOrder(theTree.right);
+            }
+            
+            #region NOPE
+
+            ////Pre-order traversal is to visit the root first. Then traverse the left subtree. Finally, traverse the right subtree.
+            ////so Root, Left, Right...i think for the numbers example, we should end up with 12, 3, 9, 8, 20, 18, 24
+            ////fuck it.  make it easy on yourself.  If you really want, figure out how to do it without generics later....            
+            //TreeNode currentNode;
+
+            ////Base case:
+            ////if (PreOrderedList.Count == 0)
+            ////{
+            //PreOrderedList.Add(theTree.val);
+            ////}
+
+            //if (theTree.left != null)
+            //{
+            //    theTempTree = theTree;
+            //    currentNode = theTempTree.left;
+            //    PreOrderedList.Add(currentNode.val);
+            //    if (currentNode.left != null)
+            //        DoPreOrder(currentNode.left);
+            //    else if (currentNode.right != null)
+            //        DoPreOrder(currentNode.right);
+            //    else
+            //    {
+            //        DoPreOrder(theOriginalFilledTree.right);
+            //    }
+            //}
+            //else if (theTree.right != null)
+            //{
+            //    theTempTree = theTree;
+            //    currentNode = theTempTree.right;
+            //    PreOrderedList.Add(currentNode.val);
+            //    if (currentNode.left != null)
+            //        DoPreOrder(currentNode.left);
+            //    else if (currentNode.right != null)
+            //        DoPreOrder(currentNode.right);
+            //}
+            //else
+            //{
+            //    //something still doesn't work right.  when there are two leaves, it doesn't work.
+            //    DoPreOrder(theTree.right);
+            //} 
+            #endregion
+            return PreOrderedList.ToArray();
+
+        }
+        
         public static void thisIsAlinkedListInCSharp()
         {
-
             //This generic type allows fast inserts and removes. It implements a classic linked list. Each object is separately allocated.
             //In the LinkedList, certain operations do not require the whole collection to be copied. But in many common cases LinkedList hinders performance.
             //Lots of interesting things to be learned about the C#/.NET implementation of it here: https://www.dotnetperls.com/linkedlist
