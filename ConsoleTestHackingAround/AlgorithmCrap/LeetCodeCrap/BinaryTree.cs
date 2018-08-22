@@ -9,8 +9,7 @@ namespace ConsoleTestHackingAround.AlgorithmCrap.LeetCode
     public static class BinaryTree
     {
         public static TreeNode theTree = null;
-        public static TreeNode theTempTree = null;
-        public static TreeNode theOriginalFilledTree = null;
+        public static TreeNode theTempTree = null;        
         public static List<int> PreOrderedList = new List<int>();
 
         public static void WhatDoesThisCodeDo()
@@ -62,7 +61,6 @@ namespace ConsoleTestHackingAround.AlgorithmCrap.LeetCode
         //} 
         /// </summary>
 
-
         //Definition of a binary tree node.
         public class TreeNode
         {
@@ -76,14 +74,16 @@ namespace ConsoleTestHackingAround.AlgorithmCrap.LeetCode
             //just for fun....
             //WhatDoesThisCodeDo(); 
 
-            //first, you need to create a binary tree from the given array.  You do that in this case be creating a nullable array like so:
+            //SETUP :: first, you need to create a binary tree from the given array.  You do that in this case be creating a nullable array like so:
 
             int[] integerArray = new int[] { 12, 3, 9, 8, 20, 24, 18 };
+
             //TODO: try these if you ever figure out the first example...
             //int?[] values = new int?[] { 1, null, 2, 3 };
             //string[] nameArray = new string[] { "Lewis", "Chloe", "Imogen", "Harry", "Tracy", "Xavier", "James", "Rachel" };
 
             Console.WriteLine("here's an enumeration of what's in the original array:");
+
             foreach (int integer in integerArray)
             {
                 Console.WriteLine(integer);
@@ -94,13 +94,12 @@ namespace ConsoleTestHackingAround.AlgorithmCrap.LeetCode
 
             //first, fill the tree with data from the array:
             theTree = FillBinaryTree(integerArray);
-            theOriginalFilledTree = theTree; 
 
             //once that's done, then you can write out a traversal of your choice:
             EnumeratePreOrder(theTree);
 
             //The End.            
-        }
+        }        
         public static TreeNode FillBinaryTree(int[] integerArray)
         {
             //Q: see - fucking crap like this is confusing....how the hell do you handle it?
@@ -161,18 +160,29 @@ namespace ConsoleTestHackingAround.AlgorithmCrap.LeetCode
         }
         public static void EnumeratePreOrder(TreeNode theFilledTree)
         {
-            Console.WriteLine("here is your Pre-Order...");
             int[] PreOrderedArray = DoPreOrder(theFilledTree);
+            int loopCounter = 0;
+            Console.WriteLine("Here is your Pre-Order of the tree...");
+            
             Console.Write("[");
             foreach(int i in PreOrderedArray)
             {
-                Console.Write(string.Format("{0}, ",i));
+                if (loopCounter != PreOrderedArray.Length-1)
+                {
+                    Console.Write(string.Format("{0}, ", i));
+                }
+                else
+                {
+                    Console.Write(string.Format("{0}", i));
+                }
+                loopCounter++;
             }
             Console.Write("]");
+            Console.WriteLine(); 
             //Ta DAAAA
         }
         /// <summary>
-        //Pseudocode - looks like its recursive again.
+        //Pseudocode - recursive
         //preorder(node)
         //if node==null then return
         //visit(node)
@@ -183,19 +193,17 @@ namespace ConsoleTestHackingAround.AlgorithmCrap.LeetCode
         /// <returns></returns>
         public static int[] DoPreOrder(TreeNode theTree)
         {
-            //ok this is the answer, but why the fuk does it work?
-            if(theTree!=null)
-            {
-                PreOrderedList.Add(theTree.val);
-                DoPreOrder(theTree.left);
-                DoPreOrder(theTree.right);
-            }
-            
-            #region NOPE
-
+            //ok all you need is this - it's the "trivial" recursive answer, but why the fuk does it work?
             ////Pre-order traversal is to visit the root first. Then traverse the left subtree. Finally, traverse the right subtree.
             ////so Root, Left, Right...i think for the numbers example, we should end up with 12, 3, 9, 8, 20, 18, 24
-            ////fuck it.  make it easy on yourself.  If you really want, figure out how to do it without generics later....            
+            if (theTree!=null)
+            {
+                PreOrderedList.Add(theTree.val); //aka "visit the node"
+                DoPreOrder(theTree.left);
+                DoPreOrder(theTree.right);
+            }            
+            #region NOPE  ain't workin'...WAYYYY too complicated.....
+              
             //TreeNode currentNode;
 
             ////Base case:
@@ -235,7 +243,6 @@ namespace ConsoleTestHackingAround.AlgorithmCrap.LeetCode
             //} 
             #endregion
             return PreOrderedList.ToArray();
-
         }
         
         public static void thisIsAlinkedListInCSharp()
@@ -262,7 +269,6 @@ namespace ConsoleTestHackingAround.AlgorithmCrap.LeetCode
             {
                 Console.WriteLine(item);
             }
-
         }
     }
 }
