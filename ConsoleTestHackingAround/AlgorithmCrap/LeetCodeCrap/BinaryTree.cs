@@ -10,7 +10,7 @@ namespace ConsoleTestHackingAround.AlgorithmCrap.LeetCode
     {
         public static TreeNode theTree = null;
         public static TreeNode theTempTree = null;        
-        public static List<int> PreOrderedList = new List<int>();
+        public static List<int?> PreOrderedList = new List<int?>();
 
         public static void WhatDoesThisCodeDo()
         {
@@ -64,10 +64,10 @@ namespace ConsoleTestHackingAround.AlgorithmCrap.LeetCode
         //Definition of a binary tree node.
         public class TreeNode
         {
-            public int val;
+            public int? val;
             public TreeNode left;
             public TreeNode right;
-            public TreeNode(int x) { val = x; } //constructor
+            public TreeNode(int? x) { val = x; } //constructor
         }
         public static void DoLeetCodeBinaryTreeCrap()
         {
@@ -76,7 +76,11 @@ namespace ConsoleTestHackingAround.AlgorithmCrap.LeetCode
 
             //SETUP :: first, you need to create a binary tree from the given array.  You do that in this case be creating a nullable array like so:
 
-            int[] integerArray = new int[] { 12, 3, 9, 8, 20, 24, 18 };
+            //int?[] integerArray = new int?[] { 12, 3, 9, 8, 20, 24, 18 };
+            //int?[] integerArray = new int?[] { 1,1 }; //failed case 1 - fixed
+            int?[] integerArray = new int?[] { 10, 5, 15, null, null, 6, 20 }; //failed case 2 - wtf?
+            
+
 
             //TODO: try these if you ever figure out the first example...
             //int?[] values = new int?[] { 1, null, 2, 3 };
@@ -84,7 +88,7 @@ namespace ConsoleTestHackingAround.AlgorithmCrap.LeetCode
 
             Console.WriteLine("here's an enumeration of what's in the original array:");
 
-            foreach (int integer in integerArray)
+            foreach (int? integer in integerArray)
             {
                 Console.WriteLine(integer);
             }
@@ -96,11 +100,18 @@ namespace ConsoleTestHackingAround.AlgorithmCrap.LeetCode
             theTree = FillBinaryTree(integerArray);
 
             //once that's done, then you can write out a traversal of your choice:
-            EnumeratePreOrder(theTree);
+            if (IsValidBST(theTree))
+            {
+                EnumeratePreOrder(theTree);
+            }
+            else
+            {
+                Console.WriteLine("you idiot.  it's not a valid tree"); 
+            }
 
             //The End.            
         }        
-        public static TreeNode FillBinaryTree(int[] integerArray)
+        public static TreeNode FillBinaryTree(int?[] integerArray)
         {
             //Q: see - fucking crap like this is confusing....how the hell do you handle it?
             //A: static variables - https://en.wikipedia.org/wiki/Static_variable
@@ -160,12 +171,12 @@ namespace ConsoleTestHackingAround.AlgorithmCrap.LeetCode
         }
         public static void EnumeratePreOrder(TreeNode theFilledTree)
         {
-            int[] PreOrderedArray = DoPreOrder(theFilledTree);
+            int?[] PreOrderedArray = DoPreOrder(theFilledTree);
             int loopCounter = 0;
             Console.WriteLine("Here is your Pre-Order of the tree...");
             
             Console.Write("[");
-            foreach(int i in PreOrderedArray)
+            foreach(int? i in PreOrderedArray)
             {
                 if (loopCounter != PreOrderedArray.Length-1)
                 {
@@ -191,7 +202,7 @@ namespace ConsoleTestHackingAround.AlgorithmCrap.LeetCode
         /// </summary>
         /// <param name="theTree"></param>
         /// <returns></returns>
-        public static int[] DoPreOrder(TreeNode theTree)
+        public static int?[] DoPreOrder(TreeNode theTree)
         {
             //ok all you need is this - it's the "trivial" recursive answer, but why the fuk does it work?
             ////Pre-order traversal is to visit the root first. Then traverse the left subtree. Finally, traverse the right subtree.
@@ -243,6 +254,39 @@ namespace ConsoleTestHackingAround.AlgorithmCrap.LeetCode
             //} 
             #endregion
             return PreOrderedList.ToArray();
+        }
+        /// <summary>
+        //  The left subtree of a node contains only nodes with keys less than the node's key.
+        //  The right subtree of a node contains only nodes with keys greater than the node's key.
+        //  Both the left and right subtrees must also be binary search trees.
+        /// </summary>
+        /// <param name="root"></param>
+        /// <returns></returns>
+        public static bool IsValidBST(TreeNode root)
+        {                      
+            if (root != null)
+            {
+                if(root.left!=null)
+                if (root.left.val >= root.val)
+                {
+                    return false;
+                }
+                else
+                {
+                    IsValidBST(root.left);
+                }
+                if (root.right != null)
+                if (root.right.val <= root.val)
+                {
+                    return false;                        
+                }
+                else
+                {
+                    IsValidBST(root.right);
+                }
+            }
+            else { return false; }
+            return true;
         }
         
         public static void thisIsAlinkedListInCSharp()

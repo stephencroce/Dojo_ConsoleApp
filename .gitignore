@@ -44,3 +44,4 @@ Temporary Items
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
+/UnitTestProject1/bin/Debug
