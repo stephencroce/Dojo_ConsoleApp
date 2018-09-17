@@ -262,33 +262,92 @@ namespace ConsoleTestHackingAround.AlgorithmCrap.LeetCode
         /// </summary>
         /// <param name="root"></param>
         /// <returns></returns>
-        public static bool IsValidBST(TreeNode root)
-        {                      
+        /// 
+
+        // //method 2
+        // The max-Min solution, only 68 of 75 cases passed on LeetCode.  WTF
+        public static bool IsValidBST(TreeNode root, Int64? min, Int64? max)
+        {
             if (root != null)
             {
-                if(root.left!=null)
-                if (root.left.val >= root.val)
+                if (root.val >= max || root.val <= min)
                 {
                     return false;
                 }
-                else
-                {
-                    IsValidBST(root.left);
-                }
-                if (root.right != null)
-                if (root.right.val <= root.val)
-                {
-                    return false;                        
-                }
-                else
-                {
-                    IsValidBST(root.right);
-                }
+                return IsValidBST(root.left, min, root.val) && IsValidBST(root.right, root.val, max);
             }
-            else { return false; }
-            return true;
+            else
+            {
+                return true;
+            }
         }
-        
+        public static bool IsValidBST(TreeNode root)
+        {
+            //suspect the upper limits method might be better ye....
+
+
+
+
+
+
+
+
+            //70 / 75 test cases passed - got this solution from SO
+            // https://stackoverflow.com/questions/9667315/how-to-validate-a-binary-search-tree
+            // Terminal case, empty sub-tree is valid.
+
+            if (root == null)
+                    return false ;
+
+                // Left node >= current means invalid
+
+                if (root.left != null)
+                    if (root.left.val >= root.val)
+                        return false;
+
+            // Right node <= current means invalid
+
+            if (root.right != null)
+                if (root.right.val <= root.val)
+                    return false;
+
+                if (!IsValidBST(root.left))
+
+                // Invalid entire left subtree means invalid.
+                return false;
+
+                // Otherwise return state of entire right subtree.
+                return IsValidBST(root.right);
+
+            #region 57/75 test cases passed (my first attempt) on leetcode, not horrible...
+            //if (root != null)
+            //{
+            //    if(root.left!=null)
+            //    if (root.left.val >= root.val)
+            //    {
+            //        return false;
+            //    }
+            //    else
+            //    {
+            //        IsValidBST(root.left);
+            //    }
+            //    if (root.right != null)
+            //    if (root.right.val <= root.val)
+            //    {
+            //        return false;                        
+            //    }
+            //    else
+            //    {
+            //        IsValidBST(root.right);
+            //    }
+            //}
+            //else { return false; }
+            //return true;
+            #endregion
+
+
+        }
+
         public static void thisIsAlinkedListInCSharp()
         {
             //This generic type allows fast inserts and removes. It implements a classic linked list. Each object is separately allocated.

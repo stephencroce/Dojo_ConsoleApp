@@ -52,6 +52,7 @@ namespace ConsoleTestHackingAround.AlgorithmCrap
 
                 }
             }
+            //throw new Exception(); 
             return Fibs;
         }
         public static int getFirstTenFibonacciSequenceNumbersUsingRecursion(int startingNumber)
