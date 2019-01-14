@@ -77,9 +77,9 @@ namespace ConsoleTestHackingAround.AlgorithmCrap.LeetCode
             //SETUP :: first, you need to create a binary tree from the given array.  You do that in this case be creating a nullable array like so:
 
             //int?[] integerArray = new int?[] { 12, 3, 9, 8, 20, 24, 18 };
-            //int?[] integerArray = new int?[] { 1,1 }; //failed case 1 - fixed
-            int?[] integerArray = new int?[] { 10, 5, 15, null, null, 6, 20 }; //failed case 2 - wtf?
-            
+            int?[] integerArray = new int?[] { 1,1 }; //failed case 1 - fixed            
+            //int?[] integerArray = new int?[] { 10, 5, 15, null, null, 6, 20 }; //failed case 2 - wtf?
+
 
 
             //TODO: try these if you ever figure out the first example...
@@ -100,7 +100,7 @@ namespace ConsoleTestHackingAround.AlgorithmCrap.LeetCode
             theTree = FillBinaryTree(integerArray);
 
             //once that's done, then you can write out a traversal of your choice:
-            if (IsValidBST(theTree))
+            if (IsValidBST(theTree, Int64.MinValue, Int64.MaxValue))
             {
                 EnumeratePreOrder(theTree);
             }
@@ -264,8 +264,10 @@ namespace ConsoleTestHackingAround.AlgorithmCrap.LeetCode
         /// <returns></returns>
         /// 
 
-        // //method 2
-        // The max-Min solution, only 68 of 75 cases passed on LeetCode.  WTF
+        // //method 2 - Q.E.D. CATTO
+        // Q:  The max-Min solution, only 68 of 75 cases passed on LeetCode.  WTF
+        // A:   The answer to the above was due to passing int64 vs int as the hi-lo parameter.  So now this is the commonly accepted answer, and it passess 75 of 75 test cases on LeetCode, which have been mocked here in this project.
+        //https://www.youtube.com/watch?v=MILxfAbIhrE  helpful video by some guy named Tushar Roy (Coding made simple)
         public static bool IsValidBST(TreeNode root, Int64? min, Int64? max)
         {
             if (root != null)

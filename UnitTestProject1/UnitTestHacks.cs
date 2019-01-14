@@ -254,20 +254,20 @@ namespace UnitTestHacks
         }
 
 
-        //[TestMethod]
-        //public void ValidateTree1()
-        //{
-        //    //Arrange
-        //    int?[] integerArray = new int?[] { 12, 3, 9, 8, 20, 24, 18 };
+        [TestMethod]
+        public void ValidateTree1()
+        {
+            //Arrange
+            int?[] integerArray = new int?[] { 12, 3, 9, 8, 20, 24, 18 };
+            
 
+            //Act
+            TreeNode binaryTree = BinaryTree.FillBinaryTree(integerArray);
+            bool isValidTree = IsValidBST(binaryTree, Int64.MinValue, Int64.MaxValue);
 
-        //    //Act
-        //    TreeNode binaryTree = BinaryTree.FillBinaryTree(integerArray);
-        //    bool isValidTree = IsValidBST(binaryTree);
-
-        //    //Assert
-        //    Assert.IsTrue(isValidTree);
-        //}
+            //Assert
+            Assert.IsTrue(isValidTree);
+        }
 
 
     }
