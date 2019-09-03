@@ -56,9 +56,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ConsoleTestHackingAround\ConsoleTestHackingAround.csproj">
+    <ProjectReference Include="..\ConsoleTestHackingAround\Dojo_ConsoleApp.csproj">
       <Project>{2A9A3160-8826-4143-845D-CAD187072AB5}</Project>
-      <Name>ConsoleTestHackingAround</Name>
+      <Name>Dojo_ConsoleApp</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
