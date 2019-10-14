@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleTestHackingAround
+namespace Dojo_ConsoleApp
 {
     class FileSystemWriter
     {
@@ -14,11 +14,11 @@ namespace ConsoleTestHackingAround
         {
 
             string timestamp = DateTime.Now.Month + "-" + DateTime.Now.Day + "-" + DateTime.Now.Year + "-" + DateTime.Now.Hour + "-" + DateTime.Now.Minute + "-" + DateTime.Now.Second;
-            FileStream fs = new FileStream(@"c:\temp\ConsoleTestHackingAroundService.txt",
+            FileStream fs = new FileStream(@"c:\temp\Dojo_ConsoleAppService.txt",
             FileMode.OpenOrCreate, FileAccess.Write);
             StreamWriter m_streamWriter = new StreamWriter(fs);
             m_streamWriter.BaseStream.Seek(0, SeekOrigin.End);
-            m_streamWriter.WriteLine(string.Format("ConsoleTestHackingAroundService: Service {1} at {0}, dingbat.\n", timestamp, Message));
+            m_streamWriter.WriteLine(string.Format("Dojo_ConsoleAppService: Service {1} at {0}, dingbat.\n", timestamp, Message));
             m_streamWriter.Flush();
             m_streamWriter.Close();
             //Console.WriteLine("Service is starting."); 

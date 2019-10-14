@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleTestHackingAround.DependencyInjectionExample3
+namespace Dojo_ConsoleApp.DependencyInjectionExample3
 {
     public class Company
     {

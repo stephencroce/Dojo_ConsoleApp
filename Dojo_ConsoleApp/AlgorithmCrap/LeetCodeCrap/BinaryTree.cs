@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleTestHackingAround.AlgorithmCrap.LeetCode
+namespace Dojo_ConsoleApp.AlgorithmCrap.LeetCode
 {
     public static class BinaryTree
     {

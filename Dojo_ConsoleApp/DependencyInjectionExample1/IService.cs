@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleTestHackingAround.DependencyInjectionExample1
+namespace Dojo_ConsoleApp.DependencyInjectionExample1
 {
     public interface IService
     {

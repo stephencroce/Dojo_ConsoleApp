@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleTestHackingAround
+namespace Dojo_ConsoleApp
 {
     //class Dragster : Car  //Can't do this because, I've maked Car with SEALED keyword...
     class Dragster : Vehicle

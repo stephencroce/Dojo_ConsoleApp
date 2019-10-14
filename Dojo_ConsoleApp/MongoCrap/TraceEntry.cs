@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleTestHackingAround.MongoCrap
+namespace Dojo_ConsoleApp.MongoCrap
 {
     public class TraceEntry
     {

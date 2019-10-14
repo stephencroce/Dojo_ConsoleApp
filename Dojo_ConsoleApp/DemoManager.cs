@@ -8,19 +8,19 @@ using System.Threading.Tasks;
 using System.Configuration;
 using Microsoft.Practices.Unity;
 
-using ConsoleTestHackingAround.Demo1.Delegates;
-using ConsoleTestHackingAround.Delegates.Demo2;
-using ConsoleTestHackingAround.Pointroll;
-using ConsoleTestHackingAround.TracingCrap;
+using Dojo_ConsoleApp.Demo1.Delegates;
+using Dojo_ConsoleApp.Delegates.Demo2;
+using Dojo_ConsoleApp.Pointroll;
+using Dojo_ConsoleApp.TracingCrap;
 using System.Net;
 using System.IO;
-using ConsoleTestHackingAround.RESTFulCrap;
+using Dojo_ConsoleApp.RESTFulCrap;
 using System.Data;
 using Newtonsoft.Json;
-using ConsoleTestHackingAround.MongoCrap;
+using Dojo_ConsoleApp.MongoCrap;
 using System.IO;
 
-namespace ConsoleTestHackingAround
+namespace Dojo_ConsoleApp
 {
     public static class DemoManager
     {
@@ -32,7 +32,7 @@ namespace ConsoleTestHackingAround
             //See http://stackoverflow.com/questions/19095215/configurationmanager-getsection-gives-error-could-not-load-type-from-assembl
             //See http://msdn.microsoft.com/en-us/library/2tw134k3%28v=vs.140%29.aspx
             // Samples.AspNet.PageAppearanceSection config = (Samples.AspNet.PageAppearanceSection)System.Configuration.ConfigurationManager.GetSection("pageAppearanceGroup/pageAppearance");
-            ConsoleTestHackingAround.CustomConfigSections.MyCustomConfigHandler config = (ConsoleTestHackingAround.CustomConfigSections.MyCustomConfigHandler)System.Configuration.ConfigurationManager.GetSection("pageAppearanceGroup/pageAppearance");
+            Dojo_ConsoleApp.CustomConfigSections.MyCustomConfigHandler config = (Dojo_ConsoleApp.CustomConfigSections.MyCustomConfigHandler)System.Configuration.ConfigurationManager.GetSection("pageAppearanceGroup/pageAppearance");
 
             Console.WriteLine("Settings in the PageAppears Section are as follows:");
             Console.WriteLine(string.Format("RemoteOnly:  {0}", config.RemoteOnly));
@@ -102,14 +102,14 @@ namespace ConsoleTestHackingAround
             for (int ctr = 1; ctr <= 10; ctr++)
             {
                 int degrees = rnd.Next(0, 100);
-                ConsoleTestHackingAround.IComparableDemo.Temperature temp = new ConsoleTestHackingAround.IComparableDemo.Temperature();
+                Dojo_ConsoleApp.IComparableDemo.Temperature temp = new Dojo_ConsoleApp.IComparableDemo.Temperature();
                 temp.Fahrenheit = degrees;
                 temperatures.Add(temp);
             }
             // Sort ArrayList - this is the whole point to IComparable.
             temperatures.Sort();
 
-            foreach (ConsoleTestHackingAround.IComparableDemo.Temperature temp in temperatures)
+            foreach (Dojo_ConsoleApp.IComparableDemo.Temperature temp in temperatures)
             {
                 Console.WriteLine(temp.Fahrenheit);
                 //Console.WriteLine(temp.CompareTo(100);
@@ -123,8 +123,8 @@ namespace ConsoleTestHackingAround
             Console.WriteLine("BEGIN  - Dependency Injection with Unity Demo:");
             //Dependency Injection bullshit:
             //http://www.c-sharpcorner.com/UploadFile/dacca2/inversion-of-control-using-unity/
-            ////ConsoleTestHackingAround.DependencyInjectionExample1.Client myClient = new DependencyInjectionExample1.Client();
-            //ConsoleTestHackingAround.DependencyInjectionExample1.Client myClient = new DependencyInjectionExample1.Client(new DependencyInjectionExample1.Service()) ;
+            ////Dojo_ConsoleApp.DependencyInjectionExample1.Client myClient = new DependencyInjectionExample1.Client();
+            //Dojo_ConsoleApp.DependencyInjectionExample1.Client myClient = new DependencyInjectionExample1.Client(new DependencyInjectionExample1.Service()) ;
             //myClient.Start();
 
             //************************************************************************************************************************
@@ -250,10 +250,10 @@ namespace ConsoleTestHackingAround
 
             //----------------------------------------------------------------------------------------
             Console.WriteLine("BEGIN  - Process and Threading Demo:");
-            ConsoleTestHackingAround.Process.ProcessDemo.ListAllRunningProcesses();
+            Dojo_ConsoleApp.Process.ProcessDemo.ListAllRunningProcesses();
             Console.WriteLine("What number process do you want to see threads for?");
             int crap = int.Parse(Console.ReadLine());
-            ConsoleTestHackingAround.Process.ProcessDemo.EnumThreadsForPid(crap);  //the monogomergepurge app, which has two threads.
+            Dojo_ConsoleApp.Process.ProcessDemo.EnumThreadsForPid(crap);  //the monogomergepurge app, which has two threads.
 
             //<<<<<<  SIMPLE MULTITHREAD EXAMPLE   >>>>>
             //See also p714 of Pro C# 5.0 and the .NET 4.5 Framework, 6th Edition
@@ -388,7 +388,7 @@ namespace ConsoleTestHackingAround
                     Console.WriteLine("enter a last name...");
                     string ln = Console.ReadLine();
 
-                    ConsoleTestHackingAround.Delegates.DaFunc.DaFunc BringDaFunk = new Delegates.DaFunc.DaFunc();
+                    Dojo_ConsoleApp.Delegates.DaFunc.DaFunc BringDaFunk = new Delegates.DaFunc.DaFunc();
                     Console.WriteLine(BringDaFunk.DoDaFunk(fn,ln));
 
                     return;
@@ -487,7 +487,7 @@ namespace ConsoleTestHackingAround
             Account_Savings acct_sv = new Account_Savings();
             Console.WriteLine("Here's my Checking Account Info: acct#'{0}' : routing#:'{2}', and here's my Savings Account Info: '{1}'", acct_chk.GetAcctInfo(), acct_sv.GetAcctInfo(), acct_chk.GetABARoutingNo());
 
-            List<ConsoleTestHackingAround.Interfaces.IAccount> Accounts = new List<ConsoleTestHackingAround.Interfaces.IAccount>();
+            List<Dojo_ConsoleApp.Interfaces.IAccount> Accounts = new List<Dojo_ConsoleApp.Interfaces.IAccount>();
             Accounts.Add(new Account_Checking());
             Accounts.Add(new Account_Savings());
 
@@ -582,7 +582,7 @@ namespace ConsoleTestHackingAround
             else { Console.WriteLine("Fine, I didn't want to show you anyway."); }
 
 
-            //PROB:  supposed to write a file into the path \ConsoleTestHackingAround\bin\Debug\MyFirstListener.log.   the file gets created, but there's nothing the fuck in it. - WTF???
+            //PROB:  supposed to write a file into the path \Dojo_ConsoleApp\bin\Debug\MyFirstListener.log.   the file gets created, but there's nothing the fuck in it. - WTF???
             //SOLUTION: "You may have noticed that I'm calling the Flush() and Close() methods on the TraceSource object. This is done to make sure the file gets written to and is closed properly."
             //"If you aren't getting everything written to your listener, these calls may be all that's needed. However, I've seen cases where it's not always required."
             traceSource.TraceData(System.Diagnostics.TraceEventType.Verbose, 1, "This is a log entry.  Whooppdeee doo.");  //NOTE-if it specifies TraceEventType.Verbose here in the code, it must also specify VERBOSE in app.config, or it won't write to file.
@@ -684,12 +684,12 @@ namespace ConsoleTestHackingAround
             Console.WriteLine("this will simulate a long running process such as the reading a big text file - (or imagine something stupid like that) -  using plain ol' SYNCronous messaging, which is the default programming approach in C# .NET, and in fact in most languages. - OK???");
             Console.ReadKey();
             Console.WriteLine("\n Start Sync!");
-            Console.WriteLine(ConsoleTestHackingAround.AsyncMessaging.AsyncCrap.LogReadRegularOldSynchWay(filePath));
+            Console.WriteLine(Dojo_ConsoleApp.AsyncMessaging.AsyncCrap.LogReadRegularOldSynchWay(filePath));
             Console.WriteLine("\n Done Sync!");
             Console.WriteLine("\n now, this will simulate a long running process such as the stupid thing referenced above, but using ASYNC.  OK???");
             Console.ReadKey();
             Console.WriteLine("\n Start Async!");
-            Console.WriteLine(ConsoleTestHackingAround.AsyncMessaging.AsyncCrap.LogReadAsync(filePath));
+            Console.WriteLine(Dojo_ConsoleApp.AsyncMessaging.AsyncCrap.LogReadAsync(filePath));
             Console.WriteLine("\n Done Async!");
             //RunLoopingDemo();      
             //Console.ReadKey();
@@ -698,7 +698,7 @@ namespace ConsoleTestHackingAround
         {
             Console.WriteLine("enter this phone number:  '800) 531-8669'");
             var crappyPhoneNumber = Console.ReadLine().ToString();
-            Console.WriteLine("the fixed phone number looks like this: {0}", ConsoleTestHackingAround.RegexCrap.RegexCrap.FixPhoneNumber(crappyPhoneNumber));
+            Console.WriteLine("the fixed phone number looks like this: {0}", Dojo_ConsoleApp.RegexCrap.RegexCrap.FixPhoneNumber(crappyPhoneNumber));
         }
         public static void RunBitWiseDemo()
         {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 using System.Globalization; 
 
-namespace ConsoleTestHackingAround.Delegates.Demo2
+namespace Dojo_ConsoleApp.Delegates.Demo2
 {
     //notes:  although you can use delegates to implement an event listener model (see Demo1 folder/namespace), this is another usage pattern for delegates
     //http://www.dotnetperls.com/delegate

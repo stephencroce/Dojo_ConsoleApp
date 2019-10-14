@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleTestHackingAround.AlgorithmCrap
+namespace Dojo_ConsoleApp.AlgorithmCrap
 {
     public class Fibonacci
     {
