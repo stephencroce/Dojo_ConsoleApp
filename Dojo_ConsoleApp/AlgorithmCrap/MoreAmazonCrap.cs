@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dojo_ConsoleApp.AlgorithmCrap
 {
-    public class AmazonSolution
+    public class MoreAmazonCrap
     {
         //EIGHT HOUSES
 
@@ -40,13 +40,47 @@ namespace Dojo_ConsoleApp.AlgorithmCrap
         NOTES
         The elements of the list states contains 0s and 1s only
         */
-        //METHOD SIGNATURE BEGINS, THIS METHOD IS REQUIRED
+        //METHOD SIGNATURE BEGINS, THIS METHOD IS REQUIRED        
         public List<int> CellCompete(int[] states, int days)
         {
             //your code here
-            return new List<int>();
+            if(days > 0)
+            {
+                outputCurrentStates(states, days);
+                for (int s = 0; s < states.Length; s++)
+                {
+                    if(s==0)
+                    {
+                        if (states[s + 1] == 0) { states[s] = 0; } else { states[s] = 1; } 
+
+                    }
+                    if(s == states.Length - 1)
+                    {
+                        if (states[s - 1] == 0) { states[s] = 0; } else { states[s] = 1; }                        
+
+                    }
+                    if (s != 0 && s != states.Length - 1)
+                    {
+                        if (states[s - 1] == states[s + 1])
+                        {
+                            states[s] = 0;
+                        }
+                        states[s] = 1;
+                    }
+                }                
+                CellCompete(states, days-1);
+            }
+            return states.ToList();
         }
         //METHOD SIGNATURE ENDS
+        private void outputCurrentStates(int[] currentState, int days)
+        {
+            Console.WriteLine(string.Format("With {0} days to go, the current state looks like this: ", days));
+            foreach(int stateVal in currentState)
+            {                
+                Console.WriteLine(stateVal);
+            }
+        }
     }
 }
 

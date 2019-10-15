@@ -30,7 +30,7 @@ namespace Dojo_ConsoleApp
 
             Console.WriteLine("***** Fun with FileStreams *****\n");
             // Obtain a FileStream object.   
-            using (FileStream fStream = File.Open(@"C:\myMessage.dat", FileMode.Create))
+            using (FileStream fStream = File.Open(@"C:\temp\myMessage.dat", FileMode.Create))
             {     // Encode a string as an array of bytes. 
                 string msg = "Hello!"; byte[] msgAsByteArray = Encoding.Default.GetBytes(msg);
                 // Write byte[] to file.    

@@ -19,6 +19,7 @@ using System.Data;
 using Newtonsoft.Json;
 using Dojo_ConsoleApp.MongoCrap;
 using System.IO;
+using Dojo_ConsoleApp.AlgorithmCrap;
 
 namespace Dojo_ConsoleApp
 {
@@ -829,7 +830,7 @@ namespace Dojo_ConsoleApp
             //consider edge cases - handle large inputs effectively    
 
             Console.WriteLine("Amazon Crap Begin");
-            Console.WriteLine("Bohmmm Bohmmmmm.....");       
+            Console.WriteLine("Bohmmm Bohmmmmm.....");
 
             //test cases  
             var amazonTestCaseList = new List<AlgorithmCrap.AlgorithmCrap.AmazonTestCase>();
@@ -853,6 +854,21 @@ namespace Dojo_ConsoleApp
                 Console.WriteLine("the score for test case #{0} is " + AlgorithmCrap.AlgorithmCrap.AmazonTotalScore(amazonTestCase.blockArray, amazonTestCase.n), counter);
                 counter++;
             }
+
+
+            //int[] states = {1, 0, 1, 0, 1, 0, 1, 0};
+            //int[] states = { 1, 1, 1, 0, 1, 0, 0, 0 };
+            int[] states = { 0, 0, 0, 0, 0, 0, 0, 0 };
+            int days = 3;
+
+            var moreAmazonCrap = new MoreAmazonCrap();
+            List<int> completedCellState = moreAmazonCrap.CellCompete(states, days);            
+            Console.WriteLine(string.Format("Final:  At the end of {0} days, the completed cell state was: ", days));
+            foreach(int cellValue in completedCellState)
+            {
+                Console.WriteLine(cellValue);
+            }
+
 
             Console.WriteLine("Chick-ah chick ahhhhhhhhhhhhhhhhhh");
 
