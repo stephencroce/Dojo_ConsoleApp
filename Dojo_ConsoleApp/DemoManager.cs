@@ -858,8 +858,10 @@ namespace Dojo_ConsoleApp
 
             //int[] states = {1, 0, 1, 0, 1, 0, 1, 0};
             //int[] states = { 1, 1, 1, 0, 1, 0, 0, 0 };
-            int[] states = { 0, 0, 0, 0, 0, 0, 0, 0 };
-            int days = 3;
+            //int[] states = { 0, 0, 0, 0, 0, 0, 0, 0 };
+            int[] states = { 1, 1, 1, 1, 1, 1, 1, 1 };
+
+            int days = 6;
 
             var moreAmazonCrap = new MoreAmazonCrap();
             List<int> completedCellState = moreAmazonCrap.CellCompete(states, days);            

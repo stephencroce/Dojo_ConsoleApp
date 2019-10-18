@@ -8,8 +8,8 @@ namespace Dojo_ConsoleApp.AlgorithmCrap
 {
     public class MoreAmazonCrap
     {
-        //EIGHT HOUSES
-
+        #region the challenge explanation
+        //EIGHT HOUSES   
         /*
         Eight houses, represented as cells, are arranged in a straight line.  
         Each day every cell competes with its adjacent cells (neighbors)
@@ -40,32 +40,47 @@ namespace Dojo_ConsoleApp.AlgorithmCrap
         NOTES
         The elements of the list states contains 0s and 1s only
         */
-        //METHOD SIGNATURE BEGINS, THIS METHOD IS REQUIRED        
+        #endregion
+
+        //METHOD SIGNATURE BEGINS, THIS METHOD IS REQUIRED    
+        public int[] _statesTemp;
         public List<int> CellCompete(int[] states, int days)
         {
             //your code here
+            _statesTemp = new int[states.Length];
+            for (int i = 0; i < states.Length; i++)
+            {
+                _statesTemp[i] = states[i];
+            }
+
             if(days > 0)
             {
                 outputCurrentStates(states, days);
                 for (int s = 0; s < states.Length; s++)
                 {
+                    //checks the leftmost house
                     if(s==0)
                     {
-                        if (states[s + 1] == 0) { states[s] = 0; } else { states[s] = 1; } 
+                        if (_statesTemp[s + 1] == 0) { states[s] = 0; } else { states[s] = 1; } 
 
                     }
+                    //checks the rightmost house
                     if(s == states.Length - 1)
                     {
-                        if (states[s - 1] == 0) { states[s] = 0; } else { states[s] = 1; }                        
+                        if (_statesTemp[s - 1] == 0) { states[s] = 0; } else { states[s] = 1; }                        
 
                     }
+                    //checks the houses in between
                     if (s != 0 && s != states.Length - 1)
                     {
-                        if (states[s - 1] == states[s + 1])
+                        if (_statesTemp[s - 1] == _statesTemp[s + 1])
                         {
                             states[s] = 0;
                         }
-                        states[s] = 1;
+                        else
+                        {
+                            states[s] = 1;
+                        }
                     }
                 }                
                 CellCompete(states, days-1);
