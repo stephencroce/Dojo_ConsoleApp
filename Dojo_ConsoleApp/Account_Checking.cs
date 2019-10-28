@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleTestHackingAround
+namespace Dojo_ConsoleApp
 {
-    class Account_Checking:ConsoleTestHackingAround.Interfaces.IAccount
+    class Account_Checking:Dojo_ConsoleApp.Interfaces.IAccount
     {
         public string GetAcctInfo()
         {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleTestHackingAround.Factory
+namespace Dojo_ConsoleApp.Factory
 {
     public class Manager : Position
     {

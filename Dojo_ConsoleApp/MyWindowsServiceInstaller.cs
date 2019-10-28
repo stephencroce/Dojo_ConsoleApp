@@ -9,7 +9,7 @@ using System.Configuration.Install;
 using System.ComponentModel;
 using System.ServiceProcess; 
 
-namespace ConsoleTestHackingAround
+namespace Dojo_ConsoleApp
 {
     [RunInstaller(true)]
     public class MyWindowsServiceInstaller : Installer
@@ -28,15 +28,15 @@ namespace ConsoleTestHackingAround
             processInstaller.Account = ServiceAccount.LocalSystem;
 
 
-            serviceInstaller.DisplayName = "ConsoleTestHackingAroundService";
+            serviceInstaller.DisplayName = "Dojo_ConsoleAppService";
             serviceInstaller.StartType = ServiceStartMode.Manual;
 
             //must be the same as what was set in Program's constructor
-            serviceInstaller.ServiceName = "ConsoleTestHackingAroundService";
+            serviceInstaller.ServiceName = "Dojo_ConsoleAppService";
 
 
 
-            serviceInstaller.Description = "ConsoleTestHackingAroundService";
+            serviceInstaller.Description = "Dojo_ConsoleAppService";
 
 
     

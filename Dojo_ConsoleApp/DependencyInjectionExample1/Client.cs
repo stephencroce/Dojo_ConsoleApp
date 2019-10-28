@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ClassLibraryHack;
 
-namespace ConsoleTestHackingAround.DependencyInjectionExample1
+namespace Dojo_ConsoleApp.DependencyInjectionExample1
 {
     public class Client
     {

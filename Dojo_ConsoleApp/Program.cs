@@ -11,20 +11,20 @@ using System.ServiceProcess;
 
 using System.Timers;
 
-using ConsoleTestHackingAround.DependencyInjectionExample1;
-using ConsoleTestHackingAround.DependencyInjectionExample2;
-using ConsoleTestHackingAround;
+using Dojo_ConsoleApp.DependencyInjectionExample1;
+using Dojo_ConsoleApp.DependencyInjectionExample2;
+using Dojo_ConsoleApp;
 
 using Microsoft.Practices.Unity;
 
 using System.Configuration;
 
-//using ConsoleTestHackingAround.CustomConfigSections;
+//using Dojo_ConsoleApp.CustomConfigSections;
 
-using ConsoleTestHackingAround.CustomConfigSections;
+using Dojo_ConsoleApp.CustomConfigSections;
 
 
-namespace ConsoleTestHackingAround.StupidAss
+namespace Dojo_ConsoleApp.StupidAss
 {
     //http://tech.pro/tutorial/895/creating-a-simple-windows-service-in-csharp
     class Program : ServiceBase
@@ -33,7 +33,7 @@ namespace ConsoleTestHackingAround.StupidAss
         //explicit constructor required for Windows Services
         public Program()
         {
-            this.ServiceName = "ConsoleTestHackingAroundService";
+            this.ServiceName = "Dojo_ConsoleAppService";
 
         }
         static void Method(out int i, out string s1, out string s2)

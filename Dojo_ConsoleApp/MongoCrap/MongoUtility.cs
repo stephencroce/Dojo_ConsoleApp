@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 //using CEI.Application.Shared.Core.Diagnostics;
 //using CEI.Application.Shared.Core.Diagnostics.Model;
-using ConsoleTestHackingAround.MongoCrap;
+using Dojo_ConsoleApp.MongoCrap;
 
 using MongoDB.Driver;
 using MongoDB.Driver.Linq;
@@ -22,7 +22,7 @@ using MongoDB.Bson.Serialization.Options;
 using MongoDB.Bson.Serialization.Serializers;
 
 
-namespace ConsoleTestHackingAround.MongoCrap
+namespace Dojo_ConsoleApp.MongoCrap
 {
     public class MongoUtility
     {

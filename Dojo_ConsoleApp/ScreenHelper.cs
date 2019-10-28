@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleTestHackingAround
+namespace Dojo_ConsoleApp
 {
     class ScreenHelper
     {
@@ -66,7 +66,7 @@ namespace ConsoleTestHackingAround
         {
             WritePrompt();
             string[] args = new string[] { "rerun" };
-            ConsoleTestHackingAround.StupidAss.Program.Main(args);
+            Dojo_ConsoleApp.StupidAss.Program.Main(args);
         }
     }
 }

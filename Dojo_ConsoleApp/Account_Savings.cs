@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using ConsoleTestHackingAround.Interfaces; 
+using Dojo_ConsoleApp.Interfaces; 
 
-namespace ConsoleTestHackingAround
+namespace Dojo_ConsoleApp
 {
     class Account_Savings : IAccount 
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleTestHackingAround.Delegates.DaFunc
+namespace Dojo_ConsoleApp.Delegates.DaFunc
 {
     public class DaFunc
     {        

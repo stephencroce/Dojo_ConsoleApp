@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace ConsoleTestHackingAround.Facade.Dumbass.Keepgoing.Freakazoid
+namespace Dojo_ConsoleApp.Facade.Dumbass.Keepgoing.Freakazoid
 {
     class Facade
     {

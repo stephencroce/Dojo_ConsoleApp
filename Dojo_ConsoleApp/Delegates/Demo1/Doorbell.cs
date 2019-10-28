@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleTestHackingAround.Demo1.Delegates
+namespace Dojo_ConsoleApp.Demo1.Delegates
 {
     public class Doorbell
     {
