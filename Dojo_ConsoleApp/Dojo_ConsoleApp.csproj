@@ -85,6 +85,7 @@
   <ItemGroup>
     <Compile Include="Account_Savings.cs" />
     <Compile Include="AlgorithmCrap\AlgorithmCrap.cs" />
+    <Compile Include="AlgorithmCrap\MoreAmazonCrap.cs" />
     <Compile Include="AlgorithmCrap\Fibonacci.cs" />
     <Compile Include="AlgorithmCrap\LeetCodeCrap\BinaryTree.cs" />
     <Compile Include="AsyncMessaging\AsyncCrap.cs" />

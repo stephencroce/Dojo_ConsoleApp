@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 //Chapter 17 & 19 of Pro C# 5.0 and the .NET 4.5 Framework, 6th Edition (pdf)
 using System.Diagnostics;
 
-namespace ConsoleTestHackingAround.Process
+namespace Dojo_ConsoleApp.Process
 {
     public class ProcessDemo
     {

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 //OR THIS:  https://www.google.com/webhp?sourceid=chrome-instant&rlz=1C1CHFX_enUS649US649&ion=1&espv=2&ie=UTF-8#q=multithreading+vs+asynchronous
 //Essentially, what's the difference between async programming and multi threading? - compare and contrast?  It's a whole big discussion
 
-namespace ConsoleTestHackingAround.AsyncMessaging
+namespace Dojo_ConsoleApp.AsyncMessaging
 {
     /// <summary>
     /// When a client object makes a synchronous message call to a server object, the client suspends processing and waits for a response back from the server before continuing. 

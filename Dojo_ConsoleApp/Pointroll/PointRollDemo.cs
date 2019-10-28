@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleTestHackingAround.Pointroll
+namespace Dojo_ConsoleApp.Pointroll
 {
     public static class PointRollDemo
     {

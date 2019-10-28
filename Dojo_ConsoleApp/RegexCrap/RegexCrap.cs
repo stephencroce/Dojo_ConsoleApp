@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 
-namespace ConsoleTestHackingAround.RegexCrap
+namespace Dojo_ConsoleApp.RegexCrap
 {
     public static class RegexCrap
     {
