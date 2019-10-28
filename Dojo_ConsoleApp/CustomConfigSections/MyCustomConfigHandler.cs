@@ -12,7 +12,7 @@ using System.Xml;
 //See http://stackoverflow.com/questions/19095215/configurationmanager-getsection-gives-error-could-not-load-type-from-assembl
 //See http://msdn.microsoft.com/en-us/library/2tw134k3%28v=vs.140%29.aspx
 
-namespace ConsoleTestHackingAround.CustomConfigSections
+namespace Dojo_ConsoleApp.CustomConfigSections
 {
     // Define a custom section containing an individual 
     // element and a collection of elements.

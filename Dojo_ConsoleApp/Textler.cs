@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Mail;
 
-namespace ConsoleTestHackingAround
+namespace Dojo_ConsoleApp
 {
     public class Textler
     {

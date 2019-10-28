@@ -56,7 +56,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ConsoleTestHackingAround\Dojo_ConsoleApp.csproj">
+    <ProjectReference Include="..\Dojo_ConsoleApp\Dojo_ConsoleApp.csproj">
       <Project>{2A9A3160-8826-4143-845D-CAD187072AB5}</Project>
       <Name>Dojo_ConsoleApp</Name>
     </ProjectReference>

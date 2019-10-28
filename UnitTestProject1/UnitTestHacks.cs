@@ -1,11 +1,11 @@
 ﻿using System;
-using ConsoleTestHackingAround;
-using ConsoleTestHackingAround.AlgorithmCrap;
-using ConsoleTestHackingAround.AlgorithmCrap.LeetCode;
-//using ConsoleTestHackingAround.AlgorithmCrap;
-//using ConsoleTestHackingAround.AlgorithmCrap.LeetCode;
+using Dojo_ConsoleApp;
+using Dojo_ConsoleApp.AlgorithmCrap;
+using Dojo_ConsoleApp.AlgorithmCrap.LeetCode;
+//using Dojo_ConsoleApp.AlgorithmCrap;
+//using Dojo_ConsoleApp.AlgorithmCrap.LeetCode;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using static ConsoleTestHackingAround.AlgorithmCrap.LeetCode.BinaryTree;
+using static Dojo_ConsoleApp.AlgorithmCrap.LeetCode.BinaryTree;
 
 namespace UnitTestHacks
 {

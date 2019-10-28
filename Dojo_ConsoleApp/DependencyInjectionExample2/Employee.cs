@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 //using Microsoft.Practices.Unity; 
 
-namespace ConsoleTestHackingAround.DependencyInjectionExample2
+namespace Dojo_ConsoleApp.DependencyInjectionExample2
 {
     public class Employee //: IEmployee
     {

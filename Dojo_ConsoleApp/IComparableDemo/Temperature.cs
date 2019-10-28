@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleTestHackingAround.IComparableDemo
+namespace Dojo_ConsoleApp.IComparableDemo
 {
     //IComparable shit - turns out that the big benefit of implementing this C# interface is that it allows things to be sortable.  
     public class Temperature : IComparable

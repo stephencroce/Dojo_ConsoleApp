@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleTestHackingAround.DependencyInjectionExample2
+namespace Dojo_ConsoleApp.DependencyInjectionExample2
 {
     interface IEmployee
     {

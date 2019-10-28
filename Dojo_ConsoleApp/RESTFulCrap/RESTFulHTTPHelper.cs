@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.XPath;
 
-namespace ConsoleTestHackingAround.RESTFulCrap
+namespace Dojo_ConsoleApp.RESTFulCrap
 {
     public static class RESTFulHTTPHelper
     {

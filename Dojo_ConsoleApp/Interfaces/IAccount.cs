@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleTestHackingAround.Interfaces
+namespace Dojo_ConsoleApp.Interfaces
 {
     public interface IAccount
     {
