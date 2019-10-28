@@ -46,3 +46,4 @@ Temporary Items
 .vs/
 /UnitTestProject1/bin/Debug
 /Dojo_ConsoleApp/obj/Debug/Dojo_ConsoleApp.csprojAssemblyReference.cache
+/UnitTestProject1/obj/Debug/build.force
