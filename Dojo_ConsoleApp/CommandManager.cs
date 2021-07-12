@@ -103,6 +103,9 @@ namespace Dojo_ConsoleApp
                 case "29":
                     DemoManager.RunLeetCodeShit();
                     break;
+                case "30":
+                    DemoManager.RunLongestCommonSubstringAlgorithmDemo();
+                    break;
                 case "HELP":
                 case "?":
                     ScreenHelper.Welcome();
