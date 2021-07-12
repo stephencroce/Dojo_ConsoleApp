@@ -90,7 +90,6 @@ namespace Dojo_ConsoleApp
 
             Console.WriteLine("END - Custom Configuration Sections Demo:");
         }
-
         public static void RunIComparableDemo()
         {
             Console.WriteLine("BEGIN  - IComparable implementation Demo - allowing things to be sortable:");
@@ -884,6 +883,14 @@ namespace Dojo_ConsoleApp
         public static void RunLeetCodeShit()
         {
             AlgorithmCrap.LeetCode.BinaryTree.DoLeetCodeBinaryTreeCrap();             
+        }
+        public static void RunLongestCommonSubstringAlgorithmDemo() {
+
+         String[] arr = { "grace", "graceful", "disgraceful", "gracefully" };
+         // Function call
+         String stems = AlgorithmCrap.AlgorithmCrap.findstem(arr);
+         Console.WriteLine(stems);
+
         }
     }
 }

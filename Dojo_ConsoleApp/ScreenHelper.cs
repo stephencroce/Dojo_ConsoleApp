@@ -48,6 +48,7 @@ namespace Dojo_ConsoleApp
             Console.WriteLine("27    : Amazon Crap");
             Console.WriteLine("28    : Quora Puzzler");
             Console.WriteLine("29    : LeetCode Algorithm Shit");
+            Console.WriteLine("30    : Longest Common Substring Algorithm Demo");
             Console.WriteLine("EXIT  : Exit Application");
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("");
