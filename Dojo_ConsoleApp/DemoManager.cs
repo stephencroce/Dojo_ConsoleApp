@@ -886,10 +886,49 @@ namespace Dojo_ConsoleApp
         }
         public static void RunLongestCommonSubstringAlgorithmDemo() {
 
-         String[] arr = { "grace", "graceful", "disgraceful", "gracefully" };
-         // Function call
-         String stems = AlgorithmCrap.AlgorithmCrap.findstem(arr);
-         Console.WriteLine(stems);
+            //POC for UDCOP2-333
+
+             // Function calls
+             String[] graceArr = { "grace", "graceful", "disgraceful", "gracefully" };    
+             String graceStem = AlgorithmCrap.AlgorithmCrap.findstem(graceArr);
+             Console.WriteLine(graceStem);
+
+            String[] layerStructureArray = { 
+                    "EML: [A] HM203:GD2036 10% 400Å [B] HM203:GD2036 12% 400Å [C] HM203:GD2036 15% 400Å || HIL: LG101 100Å | HTL: HHT44 400Å | EBL: H355 50Å | ETL: Liq:NTU66 35% 350Å | EIL: Liq 10Å | Cath: Al 1000Å"
+                  , "EML: [A] HM203:GD2036 10% 400Å [B] HM203:GD2036 12% 400Å [C] HM203:GD2036 15% 400Å || HIL: LG101 100Å | HTL: HHT44 400Å | EBL: H355 50Å | ETL: Liq:NTU66 35% 350Å | EIL: Liq 10Å | Cath: Al 1000Å"
+                  , "EML: [A] HM203:GD2036 10% 400Å [B] HM203:GD2036 12% 400Å [C] HM203:GD2036 15% 400Å || HIL: LG101 100Å | HTL: HHT44 400Å | EBL: H355 50Å | ETL: Liq:NTU66 35% 350Å | EIL: Liq 10Å | Cath: Al 1000Å"
+                  , "EML: [A] HM203:GD990 10% 400Å [B] HM203:GD990 12% 400Å [C] HM203:GD990 15% 400Å || HIL: LG101 100Å | HTL: HHT44 400Å | EBL: H355 50Å | ETL: Liq:NTU66 35% 350Å | EIL: Liq 10Å | Cath: Al 1000Å"
+                  , "EML: [A] HM203:GD990 10% 400Å [B] HM203:GD990 12% 400Å [C] HM203:GD990 15% 400Å || HIL: LG101 100Å | HTL: HHT44 400Å | EBL: H355 50Å | ETL: Liq:NTU66 35% 350Å | EIL: Liq 10Å | Cath: Al 1000Å"
+                  , "EML: [A] HM203:GD990 10% 400Å [B] HM203:GD990 12% 400Å [C] HM203:GD990 15% 400Å || HIL: LG101 100Å | HTL: HHT44 400Å | EBL: H355 50Å | ETL: Liq:NTU66 35% 350Å | EIL: Liq 10Å | Cath: Al 1000Å"
+             };
+
+
+            Console.WriteLine("BEFORE:  ");
+            foreach (string layerStructure in layerStructureArray)
+            {
+ 
+                Console.WriteLine(layerStructure);
+            }
+       
+
+            String layerStructureStem = AlgorithmCrap.AlgorithmCrap.findstem(layerStructureArray);
+            Console.WriteLine(layerStructureStem);
+
+            Console.WriteLine("AFTER:  ");
+            string[] newLayerStructureArray = { };
+
+            if (layerStructureStem != string.Empty)
+            {
+                foreach (string layerStructure in layerStructureArray)
+                {
+                    string newLayerStructure = layerStructure.Replace(layerStructure.Substring(layerStructure.IndexOf(layerStructureStem), layerStructureStem.Length), string.Empty);
+                    Console.WriteLine(newLayerStructure);
+                    
+                }
+
+            }
+
+    
 
         }
     }
