@@ -886,10 +886,197 @@ namespace Dojo_ConsoleApp
         }
         public static void RunLongestCommonSubstringAlgorithmDemo() {
 
-         String[] arr = { "grace", "graceful", "disgraceful", "gracefully" };
-         // Function call
-         String stems = AlgorithmCrap.AlgorithmCrap.findstem(arr);
-         Console.WriteLine(stems);
+            //POC for UDCOP2-333
+            Console.WriteLine("Nope, this probably aint gonna work......");
+
+            //try filtering out coupon syntax ie: [X] and vertical bar syntax i.e. |
+
+
+             // Function calls
+             String[] graceArr = { "grace", "graceful", "disgraceful", "gracefully" };    
+             String graceStem = AlgorithmCrap.AlgorithmCrap.findstem(graceArr);
+             Console.WriteLine("The stem is : " + graceStem);
+            List<string> tempList = new List<string>();
+
+            String[] layerStructureArray = { 
+                    "EML: [A] HM203:GD2036 10% 400Å [B] HM203:GD2036 12% 400Å [C] HM203:GD2036 15% 400Å || HIL: LG101 100Å | HTL: HHT44 400Å | EBL: H355 50Å | ETL: Liq:NTU66 35% 350Å | EIL: Liq 10Å | Cath: Al 1000Å"
+                  , "EML: [A] HM203:GD2036 10% 400Å [B] HM203:GD2036 12% 400Å [C] HM203:GD2036 15% 400Å || HIL: LG101 100Å | HTL: HHT44 400Å | EBL: H355 50Å | ETL: Liq:NTU66 35% 350Å | EIL: Liq 10Å | Cath: Al 1000Å"
+                  , "EML: [A] HM203:GD2036 10% 400Å [B] HM203:GD2036 12% 400Å [C] HM203:GD2036 15% 400Å || HIL: LG101 100Å | HTL: HHT44 400Å | EBL: H355 50Å | ETL: Liq:NTU66 35% 350Å | EIL: Liq 10Å | Cath: Al 1000Å"
+                  , "EML: [A] HM203:GD990 10% 400Å [B] HM203:GD990 12% 400Å [C] HM203:GD990 15% 400Å || HIL: LG101 100Å | HTL: HHT44 400Å | EBL: H355 50Å | ETL: Liq:NTU66 35% 350Å | EIL: Liq 10Å | Cath: Al 1000Å"
+                  , "EML: [A] HM203:GD990 10% 400Å [B] HM203:GD990 12% 400Å [C] HM203:GD990 15% 400Å || HIL: LG101 100Å | HTL: HHT44 400Å | EBL: H355 50Å | ETL: Liq:NTU66 35% 350Å | EIL: Liq 10Å | Cath: Al 1000Å"
+                  , "EML: [A] HM203:GD990 10% 400Å [B] HM203:GD990 12% 400Å [C] HM203:GD990 15% 400Å || HIL: LG101 100Å | HTL: HHT44 400Å | EBL: H355 50Å | ETL: Liq:NTU66 35% 350Å | EIL: Liq 10Å | Cath: Al 1000Å"
+             };
+
+
+            Console.WriteLine("BEFORE:  ");
+            foreach (string layerStructure in layerStructureArray)
+            {
+ 
+                Console.WriteLine(layerStructure);
+            }
+       
+
+            String layerStructureStem = AlgorithmCrap.AlgorithmCrap.findstem(layerStructureArray);
+            Console.WriteLine("the stem is : " + layerStructureStem);
+
+            Console.WriteLine("AFTER:  ");
+            //string[] newLayerStructureArray = { };
+
+            if (layerStructureStem != string.Empty)
+            {
+                foreach (string layerStructure in layerStructureArray)
+                {
+                    string newLayerStructure = layerStructure.Replace(layerStructure.Substring(layerStructure.IndexOf(layerStructureStem), layerStructureStem.Length), string.Empty);
+                    Console.WriteLine(newLayerStructure);
+                    tempList.Add(newLayerStructure);                    
+                }
+            }
+
+       
+            string[] tempArr = tempList.ToArray();
+            layerStructureStem = AlgorithmCrap.AlgorithmCrap.findstem(tempArr);
+            Console.WriteLine("the new stem is : " + layerStructureStem);
+            Console.WriteLine("AFTER2:  ");
+            tempList.Clear();
+
+            if (layerStructureStem != string.Empty)
+            {
+                foreach (string layerStructure in tempArr)
+                {
+                    string newLayerStructure = layerStructure.Replace(layerStructure.Substring(layerStructure.IndexOf(layerStructureStem), layerStructureStem.Length), string.Empty);
+                    Console.WriteLine(newLayerStructure);
+                    tempList.Add(newLayerStructure);
+                }
+            }
+
+            tempArr = tempList.ToArray();
+            layerStructureStem = AlgorithmCrap.AlgorithmCrap.findstem(tempArr);
+            Console.WriteLine("the new stem is : " + layerStructureStem);
+            Console.WriteLine("AFTER3:  ");
+            tempList.Clear();
+
+            if (layerStructureStem != string.Empty)
+            {
+                foreach (string layerStructure in tempArr)
+                {
+                    string newLayerStructure = layerStructure.Replace(layerStructure.Substring(layerStructure.IndexOf(layerStructureStem), layerStructureStem.Length), string.Empty);
+                    Console.WriteLine(newLayerStructure);
+                    tempList.Add(newLayerStructure);
+                }
+            }
+
+            tempArr = tempList.ToArray();
+            layerStructureStem = AlgorithmCrap.AlgorithmCrap.findstem(tempArr);
+            Console.WriteLine("the new stem is : "  +layerStructureStem);
+            Console.WriteLine("AFTER4:  ");
+            tempList.Clear();
+
+            if (layerStructureStem != string.Empty)
+            {
+                foreach (string layerStructure in tempArr)
+                {
+                    string newLayerStructure = layerStructure.Replace(layerStructure.Substring(layerStructure.IndexOf(layerStructureStem), layerStructureStem.Length), string.Empty);
+                    Console.WriteLine(newLayerStructure);
+                    tempList.Add(newLayerStructure);
+                }
+            }
+
+            tempArr = tempList.ToArray();
+            layerStructureStem = AlgorithmCrap.AlgorithmCrap.findstem(tempArr);
+            Console.WriteLine("the new stem is : " + layerStructureStem);
+            Console.WriteLine("AFTER5:  ");
+            tempList.Clear();
+
+            if (layerStructureStem != string.Empty)
+            {
+                foreach (string layerStructure in tempArr)
+                {
+                    string newLayerStructure = layerStructure.Replace(layerStructure.Substring(layerStructure.IndexOf(layerStructureStem), layerStructureStem.Length), string.Empty);
+                    Console.WriteLine(newLayerStructure);
+                    tempList.Add(newLayerStructure);
+                }
+            }
+
+            tempArr = tempList.ToArray();
+            layerStructureStem = AlgorithmCrap.AlgorithmCrap.findstem(tempArr);
+            Console.WriteLine("the new stem is : " + layerStructureStem);
+            Console.WriteLine("AFTER6:  ");
+            tempList.Clear();
+
+            if (layerStructureStem != string.Empty)
+            {
+                foreach (string layerStructure in tempArr)
+                {
+                    string newLayerStructure = layerStructure.Replace(layerStructure.Substring(layerStructure.IndexOf(layerStructureStem), layerStructureStem.Length), string.Empty);
+                    Console.WriteLine(newLayerStructure);
+                    tempList.Add(newLayerStructure);
+                }
+            }
+
+            tempArr = tempList.ToArray();
+            layerStructureStem = AlgorithmCrap.AlgorithmCrap.findstem(tempArr);
+            Console.WriteLine("the new stem is : " + layerStructureStem);
+            Console.WriteLine("AFTER7:  ");
+            tempList.Clear();
+
+            if (layerStructureStem != string.Empty)
+            {
+                foreach (string layerStructure in tempArr)
+                {
+                    string newLayerStructure = layerStructure.Replace(layerStructure.Substring(layerStructure.IndexOf(layerStructureStem), layerStructureStem.Length), string.Empty);
+                    Console.WriteLine(newLayerStructure);
+                    tempList.Add(newLayerStructure);
+                }
+            }
+
+            tempArr = tempList.ToArray();
+            layerStructureStem = AlgorithmCrap.AlgorithmCrap.findstem(tempArr);
+            Console.WriteLine("the new stem is : " + layerStructureStem);
+            Console.WriteLine("AFTER8:  ");
+            tempList.Clear();
+
+            if (layerStructureStem != string.Empty)
+            {
+                foreach (string layerStructure in tempArr)
+                {
+                    string newLayerStructure = layerStructure.Replace(layerStructure.Substring(layerStructure.IndexOf(layerStructureStem), layerStructureStem.Length), string.Empty);
+                    Console.WriteLine(newLayerStructure);
+                    tempList.Add(newLayerStructure);
+                }
+            }
+
+            tempArr = tempList.ToArray();
+            layerStructureStem = AlgorithmCrap.AlgorithmCrap.findstem(tempArr);
+            Console.WriteLine("the new stem is : " + layerStructureStem);
+            Console.WriteLine("AFTER9:  ");
+            tempList.Clear();
+
+            if (layerStructureStem != string.Empty)
+            {
+                foreach (string layerStructure in tempArr)
+                {
+                    string newLayerStructure = layerStructure.Replace(layerStructure.Substring(layerStructure.IndexOf(layerStructureStem), layerStructureStem.Length), string.Empty);
+                    Console.WriteLine(newLayerStructure);
+                    tempList.Add(newLayerStructure);
+                }
+            }
+
+            tempArr = tempList.ToArray();
+            layerStructureStem = AlgorithmCrap.AlgorithmCrap.findstem(tempArr);
+            Console.WriteLine("the new stem is : " + layerStructureStem);
+            Console.WriteLine("AFTER10:  ");
+            tempList.Clear();
+
+            if (layerStructureStem != string.Empty)
+            {
+                foreach (string layerStructure in tempArr)
+                {
+                    string newLayerStructure = layerStructure.Replace(layerStructure.Substring(layerStructure.IndexOf(layerStructureStem), layerStructureStem.Length), string.Empty);
+                    Console.WriteLine(newLayerStructure);
+                    tempList.Add(newLayerStructure);
+                }
+            }
+
 
         }
     }
